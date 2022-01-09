@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="595.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutY="45.0" prefHeight="355.0" prefWidth="201.0" style="-fx-background-color: green;">
+         <children>
+            <VBox layoutX="1.0" layoutY="-34.0" prefHeight="355.0" prefWidth="200.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="48.0" prefWidth="595.0" style="-fx-background-color: blue;">
+         <children>
+            <Text layoutX="530.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+            <ImageView fitHeight="23.0" fitWidth="22.0" layoutX="499.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

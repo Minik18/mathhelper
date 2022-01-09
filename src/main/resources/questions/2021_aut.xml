@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <id>2021_aut</id>
+    <questions>
+        <question>
+            <id>2021_aut_1</id>
+            <part>first</part>
+            <point_sum>2</point_sum>
+            <xp_sum>20</xp_sum>
+            <categories>
+                <category>set</category>
+            </categories>
+            <description>Az A és B halmazokról tudjuk, hogy A ∪ B = {1; 2; 3; 4; 5; 6; 7; 8; 9}, A \ B = {7; 8; 9}, és B \ A = {1; 2}.</description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>2</point>
+                    <xp>20</xp>
+                    <description>Adja meg az A ∩ B halmazt elemei felsorolásával növekvő sorrendben!
+                    </description>
+                    <image>null</image>
+                    <answers>
+                        <answer>{3; 4; 5; 6}</answer>
+                        <answer>3;4;5;6</answer>
+                        <answer>3,4,5,6</answer>
+                        <answer>3 4 5 6</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_2</id>
+            <part>first</part>
+            <point_sum>2</point_sum>
+            <xp_sum>20</xp_sum>
+            <categories>
+                <category>combinatory</category>
+            </categories>
+            <description>Dorka és hat barátnője egymás mellé kapott jegyeket a moziba</description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>2</point>
+                    <xp>20</xp>
+                    <description>Hányféle sorrendben ülhet a hét lány egymás mellett, ha Dorka ül a szélső, 1-es számú széken? </description>
+                    <image>null</image>
+                    <answers>
+                        <answer>6!</answer>
+                        <answer>720</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_3</id>
+            <part>first</part>
+            <point_sum>3</point_sum>
+            <xp_sum>30</xp_sum>
+            <categories>
+                <category>geometry</category>
+            </categories>
+            <description>A háromszög alábbi nevezetes vonalai közül melyek azok, amelyek mindig illeszkednek a háromszög valamelyik oldalfelező pontjára?</description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>3</point>
+                    <xp>30</xp>
+                    <description>Adja meg a megfelelő betűjeleket ABC sorrendben!</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>b c e</answer>
+                        <answer>B C E</answer>
+                        <answer>B,C,E</answer>
+                        <answer>b,c,e</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_4</id>
+            <part>first</part>
+            <point_sum>2</point_sum>
+            <xp_sum>20</xp_sum>
+            <categories>
+                <category>account</category>
+            </categories>
+            <description>Egy pulóver árát 15%-kal csökkentették, így most 10 200 Ft-ba kerül. </description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>2</point>
+                    <xp>20</xp>
+                    <description>Hány Ft volt a pulóver ára az árcsökkentés előtt?</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>12000</answer>
+                        <answer>12000 ft</answer>
+                        <answer>12000 Ft</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_5</id>
+            <part>first</part>
+            <point_sum>2</point_sum>
+            <xp_sum>20</xp_sum>
+            <categories>
+                <category>function</category>
+            </categories>
+            <description>Adott a valós számok halmazán értelmezett f(x)=(x-3)^2 függvény. </description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>1</point>
+                    <xp>10</xp>
+                    <description>Adja meg az f minimumának helyét!</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>3</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>1</point>
+                    <xp>10</xp>
+                    <description>Adja meg az f minimumának értékét!</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>-1</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_6</id>
+            <part>first</part>
+            <point_sum>2</point_sum>
+            <xp_sum>20</xp_sum>
+            <categories>
+                <category>terminometry</category>
+            </categories>
+            <description>Egy kocka alakú és egy téglatest alakú kőtömb térfogata egyenlő. A téglatest alakú kőtömb élei 45 cm, 120 cm és 135 cm hosszúak.</description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>2</point>
+                    <xp>20</xp>
+                    <description> Hány centiméter hosszú a kocka alakú kőtömb egy éle?</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>90</answer>
+                        <answer>90 cm</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_7</id>
+            <part>first</part>
+            <point_sum>3</point_sum>
+            <xp_sum>30</xp_sum>
+            <categories>
+                <category>statistic</category>
+            </categories>
+            <description>Egy középiskola végzős évfolyamának matematika-próbaérettségi eredményeit tartalmazza az alábbi táblázat</description>
+            <image>2021_aut_7_1.png</image>
+            <sub_questions>
+                <sub_question>
+                    <point>3</point>
+                    <xp>30</xp>
+                    <description>Melyik oszlopdiagram tartalmazza a helyes megfejtést? </description>
+                    <image>2021_aut_7_2.png</image>
+                    <answers>
+                        <answer>A</answer>
+                        <answer>a</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_8</id>
+            <part>first</part>
+            <point_sum>2</point_sum>
+            <xp_sum>20</xp_sum>
+            <categories>
+                <category>exponential_logarithm</category>
+            </categories>
+            <description>Adott a következő egyenlőség, 2^(x-1) = 16.</description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>2</point>
+                    <xp>20</xp>
+                    <description>Adja meg x értékét!</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>5</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_9</id>
+            <part>first</part>
+            <point_sum>3</point_sum>
+            <xp_sum>30</xp_sum>
+            <categories>
+                <category>account</category>
+            </categories>
+            <description>Egy biztonsági őr először 4 egymás utáni napon dolgozik, utána 2 napot pihen, majd újra 4 nap munka és 2 pihenőnap következik, és így tovább.</description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>3</point>
+                    <xp>30</xp>
+                    <description>Ha az őr január 1-jén kezdett dolgozni, akkor az év 100. napján dolgozik vagy pihen? Válasaz legyen 'dolgozik' vagy 'nem dolgozik'</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>dolgozik</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_10</id>
+            <part>first</part>
+            <point_sum>2</point_sum>
+            <xp_sum>20</xp_sum>
+            <categories>
+                <category>series</category>
+            </categories>
+            <description>Egy sorozat első tagja 5. A második tagtól kezdve minden tag az előző tag (–2)-szeresénél 1-gyel nagyobb szám.
+            </description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>1</point>
+                    <xp>10</xp>
+                    <description>Adja meg a sorozat második tagját!</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>-9</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>1</point>
+                    <xp>10</xp>
+                    <description>Adja meg a sorozat harmadik tagját!</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>19</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_11</id>
+            <part>first</part>
+            <point_sum>4</point_sum>
+            <xp_sum>40</xp_sum>
+            <categories>
+                <category>coordinate_geometry</category>
+            </categories>
+            <description>Egy kör középpontja a K(3; 2) pont, a kör átmegy a P(–1; 5) ponton. </description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>2</point>
+                    <xp>20</xp>
+                    <description>Adja meg a kör sugarának hosszát!</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>5</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>2</point>
+                    <xp>20</xp>
+                    <description>Írja fel a kör egyenletét! Ilyen formában várom a megoldást: (x+y)^2+(x-y)^2=0</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>(x-3)^2+(y-2)^2=25</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_12</id>
+            <part>first</part>
+            <point_sum>3</point_sum>
+            <xp_sum>30</xp_sum>
+            <categories>
+                <category>probability</category>
+            </categories>
+            <description>Egy piros és egy kék szabályos dobókockát egyszerre feldobunk.</description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>3</point>
+                    <xp>30</xp>
+                    <description>Határozza meg annak a valószínűségét, hogy a két dobott szám összege legalább 11 lesz! Tört alakban, vagy 3 tizedesjegyre kerekítve adja meg válaszát!</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>3/36</answer>
+                        <answer>0.083</answer>
+                        <answer>0,083</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_13</id>
+            <part>second_a</part>
+            <point_sum>12</point_sum>
+            <xp_sum>120</xp_sum>
+            <categories>
+                <category>account</category>
+                <category>equation</category>
+            </categories>
+            <description>Egy kisvárosban, ha taxival utazunk, a szolgáltatásért fizetendő viteldíj az alapdíj és a kilométerdíj összege. Az út hosszától független alapdíj 700 Ft, a megtett út hosszával egyenesen arányos kilométerdíj pedig kilométerenként 300 Ft. (A taxióra folyamatosan pörög, nemcsak egész kilométerenként mér.) </description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>2</point>
+                    <xp>20</xp>
+                    <description>Hány forint a viteldíj ebben a kisvárosban, ha 12,5 kilométert utazunk taxival?</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>4450</answer>
+                        <answer>4450 Ft</answer>
+                        <answer>4450 ft</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>2</point>
+                    <xp>20</xp>
+                    <description>Hány kilométert utaztunk taxival, ha a viteldíj 2275 Ft? </description>
+                    <image>null</image>
+                    <answers>
+                        <answer>5.25</answer>
+                        <answer>5,25</answer>
+                        <answer>5.25 km</answer>
+                        <answer>5,25 km</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>3</point>
+                    <xp>30</xp>
+                    <description>Melyik koordináta rendszer ábrázolja helyesen a viteldíjat a megtett út függvényében 0 és 5 km között?</description>
+                    <image>2021_aut_13.png</image>
+                    <answers>
+                        <answer>C</answer>
+                        <answer>c</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>5</point>
+                    <xp>50</xp>
+                    <description>Egy másik kisvárosban a taxis utazás viteldíja szintén alapdíjból és kilométerdíjból tevődik össze. Gergő ebben a városban hétfőn egy 6,5 km hosszú taxizás után 2825 forintot fizetett, kedden pedig egy 10,4 kilométeres út után 4190 forintot. Hány forint ebben a városban az alapdíj, és hány forint a kilométerdíj? Válaszát vesszővel elválasztva adja meg, először az alapdíjat, utána a kilométerdíjat. Példa: alapdíj, kilométerdíj</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>550, 350</answer>
+                        <answer>550 Ft, 350 Ft</answer>
+                        <answer>550 ft, 350 ft</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_14</id>
+            <part>second_a</part>
+            <point_sum>11</point_sum>
+            <xp_sum>110</xp_sum>
+            <categories>
+                <category>terminometry</category>
+                <category>logic_graph</category>
+            </categories>
+            <description>Egy négyzet alapú szabályos gúla alapélének hossza 66 cm, a gúla magassága 56 cm.</description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>5</point>
+                    <xp>50</xp>
+                    <description>Számítsa ki a gúla felszínét!</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>12936 cm^2</answer>
+                        <answer>12936</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>4</point>
+                    <xp>40</xp>
+                    <description>A gúlát két részre vágjuk egy olyan síkkal, amely párhuzamos az alaplappal, és a gúla magasságát felezi. Számítsa ki az így keletkező csonkagúla térfogatát! </description>
+                    <image>2021_aut_14_1.png</image>
+                    <answers>
+                        <answer>71148 cm^3</answer>
+                        <answer>71148</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>2</point>
+                    <xp>20</xp>
+                    <description>A csonkagúla csúcsait és éleit gráfként is fel tudjuk rajzolni. Az így kapott 8 pontú gráfban minden pont fokszáma 3. Létezik-e olyan 7 pontú gráf, amelyben minden pont fokszáma 3? Igen vagy nem szerepeljen a válaszmezőben!</description>
+                    <image>2021_aut_14_2.png</image>
+                    <answers>
+                        <answer>nem</answer>
+                        <answer>Nem</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_15</id>
+            <part>second_a</part>
+            <point_sum>13</point_sum>
+            <xp_sum>130</xp_sum>
+            <categories>
+                <category>statistic</category>
+                <category>account</category>
+                <category>probability</category>
+            </categories>
+            <description>Dávidnak ebben a félévben három darab 3-as és két darab 5-ös érdemjegye van angolból. Jánosnak is öt jegye van angolból. Az ő jegyeinek mediánja 1-gyel nagyobb, mint Dávid jegyeinek mediánja, az átlaga viszont 1-gyel kisebb Dávid jegyeinek átlagánál. </description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>6</point>
+                    <xp>60</xp>
+                    <description>Határozza meg János angoljegyeit! (A jegyek egész számok. A számokat növekvő sorrendben, egymástól vesszővel elválasztva adja meg.)</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>1, 1, 4, 4, 4</answer>
+                        <answer>1,1,4,4,4</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>3</point>
+                    <xp>30</xp>
+                    <description>Eszter az első félévben 9 jegyet szerzett angolból, és ezek átlaga pontosan 3. A második félévben 6 jegyet szerzett, ezek átlaga pontosan 4,5. Mennyi Eszter egész évben szerzett angoljegyeinek az átlaga? </description>
+                    <image>null</image>
+                    <answers>
+                        <answer>3,6</answer>
+                        <answer>3.6</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>4</point>
+                    <xp>40</xp>
+                    <description>Az {1; 2; 3; 4; 5} halmaz elemei közül véletlenszerűen kiválasztunk két különbözőt. Mennyi a valószínűsége, hogy a két kiválasztott szám átlaga egész szám lesz?</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>0.4</answer>
+                        <answer>0,4</answer>
+                        <answer>4/10</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_16</id>
+            <part>second_b</part>
+            <point_sum>17</point_sum>
+            <xp_sum>170</xp_sum>
+            <categories>
+                <category>coordinate_geometry</category>
+            </categories>
+            <description>Egy háromszög csúcsai a koordináta-rendszerben: A(5; 6), B(4; 2) és C(8; 2).</description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>6</point>
+                    <xp>60</xp>
+                    <description>Számítsa ki a háromszög A-nál lévő belső szögét! 2 tizedesjegyre kerekítve adja meg!</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>50.91°</answer>
+                        <answer>50,91°</answer>
+                        <answer>50.91</answer>
+                        <answer>50,91</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>7</point>
+                    <xp>70</xp>
+                    <description>Írja fel a háromszög B-re illeszkedő magasságvonalának egyenletét, és számítsa ki a háromszög M magasságpontjának koordinátáit! Ilyen formában várom a megoldást: egyenlet, (x;y) </description>
+                    <image>null</image>
+                    <answers>
+                        <answer>3x-4y=4, (5;2,75)</answer>
+                        <answer>3x-4y=4, (5;2.75)</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                <point>4</point>
+                <xp>40</xp>
+                <description>Az ABC háromszöget a B pontból középpontosan a kétszeresére nagyítjuk, így az A’B’C’ háromszöget kapjuk. Adja meg az A’B’C’ háromszög csúcsainak koordinátáit! Ilyen formában várom a megoldást: (x;y)</description>
+                <image>null</image>
+                <answers>
+                    <answer>(6;10)</answer>
+                    <answer>(6,10)</answer>
+                </answers>
+            </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_17</id>
+            <part>second_b</part>
+            <point_sum>17</point_sum>
+            <xp_sum>170</xp_sum>
+            <categories>
+                <category>series</category>
+            </categories>
+            <description>Adottak az alábbi sorozattal kapcsolatos feladatok.</description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>8</point>
+                    <xp>80</xp>
+                    <description>Egy számtani sorozat második tagja 24, ötödik tagja 81. Hány százalékkal nagyobb a sorozat első 16 tagjának összege a sorozat 106. tagjánál? </description>
+                    <image>null</image>
+                    <answers>
+                        <answer>18%</answer>
+                        <answer>18</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>9</point>
+                    <xp>90</xp>
+                    <description>Egy mértani sorozat második tagja 24, ötödik tagja 81. A sorozat tagjai között hány olyan van, amelyik kisebb, mint 10 000 000? Csak egész szám fogadható el!</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>33</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+        <question>
+            <id>2021_aut_18</id>
+            <part>second_b</part>
+            <point_sum>17</point_sum>
+            <xp_sum>170</xp_sum>
+            <categories>
+                <category>account</category>
+                <category>equation</category>
+                <category>probability</category>
+            </categories>
+            <description>Egy osztályban kétszer annyian járnak matematikafakultációra, mint fizikafakultációra. Összesen 15 olyan diák van az osztályban, aki a két fakultáció közül valamelyikre jár. A 15 diák közül 6-an mindkét fakultációra járnak. </description>
+            <image>null</image>
+            <sub_questions>
+                <sub_question>
+                    <point>4</point>
+                    <xp>40</xp>
+                    <description>Hány olyan diák van az osztályban, aki matematikafakultációra jár, de fizikára nem? </description>
+                    <image>null</image>
+                    <answers>
+                        <answer>8</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>5</point>
+                    <xp>50</xp>
+                    <description>A távoktatás időszakában ennek az osztálynak a tagjai a tanárral együtt 24-en vesznek részt az alap-matematikaórákon. Az órákon használt online alkalmazás 4 sorban és 6 oszlopban rendezi el a résztvevőket megjelenítő egybevágó kis téglalapokat úgy, hogy ezek kitöltik a teljes képernyőt. Stefi számítógépén a képernyő vízszintes és függőleges oldalának aránya 16: 9. Adja meg egy kis téglalap vízszintes és függőleges oldalának arányát két egész szám hányadosaként! Ilyen formában kérem a választ: x/y vagy x:y</description>
+                    <image>2021_aut_18.png</image>
+                    <answers>
+                        <answer>32:27</answer>
+                        <answer>32/27</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>5</point>
+                    <xp>50</xp>
+                    <description>Az alkalmazás a bejelentkező személyekhez tartozó 24 téglalapot véletlenszerűen rendezi el a képernyőn. Számítsa ki annak a valószínűségét, hogy a következő órán Stefit és barátnőjét, Cilit megjelenítő téglalap is a képernyő első sorába fog kerülni! (A 24 kis téglalapot az alkalmazás mindig 4 sorban és 6 oszlopban rendezi el.)  Tört alakban, vagy 3 tizedesjegyre kerekítve adja meg a választ!</description>
+                    <image>null</image>
+                    <answers>
+                        <answer>0.054</answer>
+                        <answer>0,054</answer>
+                        <answer>30/552</answer>
+                    </answers>
+                </sub_question>
+                <sub_question>
+                    <point>3</point>
+                    <xp>30</xp>
+                    <description>A 24 bejelentkező személyt a képernyőn 24!-féleképpen lehet elrendezni. Osztható-e a 24! 10000-rel? Igen vagy nem válasszal válaszoljon. </description>
+                    <image>null</image>
+                    <answers>
+                        <answer>igen</answer>
+                        <answer>Igen</answer>
+                    </answers>
+                </sub_question>
+            </sub_questions>
+        </question>
+    </questions>
+</root>
