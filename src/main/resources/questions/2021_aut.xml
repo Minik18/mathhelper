@@ -16,6 +16,10 @@
                 <sub_question>
                     <point>2</point>
                     <xp>20</xp>
+                    <help>
+                        <description>A ∩ jel a metszet, amely azt jelöli, hogy mind a 2 halmazban lévő elemeket várja. A \ jelentése pedig az első halmaz elemeiből kivonva a második halmazét. A ∪ az unió, amely összesíti a 2 halmaz elemeit. </description>
+                        <needed_points>2</needed_points>
+                    </help>
                     <description>Adja meg az A ∩ B halmazt elemei felsorolásával növekvő sorrendben!
                     </description>
                     <image>null</image>
@@ -42,6 +46,10 @@
                 <sub_question>
                     <point>2</point>
                     <xp>20</xp>
+                    <help>
+                        <description>Rögzítsük le Dorkát és csak a másik 6 lányt vegyük figyelembe a számításkor.</description>
+                        <needed_points>2</needed_points>
+                    </help>
                     <description>Hányféle sorrendben ülhet a hét lány egymás mellett, ha Dorka ül a szélső, 1-es számú széken? </description>
                     <image>null</image>
                     <answers>
@@ -59,12 +67,16 @@
             <categories>
                 <category>geometry</category>
             </categories>
-            <description>A háromszög alábbi nevezetes vonalai közül melyek azok, amelyek mindig illeszkednek a háromszög valamelyik oldalfelező pontjára?</description>
+            <description>A háromszög alábbi nevezetes vonalai közül melyek azok, amelyek mindig illeszkednek a háromszög valamelyik oldalfelező pontjára? A: magasságvonal. B: középvonal. C: súlyvonal. D: szögfelező. E: oldalfelező merőleges.</description>
             <image>null</image>
             <sub_questions>
                 <sub_question>
                     <point>3</point>
                     <xp>30</xp>
+                    <help>
+                        <description>null</description>
+                        <needed_points>0</needed_points>
+                    </help>
                     <description>Adja meg a megfelelő betűjeleket ABC sorrendben!</description>
                     <image>null</image>
                     <answers>
@@ -90,6 +102,10 @@
                 <sub_question>
                     <point>2</point>
                     <xp>20</xp>
+                    <help>
+                        <description>0</description>
+                        <needed_points>0</needed_points>
+                    </help>
                     <description>Hány Ft volt a pulóver ára az árcsökkentés előtt?</description>
                     <image>null</image>
                     <answers>
@@ -108,12 +124,16 @@
             <categories>
                 <category>function</category>
             </categories>
-            <description>Adott a valós számok halmazán értelmezett f(x)=(x-3)^2 függvény. </description>
+            <description>Adott a valós számok halmazán értelmezett f(x)=(x-3)^2 -1 függvény. </description>
             <image>null</image>
             <sub_questions>
                 <sub_question>
                     <point>1</point>
                     <xp>10</xp>
+                    <help>
+                        <description>A minimum hely a legkisebb x érték.</description>
+                        <needed_points>1</needed_points>
+                    </help>
                     <description>Adja meg az f minimumának helyét!</description>
                     <image>null</image>
                     <answers>
@@ -123,6 +143,10 @@
                 <sub_question>
                     <point>1</point>
                     <xp>10</xp>
+                    <help>
+                        <description>A minimum érték az y érték.</description>
+                        <needed_points>1</needed_points>
+                    </help>
                     <description>Adja meg az f minimumának értékét!</description>
                     <image>null</image>
                     <answers>
@@ -145,6 +169,10 @@
                 <sub_question>
                     <point>2</point>
                     <xp>20</xp>
+                    <help>
+                        <description>Először érdemes kiszámolni a téglatest térfogatát, majd pedig az így kapott értékből kiszámitani a kocka 1 oldalát. Téglatest térfogat képlet: a*b*c. Kocka térfogat képlet: a^3</description>
+                        <needed_points>2</needed_points>
+                    </help>
                     <description> Hány centiméter hosszú a kocka alakú kőtömb egy éle?</description>
                     <image>null</image>
                     <answers>
@@ -168,6 +196,10 @@
                 <sub_question>
                     <point>3</point>
                     <xp>30</xp>
+                    <help>
+                        <description>null</description>
+                        <needed_points>0</needed_points>
+                    </help>
                     <description>Melyik oszlopdiagram tartalmazza a helyes megfejtést? </description>
                     <image>2021_aut_7_2.png</image>
                     <answers>
@@ -191,6 +223,10 @@
                 <sub_question>
                     <point>2</point>
                     <xp>20</xp>
+                    <help>
+                        <description>Érdemes a 16-ot 2 alapú hatványként felírni és mivel az alapok így már egyenlőek, így a hatványok is azok lesznek. Ezzel egy elsőfokú egyenlőségre egyszerüsítve.</description>
+                        <needed_points>2</needed_points>
+                    </help>
                     <description>Adja meg x értékét!</description>
                     <image>null</image>
                     <answers>
@@ -213,7 +249,11 @@
                 <sub_question>
                     <point>3</point>
                     <xp>30</xp>
-                    <description>Ha az őr január 1-jén kezdett dolgozni, akkor az év 100. napján dolgozik vagy pihen? Válasaz legyen 'dolgozik' vagy 'nem dolgozik'</description>
+                    <help>
+                        <description>Egy ciklus 4 munkanap + 2 szabadnapból áll. 100 napon alatt 100/6=16 teljes ciklus történik úgy, hogy a 16. ciklus végén az őr dolgozik és 96 nap telt el.</description>
+                        <needed_points>3</needed_points>
+                    </help>
+                    <description>Ha az őr január 1-jén kezdett dolgozni, akkor az év 100. napján dolgozik vagy pihen? Válasza legyen 'dolgozik' vagy 'nem dolgozik'</description>
                     <image>null</image>
                     <answers>
                         <answer>dolgozik</answer>
@@ -236,6 +276,10 @@
                 <sub_question>
                     <point>1</point>
                     <xp>10</xp>
+                    <help>
+                        <description>Használandó képlet: a(n) = a(1)* (n-1)*d</description>
+                        <needed_points>1</needed_points>
+                    </help>
                     <description>Adja meg a sorozat második tagját!</description>
                     <image>null</image>
                     <answers>
@@ -245,6 +289,10 @@
                 <sub_question>
                     <point>1</point>
                     <xp>10</xp>
+                    <help>
+                        <description>Használandó képlet: a(n) = a(1)* (n-1)*d</description>
+                        <needed_points>1</needed_points>
+                    </help>
                     <description>Adja meg a sorozat harmadik tagját!</description>
                     <image>null</image>
                     <answers>
@@ -267,6 +315,10 @@
                 <sub_question>
                     <point>2</point>
                     <xp>20</xp>
+                    <help>
+                        <description>Elég kiszámolnunk a K és P pont távolságát, melynek képlete: |KP| = √( ( P(1)-K(1) )^2 + ( P(2)-K(2) )^2 )</description>
+                        <needed_points>2</needed_points>
+                    </help>
                     <description>Adja meg a kör sugarának hosszát!</description>
                     <image>null</image>
                     <answers>
@@ -276,7 +328,11 @@
                 <sub_question>
                     <point>2</point>
                     <xp>20</xp>
-                    <description>Írja fel a kör egyenletét! Ilyen formában várom a megoldást: (x+y)^2+(x-y)^2=0</description>
+                    <help>
+                        <description>Az x és y a kör középpontjának koordínátáit, az r pedig a sugarat jelöli.</description>
+                        <needed_points>2</needed_points>
+                    </help>
+                    <description>Írja fel a kör egyenletét! Ilyen formában várom a megoldást: (x+y)^2+(x-y)^2=r^2</description>
                     <image>null</image>
                     <answers>
                         <answer>(x-3)^2+(y-2)^2=25</answer>
@@ -298,6 +354,10 @@
                 <sub_question>
                     <point>3</point>
                     <xp>30</xp>
+                    <help>
+                        <description>Mivel a kockák különböző színűek így megkülönböztetjük őket. Akkor lehet legalább 11 az eredmény, ha a dobott számok (5,6) illetve (6,5) illetve (6,6).</description>
+                        <needed_points>3</needed_points>
+                    </help>
                     <description>Határozza meg annak a valószínűségét, hogy a két dobott szám összege legalább 11 lesz! Tört alakban, vagy 3 tizedesjegyre kerekítve adja meg válaszát!</description>
                     <image>null</image>
                     <answers>
@@ -323,6 +383,10 @@
                 <sub_question>
                     <point>2</point>
                     <xp>20</xp>
+                    <help>
+                        <description>null</description>
+                        <needed_points>0</needed_points>
+                    </help>
                     <description>Hány forint a viteldíj ebben a kisvárosban, ha 12,5 kilométert utazunk taxival?</description>
                     <image>null</image>
                     <answers>
@@ -334,6 +398,10 @@
                 <sub_question>
                     <point>2</point>
                     <xp>20</xp>
+                    <help>
+                        <description>null</description>
+                        <needed_points>0</needed_points>
+                    </help>
                     <description>Hány kilométert utaztunk taxival, ha a viteldíj 2275 Ft? </description>
                     <image>null</image>
                     <answers>
@@ -346,6 +414,10 @@
                 <sub_question>
                     <point>3</point>
                     <xp>30</xp>
+                    <help>
+                        <description>null</description>
+                        <needed_points>0</needed_points>
+                    </help>
                     <description>Melyik koordináta rendszer ábrázolja helyesen a viteldíjat a megtett út függvényében 0 és 5 km között?</description>
                     <image>2021_aut_13.png</image>
                     <answers>
@@ -356,6 +428,10 @@
                 <sub_question>
                     <point>5</point>
                     <xp>50</xp>
+                    <help>
+                        <description>Egy egyszerű egyenletrendszer segítségével feltudjuk írni a képleteket. Jelölje x a km-t illetve y a kilométerenkénti árat. Ekkor a kérdéses egyenletrendszer: I. 2825=6,5*y+x II. 4190=10,4*y+x</description>
+                        <needed_points>5</needed_points>
+                    </help>
                     <description>Egy másik kisvárosban a taxis utazás viteldíja szintén alapdíjból és kilométerdíjból tevődik össze. Gergő ebben a városban hétfőn egy 6,5 km hosszú taxizás után 2825 forintot fizetett, kedden pedig egy 10,4 kilométeres út után 4190 forintot. Hány forint ebben a városban az alapdíj, és hány forint a kilométerdíj? Válaszát vesszővel elválasztva adja meg, először az alapdíjat, utána a kilométerdíjat. Példa: alapdíj, kilométerdíj</description>
                     <image>null</image>
                     <answers>
@@ -381,6 +457,10 @@
                 <sub_question>
                     <point>5</point>
                     <xp>50</xp>
+                    <help>
+                        <description>A gúla felszínének képlete A=T(alap)+P, ahol a P a palást. A gúla egyik oldalának területét kitudjuk számolni mivel háromszögekből áll. Állítsunk merőleges háromszöget a gúla közepébe, ahol a 2 befogó a test magassága és az alap hosszának fele, átfogója pedig a kérdéses oldal, melyet a Pitagorasz-tétellel könnyen kiszámíthatunk. Így tudjuk a gúla oldalának hosszát, melyből kiszámítható 1 oldal területe. </description>
+                        <needed_points>5</needed_points>
+                    </help>
                     <description>Számítsa ki a gúla felszínét!</description>
                     <image>null</image>
                     <answers>
@@ -391,6 +471,10 @@
                 <sub_question>
                     <point>4</point>
                     <xp>40</xp>
+                    <help>
+                        <description>Az így keletekezett csonkagúla fedőéle feleakkora mint az alapja. A magassága a testnek is a fele. A használandó képlet: V=(M * ( T(alap) + T(fedőlap) ) )/3</description>
+                        <needed_points>4</needed_points>
+                    </help>
                     <description>A gúlát két részre vágjuk egy olyan síkkal, amely párhuzamos az alaplappal, és a gúla magasságát felezi. Számítsa ki az így keletkező csonkagúla térfogatát! </description>
                     <image>2021_aut_14_1.png</image>
                     <answers>
@@ -401,6 +485,10 @@
                 <sub_question>
                     <point>2</point>
                     <xp>20</xp>
+                    <help>
+                        <description>null</description>
+                        <needed_points>0</needed_points>
+                    </help>
                     <description>A csonkagúla csúcsait és éleit gráfként is fel tudjuk rajzolni. Az így kapott 8 pontú gráfban minden pont fokszáma 3. Létezik-e olyan 7 pontú gráf, amelyben minden pont fokszáma 3? Igen vagy nem szerepeljen a válaszmezőben!</description>
                     <image>2021_aut_14_2.png</image>
                     <answers>
@@ -426,6 +514,10 @@
                 <sub_question>
                     <point>6</point>
                     <xp>60</xp>
+                    <help>
+                        <description>Irjuk fel növekvő sorrendben a jegyeket. A medián a középső érték (vagy páros szamú elem esetén a 2 középső átlaga), az átlag pedig a jegyek összege osztva a darabszámukkal. Ezt ezután vagy egynenletbe foglaljuk.</description>
+                        <needed_points>5</needed_points>
+                    </help>
                     <description>Határozza meg János angoljegyeit! (A jegyek egész számok. A számokat növekvő sorrendben, egymástól vesszővel elválasztva adja meg.)</description>
                     <image>null</image>
                     <answers>
@@ -436,6 +528,10 @@
                 <sub_question>
                     <point>3</point>
                     <xp>30</xp>
+                    <help>
+                        <description>Egyenletrendszerbe foglalva az adatokat megkapjuk, hogy I. x/9=3 II. y/6=4,5 , ahol x az első félévben szerzett jegyek összege, y pedig a második félévben szerzett jegyek összege.</description>
+                        <needed_points>3</needed_points>
+                    </help>
                     <description>Eszter az első félévben 9 jegyet szerzett angolból, és ezek átlaga pontosan 3. A második félévben 6 jegyet szerzett, ezek átlaga pontosan 4,5. Mennyi Eszter egész évben szerzett angoljegyeinek az átlaga? </description>
                     <image>null</image>
                     <answers>
@@ -446,6 +542,10 @@
                 <sub_question>
                     <point>4</point>
                     <xp>40</xp>
+                    <help>
+                        <description>Akkor lesz egész szám az átlag, ha a kiválasztott értékek az alábbiak: (1,3) (1,5) (2,4) (3,5)</description>
+                        <needed_points>4</needed_points>
+                    </help>
                     <description>Az {1; 2; 3; 4; 5} halmaz elemei közül véletlenszerűen kiválasztunk két különbözőt. Mennyi a valószínűsége, hogy a két kiválasztott szám átlaga egész szám lesz?</description>
                     <image>null</image>
                     <answers>
@@ -470,6 +570,10 @@
                 <sub_question>
                     <point>6</point>
                     <xp>60</xp>
+                    <help>
+                        <description>A cosinus tétel segítségével kitudjuk számolni ezt. Ahhoz szükségünk lesz az |AB|, |BC| és |AC| értékekre. Miután azokat megszereztük a cosinus tétel: c^2=a^2+b^2 -2*a*b*cosß</description>
+                        <needed_points>5</needed_points>
+                    </help>
                     <description>Számítsa ki a háromszög A-nál lévő belső szögét! 2 tizedesjegyre kerekítve adja meg!</description>
                     <image>null</image>
                     <answers>
@@ -482,6 +586,10 @@
                 <sub_question>
                     <point>7</point>
                     <xp>70</xp>
+                    <help>
+                        <description>Az egyenes egyenlete: Ax+By=A(x0)+B(y0), ahol A és B a normálvektor x és y koordinátái és x0 és y0 az egyenes egy pontjának x és y koordinátái. Az egyenesen biztosan rajta van a B pont és mivel magasságvonalról van szó, így az AC oldalt merőlegesen metszik. Ennek következtében AB irányvektora az a kérdéses egyenes normálvektora. A magasságpont pedig 2 magasságvonal metszéspontjában helyezkedik el.</description>
+                        <needed_points>5</needed_points>
+                    </help>
                     <description>Írja fel a háromszög B-re illeszkedő magasságvonalának egyenletét, és számítsa ki a háromszög M magasságpontjának koordinátáit! Ilyen formában várom a megoldást: egyenlet, (x;y) </description>
                     <image>null</image>
                     <answers>
@@ -492,11 +600,15 @@
                 <sub_question>
                 <point>4</point>
                 <xp>40</xp>
-                <description>Az ABC háromszöget a B pontból középpontosan a kétszeresére nagyítjuk, így az A’B’C’ háromszöget kapjuk. Adja meg az A’B’C’ háromszög csúcsainak koordinátáit! Ilyen formában várom a megoldást: (x;y)</description>
+                    <help>
+                        <description>null</description>
+                        <needed_points>0</needed_points>
+                    </help>
+                <description>Az ABC háromszöget a B pontból középpontosan a kétszeresére nagyítjuk, így az A’B’C’ háromszöget kapjuk. Adja meg az A’B’C’ háromszög csúcsainak koordinátáit! Ilyen formában várom a megoldást: (A'x;A'y), (B'x;B'y), (C'x;C'y)</description>
                 <image>null</image>
                 <answers>
-                    <answer>(6;10)</answer>
-                    <answer>(6,10)</answer>
+                    <answer>(6;10), (4;2), (12;2)</answer>
+                    <answer>(6,10), (4,2), (12,2)</answer>
                 </answers>
             </sub_question>
             </sub_questions>
@@ -515,6 +627,10 @@
                 <sub_question>
                     <point>8</point>
                     <xp>80</xp>
+                    <help>
+                        <description>Írjunk fel egyenletrendszert a második és 5. tag falhasználásával, hogy megkapjuk az első tagot és a differenciált. Ezután számoljuk ki az első 16 tag összegét majd a 106. tag összegét. A 2 megkapott érték segítségével számoljuk ki a kért átlagot.</description>
+                        <needed_points>5</needed_points>
+                    </help>
                     <description>Egy számtani sorozat második tagja 24, ötödik tagja 81. Hány százalékkal nagyobb a sorozat első 16 tagjának összege a sorozat 106. tagjánál? </description>
                     <image>null</image>
                     <answers>
@@ -525,6 +641,10 @@
                 <sub_question>
                     <point>9</point>
                     <xp>90</xp>
+                    <help>
+                        <description>Egy egyenletrendszer segítségével számoljuk ki az első tag értékét és a q-t. Az egyenletrendszert a második és 5. tag segítségével írjuk fel. Írjuk fel az (n-1). tag és a 10000000 egynelőségét. Logaritmus segítéségvel számoljuk ki a hatványban szereplő n-et. Ezzel megkapjuk hogy hanyadik elem az utolsó ami még kisebb mint a megadott szám.</description>
+                        <needed_points>5</needed_points>
+                    </help>
                     <description>Egy mértani sorozat második tagja 24, ötödik tagja 81. A sorozat tagjai között hány olyan van, amelyik kisebb, mint 10 000 000? Csak egész szám fogadható el!</description>
                     <image>null</image>
                     <answers>
@@ -549,6 +669,10 @@
                 <sub_question>
                     <point>4</point>
                     <xp>40</xp>
+                    <help>
+                        <description>Alkalmazzunk Venn-diagramot a felrajzoláshoz. A diagramot a legbelső elemtől kezdve töltsük ki.</description>
+                        <needed_points>4</needed_points>
+                    </help>
                     <description>Hány olyan diák van az osztályban, aki matematikafakultációra jár, de fizikára nem? </description>
                     <image>null</image>
                     <answers>
@@ -558,16 +682,26 @@
                 <sub_question>
                     <point>5</point>
                     <xp>50</xp>
+                    <help>
+                        <description>Egy kis téglalap vízszintes oldalának hossza 16a/6, a szélessége pedig 9a/4, ahol 'a' jelöli az 1 egységet a kis téglalapon. Ezeknek kell venni az arányukat.</description>
+                        <needed_points>5</needed_points>
+                    </help>
                     <description>A távoktatás időszakában ennek az osztálynak a tagjai a tanárral együtt 24-en vesznek részt az alap-matematikaórákon. Az órákon használt online alkalmazás 4 sorban és 6 oszlopban rendezi el a résztvevőket megjelenítő egybevágó kis téglalapokat úgy, hogy ezek kitöltik a teljes képernyőt. Stefi számítógépén a képernyő vízszintes és függőleges oldalának aránya 16: 9. Adja meg egy kis téglalap vízszintes és függőleges oldalának arányát két egész szám hányadosaként! Ilyen formában kérem a választ: x/y vagy x:y</description>
                     <image>2021_aut_18.png</image>
                     <answers>
                         <answer>32:27</answer>
                         <answer>32/27</answer>
+                        <answer>64/54</answer>
+                        <answer>64:54</answer>
                     </answers>
                 </sub_question>
                 <sub_question>
                     <point>5</point>
                     <xp>50</xp>
+                    <help>
+                        <description>null</description>
+                        <needed_points>0</needed_points>
+                    </help>
                     <description>Az alkalmazás a bejelentkező személyekhez tartozó 24 téglalapot véletlenszerűen rendezi el a képernyőn. Számítsa ki annak a valószínűségét, hogy a következő órán Stefit és barátnőjét, Cilit megjelenítő téglalap is a képernyő első sorába fog kerülni! (A 24 kis téglalapot az alkalmazás mindig 4 sorban és 6 oszlopban rendezi el.)  Tört alakban, vagy 3 tizedesjegyre kerekítve adja meg a választ!</description>
                     <image>null</image>
                     <answers>
@@ -579,6 +713,10 @@
                 <sub_question>
                     <point>3</point>
                     <xp>30</xp>
+                    <help>
+                        <description>null</description>
+                        <needed_points>0</needed_points>
+                    </help>
                     <description>A 24 bejelentkező személyt a képernyőn 24!-féleképpen lehet elrendezni. Osztható-e a 24! 10000-rel? Igen vagy nem válasszal válaszoljon. </description>
                     <image>null</image>
                     <answers>

@@ -1,4 +1,4 @@
-package hu.unideb.inf.mathhelper.model.xml;
+package hu.unideb.inf.mathhelper.model.question;
 
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
@@ -37,6 +37,4 @@ public enum Category {
     TRIGONOMETRY,
     @XmlEnumValue("probability")
     PROBABILITY
-
-
 }

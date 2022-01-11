@@ -1,4 +1,4 @@
-package hu.unideb.inf.mathhelper.model.xml;
+package hu.unideb.inf.mathhelper.model.question;
 
 import jakarta.xml.bind.annotation.XmlElement;
 
@@ -18,5 +18,8 @@ public class SubQuestion {
 
     @XmlElement(name = "answers")
     private Answers answer;
+
+    @XmlElement(name = "help")
+    private Help help;
 
 }

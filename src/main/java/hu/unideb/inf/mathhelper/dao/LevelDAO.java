@@ -1,11 +1,11 @@
 package hu.unideb.inf.mathhelper.dao;
 
-import java.util.Map;
+import hu.unideb.inf.mathhelper.model.level.Level;
+
+import java.util.List;
 
 public interface LevelDAO {
 
-    Map<Integer, Integer> getLevelSystem();
-
-    void loadLevel();
+    List<Level> getLevelSystem(String path);
 
 }

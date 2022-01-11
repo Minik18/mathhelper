@@ -3,9 +3,11 @@ package hu.unideb.inf.mathhelper.service.impl;
 import hu.unideb.inf.mathhelper.dao.LevelDAO;
 import hu.unideb.inf.mathhelper.model.User;
 import hu.unideb.inf.mathhelper.model.UserData;
+import hu.unideb.inf.mathhelper.model.level.Level;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import hu.unideb.inf.mathhelper.service.UserTrackService;
 
+import java.util.List;
 import java.util.Map;
 
 public class UserHandleServiceImpl implements UserHandleService {
@@ -13,13 +15,13 @@ public class UserHandleServiceImpl implements UserHandleService {
     private static final int MAX_LENGTH = 60;
     private static final int MIN_LENGTH = 5;
 
-    private final Map<Integer,Integer> levels;
+    private final List<Level> levels;
     private final User user;
 
     public UserHandleServiceImpl(UserTrackService userTrackService, LevelDAO levelDAO) {
         user = userTrackService.getCurrentUser();
-        levelDAO.loadLevel();
-        levels = levelDAO.getLevelSystem();
+        //TODO: Handle import
+        levels = levelDAO.getLevelSystem("");
     }
 
     @Override
