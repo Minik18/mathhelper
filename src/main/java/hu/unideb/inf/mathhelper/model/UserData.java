@@ -10,6 +10,7 @@ public class UserData {
     private Integer xp;
     private Integer numberOfCompletedQuestions;
     private Integer helpPoints;
+    private Integer rewardPoints;
 
     private UserData() {
 
@@ -22,6 +23,7 @@ public class UserData {
         private Integer xp;
         private Integer numberOfCompletedQuestions;
         private Integer helpPoints;
+        private Integer rewardPoints;
 
         public Builder withNickname(String nickname) {
             this.nickname = nickname;
@@ -43,6 +45,11 @@ public class UserData {
             return this;
         }
 
+        public Builder withRewardPoints(Integer rewardPoints) {
+            this.rewardPoints = rewardPoints;
+            return this;
+        }
+
         public Builder withNumberOfCompletedQuestions(Integer numberOfCompletedQuestions) {
             this.numberOfCompletedQuestions = numberOfCompletedQuestions;
             return this;
@@ -55,12 +62,13 @@ public class UserData {
 
         public UserData build() {
             UserData userData = new UserData();
-            this.xp = userData.xp;
-            this.level = userData.level;
-            this.completedQuestionIds = userData.completedQuestionIds;
-            this.numberOfCompletedQuestions = userData.numberOfCompletedQuestions;
-            this.nickname = userData.nickname;
-            this.helpPoints = userData.helpPoints;
+            userData.xp = this.xp;
+            userData.completedQuestionIds = this.completedQuestionIds;
+            userData.helpPoints = this.helpPoints;
+            userData.level = this.level;
+            userData.nickname = this.nickname;
+            userData.numberOfCompletedQuestions = this.numberOfCompletedQuestions;
+            userData.rewardPoints = this.rewardPoints;
             return userData;
         }
     }
@@ -87,5 +95,9 @@ public class UserData {
 
     public Integer getHelpPoints() {
         return helpPoints;
+    }
+
+    public Integer getRewardPoints() {
+        return rewardPoints;
     }
 }

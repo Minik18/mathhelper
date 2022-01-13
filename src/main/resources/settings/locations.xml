@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<locations>
+    <levels>settings/levels.xml</levels>
+    <questions_folder>questions</questions_folder>
+    <pictures_folder>pics</pictures_folder>
+</locations>

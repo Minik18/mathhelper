@@ -1,14 +1,11 @@
 package hu.unideb.inf.mathhelper.dao.impl;
 
 import hu.unideb.inf.mathhelper.dao.LevelDAO;
-import hu.unideb.inf.mathhelper.exception.QuestionFileNotFoundException;
 import hu.unideb.inf.mathhelper.model.level.Level;
 import hu.unideb.inf.mathhelper.model.level.Levels;
-import hu.unideb.inf.mathhelper.model.question.Question;
-import hu.unideb.inf.mathhelper.model.question.Root;
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Unmarshaller;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 import java.io.File;
 import java.util.*;

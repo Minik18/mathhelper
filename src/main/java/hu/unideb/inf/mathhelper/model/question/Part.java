@@ -1,6 +1,6 @@
 package hu.unideb.inf.mathhelper.model.question;
 
-import jakarta.xml.bind.annotation.XmlEnumValue;
+import javax.xml.bind.annotation.XmlEnumValue;
 
 public enum Part {
     @XmlEnumValue("first")

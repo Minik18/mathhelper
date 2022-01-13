@@ -1,15 +1,18 @@
 package hu.unideb.inf.mathhelper.service.impl;
 
 import hu.unideb.inf.mathhelper.dao.LevelDAO;
+import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.model.User;
 import hu.unideb.inf.mathhelper.model.UserData;
 import hu.unideb.inf.mathhelper.model.level.Level;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import hu.unideb.inf.mathhelper.service.UserTrackService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
+@Service
 public class UserHandleServiceImpl implements UserHandleService {
 
     private static final int MAX_LENGTH = 60;
@@ -18,10 +21,11 @@ public class UserHandleServiceImpl implements UserHandleService {
     private final List<Level> levels;
     private final User user;
 
-    public UserHandleServiceImpl(UserTrackService userTrackService, LevelDAO levelDAO) {
+    @Autowired
+    public UserHandleServiceImpl(UserTrackService userTrackService, LevelDAO levelDAO,
+                                 LocationDAO locationDAO) {
         user = userTrackService.getCurrentUser();
-        //TODO: Handle import
-        levels = levelDAO.getLevelSystem("");
+        levels = levelDAO.getLevelSystem(locationDAO.getLevelSystemFilePath());
     }
 
     @Override
@@ -48,6 +52,7 @@ public class UserHandleServiceImpl implements UserHandleService {
                 .withXp(user.getXp())
                 .withNumberOfCompletedQuestions(user.getNumberOfCompletedQuestions())
                 .withLevel(user.getLevel())
+                .withRewardPoints(user.getRewardPoints())
                 .build();
     }
 

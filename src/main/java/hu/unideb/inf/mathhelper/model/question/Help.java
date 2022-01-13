@@ -1,6 +1,6 @@
 package hu.unideb.inf.mathhelper.model.question;
 
-import jakarta.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElement;
 
 public class Help {
 

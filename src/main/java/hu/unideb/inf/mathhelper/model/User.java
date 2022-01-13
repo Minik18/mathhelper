@@ -1,24 +1,36 @@
 package hu.unideb.inf.mathhelper.model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String nickname;
-    private final List<String> completedQuestionIds;
+
+    @ElementCollection(targetClass=String.class)
+    private List<String> completedQuestionIds = new ArrayList<>();
     private Integer level;
     private Integer xp;
     private Integer numberOfCompletedQuestions;
     private Integer helpPoints;
+    private Integer rewardPoints;
 
     public User(String nickname) {
         this.nickname = nickname;
-        this.completedQuestionIds = new ArrayList<>();
         this.helpPoints = 0;
         this.level = 1;
         this.xp = 0;
         this.numberOfCompletedQuestions = 0;
+        this.rewardPoints = 0;
+    }
+
+    protected User() {
     }
 
     public void setNickname(String nickname) {
@@ -37,6 +49,10 @@ public class User {
         this.xp += xp;
     }
 
+    public void decrementXp(Integer xp) {
+        this.xp -= xp;
+    }
+
     public void incrementNumberOfCompletedQuestions() {
         this.numberOfCompletedQuestions++;
     }
@@ -47,6 +63,14 @@ public class User {
 
     public void decrementHelpPoints(Integer helpPoints) {
         this.helpPoints -= helpPoints;
+    }
+
+    public void incrementRewardPoints(Integer rewardPoints) {
+        this.rewardPoints += rewardPoints;
+    }
+
+    public void decrementRewardPoints(Integer rewardPoints) {
+        this.rewardPoints -= rewardPoints;
     }
 
     public String getNickname() {
@@ -71,5 +95,9 @@ public class User {
 
     public Integer getHelpPoints() {
         return helpPoints;
+    }
+
+    public Integer getRewardPoints() {
+        return rewardPoints;
     }
 }

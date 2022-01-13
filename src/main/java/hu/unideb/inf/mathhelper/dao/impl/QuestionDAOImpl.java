@@ -5,10 +5,10 @@ import hu.unideb.inf.mathhelper.exception.QuestionFileNotFoundException;
 import hu.unideb.inf.mathhelper.exception.UnknownYearException;
 import hu.unideb.inf.mathhelper.model.question.Question;
 import hu.unideb.inf.mathhelper.model.question.Root;
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Unmarshaller;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.util.List;
 import java.util.Map;
@@ -23,24 +23,39 @@ public class QuestionDAOImpl implements QuestionDAO {
     private static final int MAX_YEAR = 2021;
     private static final int MIN_YEAR = 2021;
 
+    private List<Question> allList;
+    private Map<String,List<Question>> questionMap;
+    private List<Question> specificYearQuestion;
+    private String lastQueriedYear;
+
     @Override
     public List<Question> loadQuestionsIntoList(String path) throws QuestionFileNotFoundException {
-        File folder = checkFileExistence(path);
-        return load(folder,"all");
+        if (questionMap == null) {
+            File folder = checkFileExistence(path);
+            allList = load(folder,"all");
+        }
+        return allList;
     }
 
     @Override
     public Map<String, List<Question>> mapAllQuestions(String path) throws QuestionFileNotFoundException {
-        File folder = checkFileExistence(path);
-        return loadMap(folder);
+        if (questionMap == null) {
+            File folder = checkFileExistence(path);
+            questionMap = loadMap(folder);
+        }
+        return questionMap;
     }
 
     @Override
     public List<Question> loadQuestionsByYear(String path, String year) throws UnknownYearException,
             QuestionFileNotFoundException {
-        File folder = checkFileExistence(path);
-        checkYearValidation(year);
-        return load(folder,year);
+        if (specificYearQuestion == null || !year.equals(lastQueriedYear)) {
+            File folder = checkFileExistence(path);
+            checkYearValidation(year);
+            specificYearQuestion = load(folder,year);
+            lastQueriedYear = year;
+        }
+        return specificYearQuestion;
     }
 
     private Map<String, List<Question>> loadMap(File folder) {
