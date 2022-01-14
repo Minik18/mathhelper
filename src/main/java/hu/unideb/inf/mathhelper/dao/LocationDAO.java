@@ -8,4 +8,10 @@ public interface LocationDAO {
 
     String getLevelSystemFilePath();
 
+    String getScenesFolderPath();
+
+    String getPanesFolderPath();
+
+    String getStageFilePath();
+
 }

@@ -2,17 +2,17 @@ package hu.unideb.inf.mathhelper.dao.impl;
 
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.model.Location;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import org.apache.commons.configuration.CompositeConfiguration;
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.commons.configuration.SystemConfiguration;
 
-import java.io.File;
 import java.util.Objects;
 
 public class LocationDAOImpl implements LocationDAO {
 
     private static final String LOCATION_FILE_PATH = Objects.requireNonNull(LocationDAOImpl.class.
-            getClassLoader().getResource("settings/locations.xml")).getPath();
+            getClassLoader().getResource("settings/locations.properties")).getPath();
 
     private Location location;
 
@@ -43,16 +43,48 @@ public class LocationDAOImpl implements LocationDAO {
                 getClassLoader().getResource(location.getLevelsFile())).getPath();
     }
 
+    @Override
+    public String getScenesFolderPath() {
+        if (location == null) {
+            load();
+        }
+        return Objects.requireNonNull(LocationDAOImpl.class.
+                getClassLoader().getResource(location.getScenesFolder())).getPath();
+    }
+
+    @Override
+    public String getPanesFolderPath() {
+        if (location == null) {
+            load();
+        }
+        return Objects.requireNonNull(LocationDAOImpl.class.
+                getClassLoader().getResource(location.getPanesFolder())).getPath();
+    }
+
+    @Override
+    public String getStageFilePath() {
+        if (location == null) {
+            load();
+        }
+        return Objects.requireNonNull(LocationDAOImpl.class.
+                getClassLoader().getResource(location.getStageFile())).getPath();
+    }
+
     private void load() {
-        JAXBContext jaxbContext;
-        Unmarshaller unmarshaller;
+        CompositeConfiguration config = new CompositeConfiguration();
+        config.addConfiguration(new SystemConfiguration());
         try {
-            jaxbContext = JAXBContext.newInstance(Location.class);
-            unmarshaller = jaxbContext.createUnmarshaller();
-            File file = new File(LOCATION_FILE_PATH);
-            this.location = (Location) unmarshaller.unmarshal(file);
-        } catch (JAXBException e) {
-            //TODO: Log error
+            config.addConfiguration(new PropertiesConfiguration(LOCATION_FILE_PATH));
+            location = new Location.Builder()
+                    .withLevelsFile(config.getString("location.level"))
+                    .withPicturesFolder(config.getString("location.pictures_folder"))
+                    .withQuestionFolder(config.getString("location.questions_folder"))
+                    .withPanesFolder(config.getString("location.ui.panes_folder"))
+                    .withStageFile(config.getString("location.ui.stage"))
+                    .withScenesFolder(config.getString("location.ui.scenes_folder"))
+                    .build();
+        } catch (ConfigurationException e) {
+            //TODO: Handle error
             e.printStackTrace();
         }
     }
