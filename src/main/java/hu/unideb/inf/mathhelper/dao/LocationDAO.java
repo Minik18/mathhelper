@@ -12,6 +12,4 @@ public interface LocationDAO {
 
     String getPanesFolderPath();
 
-    String getStageFilePath();
-
 }

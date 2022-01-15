@@ -5,7 +5,6 @@ public class Location {
     private String levelsFile;
     private String questionFolder;
     private String picturesFolder;
-    private String stageFile;
     private String scenesFolder;
     private String panesFolder;
 
@@ -15,7 +14,6 @@ public class Location {
         private String levelsFile;
         private String questionFolder;
         private String picturesFolder;
-        private String stageFile;
         private String scenesFolder;
         private String panesFolder;
 
@@ -44,11 +42,6 @@ public class Location {
             return this;
         }
 
-        public Builder withStageFile(String stageFile) {
-            this.stageFile = stageFile;
-            return this;
-        }
-
         public Location build() {
             Location location = new Location();
             location.levelsFile = this.levelsFile;
@@ -56,13 +49,8 @@ public class Location {
             location.questionFolder = this.questionFolder;
             location.panesFolder = this.panesFolder;
             location.scenesFolder = this.scenesFolder;
-            location.stageFile = this.stageFile;
             return location;
         }
-    }
-
-    public String getStageFile() {
-        return stageFile;
     }
 
     public String getScenesFolder() {

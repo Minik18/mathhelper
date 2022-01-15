@@ -61,15 +61,6 @@ public class LocationDAOImpl implements LocationDAO {
                 getClassLoader().getResource(location.getPanesFolder())).getPath();
     }
 
-    @Override
-    public String getStageFilePath() {
-        if (location == null) {
-            load();
-        }
-        return Objects.requireNonNull(LocationDAOImpl.class.
-                getClassLoader().getResource(location.getStageFile())).getPath();
-    }
-
     private void load() {
         CompositeConfiguration config = new CompositeConfiguration();
         config.addConfiguration(new SystemConfiguration());
