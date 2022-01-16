@@ -34,4 +34,8 @@ public class Config {
         return new UserRepositoryDAOImpl(userRepository);
     }
 
+    @Bean
+    public SceneDAO sceneDAO(LocationDAO locationDAO) {
+        return new SceneDAOImpl(locationDAO);
+    }
 }

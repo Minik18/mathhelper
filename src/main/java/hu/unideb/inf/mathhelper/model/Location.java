@@ -7,6 +7,7 @@ public class Location {
     private String picturesFolder;
     private String scenesFolder;
     private String panesFolder;
+    private String textFolder;
 
     private Location() {}
 
@@ -16,6 +17,7 @@ public class Location {
         private String picturesFolder;
         private String scenesFolder;
         private String panesFolder;
+        private String textFolder;
 
         public Builder withLevelsFile(String levelsFile) {
             this.levelsFile = levelsFile;
@@ -24,6 +26,11 @@ public class Location {
 
         public Builder withQuestionFolder(String questionFolder) {
             this.questionFolder = questionFolder;
+            return this;
+        }
+
+        public Builder withTextFolder(String textFolder) {
+            this.textFolder = textFolder;
             return this;
         }
 
@@ -49,6 +56,7 @@ public class Location {
             location.questionFolder = this.questionFolder;
             location.panesFolder = this.panesFolder;
             location.scenesFolder = this.scenesFolder;
+            location.textFolder = this.textFolder;
             return location;
         }
     }
@@ -71,5 +79,9 @@ public class Location {
 
     public String getPicturesFolder() {
         return picturesFolder;
+    }
+
+    public String getTextFolder() {
+        return textFolder;
     }
 }

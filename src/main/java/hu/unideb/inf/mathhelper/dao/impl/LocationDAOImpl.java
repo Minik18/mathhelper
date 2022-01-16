@@ -61,6 +61,14 @@ public class LocationDAOImpl implements LocationDAO {
                 getClassLoader().getResource(location.getPanesFolder())).getPath();
     }
 
+    @Override
+    public String getTextFolderPath() {
+        if (location == null) {
+            load();
+        }
+        return location.getTextFolder();
+    }
+
     private void load() {
         CompositeConfiguration config = new CompositeConfiguration();
         config.addConfiguration(new SystemConfiguration());
@@ -71,8 +79,8 @@ public class LocationDAOImpl implements LocationDAO {
                     .withPicturesFolder(config.getString("location.pictures_folder"))
                     .withQuestionFolder(config.getString("location.questions_folder"))
                     .withPanesFolder(config.getString("location.ui.panes_folder"))
-                    .withStageFile(config.getString("location.ui.stage"))
                     .withScenesFolder(config.getString("location.ui.scenes_folder"))
+                    .withTextFolder(config.getString("location.ui.text_folder"))
                     .build();
         } catch (ConfigurationException e) {
             //TODO: Handle error

@@ -19,6 +19,9 @@ public class UserRepositoryDAOImpl implements UserRepositoryDAO {
 
     @Override
     public User getUser() {
+        if(userRepository.count() == 0) {
+            save(new User("default"));
+        }
         return userRepository.findAll().iterator().next();
     }
 }

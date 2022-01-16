@@ -12,4 +12,6 @@ public interface LocationDAO {
 
     String getPanesFolderPath();
 
+    String getTextFolderPath();
+
 }
