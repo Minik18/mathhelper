@@ -11,6 +11,7 @@ public class UserData {
     private Integer numberOfCompletedQuestions;
     private Integer helpPoints;
     private Integer rewardPoints;
+    private Integer countOfFinals;
 
     private UserData() {
 
@@ -24,6 +25,12 @@ public class UserData {
         private Integer numberOfCompletedQuestions;
         private Integer helpPoints;
         private Integer rewardPoints;
+        private Integer countOfFinals;
+
+        public Builder withCountOfFinals(Integer number) {
+            this.countOfFinals = number;
+            return this;
+        }
 
         public Builder withNickname(String nickname) {
             this.nickname = nickname;
@@ -69,8 +76,13 @@ public class UserData {
             userData.nickname = this.nickname;
             userData.numberOfCompletedQuestions = this.numberOfCompletedQuestions;
             userData.rewardPoints = this.rewardPoints;
+            userData.countOfFinals = this.countOfFinals;
             return userData;
         }
+    }
+
+    public Integer getCountOfFinals() {
+        return countOfFinals;
     }
 
     public String getNickname() {

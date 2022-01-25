@@ -15,6 +15,7 @@ public class User {
 
     @ElementCollection(targetClass=String.class)
     private List<String> completedQuestionIds = new ArrayList<>();
+    private Integer countOfFinals;
     private Integer level;
     private Integer xp;
     private Integer numberOfCompletedQuestions;
@@ -28,9 +29,14 @@ public class User {
         this.xp = 0;
         this.numberOfCompletedQuestions = 0;
         this.rewardPoints = 0;
+        this.countOfFinals = 0;
     }
 
     protected User() {
+    }
+
+    public void incrementCountOfFinals(Integer count) {
+        countOfFinals += count;
     }
 
     public void setNickname(String nickname) {
@@ -99,5 +105,9 @@ public class User {
 
     public Integer getRewardPoints() {
         return rewardPoints;
+    }
+
+    public Integer getCountOfFinals() {
+        return countOfFinals;
     }
 }

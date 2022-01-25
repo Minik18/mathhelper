@@ -8,6 +8,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import java.io.File;
+import java.net.URL;
 import java.util.*;
 
 public class LevelDAOImpl implements LevelDAO {
@@ -15,20 +16,20 @@ public class LevelDAOImpl implements LevelDAO {
     private List<Level> levels;
 
     @Override
-    public List<Level> getLevelSystem(String path) {
+    public List<Level> getLevelSystem(URL path) {
         if (levels == null) {
             loadLevel(path);
         }
         return levels;
     }
-    private void loadLevel(String path) {
+    private void loadLevel(URL path) {
         JAXBContext jaxbContext;
         Unmarshaller unmarshaller;
         List<Level> result = new ArrayList<>();
         try {
             jaxbContext = JAXBContext.newInstance(Levels.class);
             unmarshaller = jaxbContext.createUnmarshaller();
-            File file = new File(path);
+            File file = new File(path.getPath());
             Levels levels = (Levels) unmarshaller.unmarshal(file);
             result.addAll(levels.getLevelList());
         } catch (JAXBException e) {

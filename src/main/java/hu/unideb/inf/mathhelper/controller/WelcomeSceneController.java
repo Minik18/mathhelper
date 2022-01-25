@@ -1,11 +1,15 @@
 package hu.unideb.inf.mathhelper.controller;
 
+import hu.unideb.inf.mathhelper.service.UserHandleService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Locale;
 
+@Component
 public class WelcomeSceneController implements Controller{
 
     @FXML
@@ -14,18 +18,23 @@ public class WelcomeSceneController implements Controller{
     @FXML
     private Button submit;
 
+    @Autowired
+    private UserHandleService userHandleService;
+
     @Override
     public void setup() {
         submit.setOnMouseClicked(event ->
         {
             String text = userInput.getText();
             if (isValid(text)) {
+                userHandleService.updateNickname(text);
                 loadMainScene();
             }
         });
     }
 
     private void loadMainScene() {
+        //TODO
         System.out.println("Clicked");
     }
 

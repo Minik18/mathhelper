@@ -4,9 +4,11 @@ import hu.unideb.inf.mathhelper.controller.Controller;
 import hu.unideb.inf.mathhelper.exception.SceneNotFoundException;
 import javafx.scene.Scene;
 
+import java.net.URL;
+
 public interface SceneDAO {
 
-    Scene loadScene(String path, String fileName) throws SceneNotFoundException;
+    Scene loadScene(URL path) throws SceneNotFoundException;
 
     Controller getController();
 

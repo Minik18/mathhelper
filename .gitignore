@@ -1,4 +1,5 @@
 .idea/
 target/
 user/
+data/
 math-helper.iml

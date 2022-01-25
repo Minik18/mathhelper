@@ -3,6 +3,7 @@ package hu.unideb.inf.mathhelper.config;
 import hu.unideb.inf.mathhelper.dao.*;
 import hu.unideb.inf.mathhelper.dao.impl.*;
 import hu.unideb.inf.mathhelper.repository.UserRepository;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -35,7 +36,7 @@ public class Config {
     }
 
     @Bean
-    public SceneDAO sceneDAO(LocationDAO locationDAO) {
-        return new SceneDAOImpl(locationDAO);
+    public SceneDAO sceneDAO(ApplicationContext applicationContext) {
+        return new SceneDAOImpl(applicationContext);
     }
 }

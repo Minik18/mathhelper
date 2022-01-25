@@ -9,26 +9,30 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class SceneDAOImpl implements SceneDAO {
 
     private Controller controller;
-    private final String locationOFResourceBundle;
+    private final ApplicationContext applicationContext;
 
     @Autowired
-    public SceneDAOImpl(LocationDAO locationDAO) {
-        locationOFResourceBundle = locationDAO.getTextFolderPath();
+    private LocationDAO locationDAO;
+
+    public SceneDAOImpl(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
     }
 
     @Override
-    public Scene loadScene(String path, String fileName) throws SceneNotFoundException{
+    public Scene loadScene(URL path) throws SceneNotFoundException{
         File file = checkFileExistence(path);
-        return new Scene(load(file, fileName));
+        return new Scene(load(file));
     }
 
     @Override
@@ -36,8 +40,8 @@ public class SceneDAOImpl implements SceneDAO {
         return controller;
     }
 
-    private File checkFileExistence(String path) throws SceneNotFoundException {
-        File file = new File(path);
+    private File checkFileExistence(URL path) throws SceneNotFoundException {
+        File file = new File(path.getPath());
         if (!file.exists()) {
             throw new SceneNotFoundException("No scene fxml file found in the given path: " + path);
         } else {
@@ -46,10 +50,13 @@ public class SceneDAOImpl implements SceneDAO {
     }
 
 
-    private Parent load(File file, String fileName) {
+    private Parent load(File file) {
+        String sceneName = file.getName();
+        String bundleName = sceneName.substring(0,sceneName.indexOf("."));
         try {
-            ResourceBundle resource = ResourceBundle.getBundle(locationOFResourceBundle + "." + fileName, new Locale("hu","HU"));
+            ResourceBundle resource = ResourceBundle.getBundle(locationDAO.getTextFilePath(bundleName), new Locale("hu","HU"));
             FXMLLoader loader = new FXMLLoader(file.toURI().toURL(),resource);
+            loader.setControllerFactory(applicationContext::getBean);
             loader.load();
             Parent parent = loader.getRoot();
             controller = loader.getController();

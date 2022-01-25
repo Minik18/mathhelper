@@ -1,17 +1,19 @@
 package hu.unideb.inf.mathhelper.dao;
 
+import java.net.URL;
+
 public interface LocationDAO {
 
-    String getQuestionsFolderPath();
+    URL getQuestionFilePath(String fileName);
 
-    String getPicturesFolderPath();
+    URL getPictureFilePath(String fileName);
 
-    String getLevelSystemFilePath();
+    URL getLevelSystemFilePath();
 
-    String getScenesFolderPath();
+    URL getSceneFilePath(String fileName);
 
-    String getPanesFolderPath();
+    URL getPaneFilePath(String fileName);
 
-    String getTextFolderPath();
+    String getTextFilePath(String fileName);
 
 }

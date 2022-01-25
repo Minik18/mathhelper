@@ -7,6 +7,7 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.configuration.SystemConfiguration;
 
+import java.net.URL;
 import java.util.Objects;
 
 public class LocationDAOImpl implements LocationDAO {
@@ -17,56 +18,51 @@ public class LocationDAOImpl implements LocationDAO {
     private Location location;
 
     @Override
-    public String getQuestionsFolderPath() {
+    public URL getQuestionFilePath(String fileName) {
         if (location == null) {
             load();
         }
-        return Objects.requireNonNull(LocationDAOImpl.class.
-                getClassLoader().getResource(location.getQuestionFolder())).getPath();
+        return getURLFromPath(location.getQuestionFolder() + "/" + fileName);
     }
 
     @Override
-    public String getPicturesFolderPath() {
+    public URL getPictureFilePath(String fileName) {
         if (location == null) {
             load();
         }
-        return Objects.requireNonNull(LocationDAOImpl.class.
-                getClassLoader().getResource(location.getPicturesFolder())).getPath();
+        return getURLFromPath(location.getPicturesFolder() + "/" + fileName);
     }
 
     @Override
-    public String getLevelSystemFilePath() {
+    public URL getLevelSystemFilePath() {
         if (location == null) {
             load();
         }
-        return Objects.requireNonNull(LocationDAOImpl.class.
-                getClassLoader().getResource(location.getLevelsFile())).getPath();
+        return getURLFromPath(location.getLevelsFile());
     }
 
     @Override
-    public String getScenesFolderPath() {
+    public URL getSceneFilePath(String fileName) {
         if (location == null) {
             load();
         }
-        return Objects.requireNonNull(LocationDAOImpl.class.
-                getClassLoader().getResource(location.getScenesFolder())).getPath();
+        return getURLFromPath(location.getScenesFolder() + "/" + fileName);
     }
 
     @Override
-    public String getPanesFolderPath() {
+    public URL getPaneFilePath(String fileName) {
         if (location == null) {
             load();
         }
-        return Objects.requireNonNull(LocationDAOImpl.class.
-                getClassLoader().getResource(location.getPanesFolder())).getPath();
+        return getURLFromPath(location.getPanesFolder() + "/" + fileName);
     }
 
     @Override
-    public String getTextFolderPath() {
+    public String getTextFilePath(String fileName) {
         if (location == null) {
             load();
         }
-        return location.getTextFolder();
+        return location.getTextFolder() + "/" + fileName;
     }
 
     private void load() {
@@ -86,6 +82,11 @@ public class LocationDAOImpl implements LocationDAO {
             //TODO: Handle error
             e.printStackTrace();
         }
+    }
+
+    private URL getURLFromPath(String path) {
+        return Objects.requireNonNull(LocationDAOImpl.class.
+                getClassLoader().getResource(path));
     }
 
 }

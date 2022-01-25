@@ -19,11 +19,13 @@ public class UserHandleServiceImpl implements UserHandleService {
     private static final int MIN_LENGTH = 5;
 
     private final List<Level> levels;
+    private final UserTrackService userTrackService;
     private final User user;
 
     @Autowired
     public UserHandleServiceImpl(UserTrackService userTrackService, LevelDAO levelDAO,
                                  LocationDAO locationDAO) {
+        this.userTrackService = userTrackService;
         user = userTrackService.getCurrentUser();
         levels = levelDAO.getLevelSystem(locationDAO.getLevelSystemFilePath());
     }
@@ -40,6 +42,7 @@ public class UserHandleServiceImpl implements UserHandleService {
     public void updateNickname(String newNickname) {
         if (validNickname(newNickname)) {
             user.setNickname(newNickname);
+            userTrackService.updateCurrentUser(user);
         }
     }
 
@@ -53,6 +56,7 @@ public class UserHandleServiceImpl implements UserHandleService {
                 .withNumberOfCompletedQuestions(user.getNumberOfCompletedQuestions())
                 .withLevel(user.getLevel())
                 .withRewardPoints(user.getRewardPoints())
+                .withCountOfFinals(user.getCountOfFinals())
                 .build();
     }
 
