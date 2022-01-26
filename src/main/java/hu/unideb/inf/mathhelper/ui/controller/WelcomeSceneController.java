@@ -1,4 +1,4 @@
-package hu.unideb.inf.mathhelper.controller;
+package hu.unideb.inf.mathhelper.ui.controller;
 
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import javafx.fxml.FXML;

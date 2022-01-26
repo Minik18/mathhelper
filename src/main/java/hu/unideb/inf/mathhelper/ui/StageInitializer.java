@@ -1,6 +1,7 @@
-package hu.unideb.inf.mathhelper;
+package hu.unideb.inf.mathhelper.ui;
 
-import hu.unideb.inf.mathhelper.controller.Controller;
+import hu.unideb.inf.mathhelper.MathHelperApplication;
+import hu.unideb.inf.mathhelper.ui.controller.Controller;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
 import hu.unideb.inf.mathhelper.exception.SceneNotFoundException;

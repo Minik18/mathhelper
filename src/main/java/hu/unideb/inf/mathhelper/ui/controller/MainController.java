@@ -1,4 +1,4 @@
-package hu.unideb.inf.mathhelper.controller;
+package hu.unideb.inf.mathhelper.ui.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
