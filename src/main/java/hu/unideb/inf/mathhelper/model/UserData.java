@@ -27,6 +27,7 @@ public class UserData {
         private Integer rewardPoints;
         private Integer countOfFinals;
 
+
         public Builder withCountOfFinals(Integer number) {
             this.countOfFinals = number;
             return this;

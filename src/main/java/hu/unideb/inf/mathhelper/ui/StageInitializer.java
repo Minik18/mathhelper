@@ -34,8 +34,8 @@ public class StageInitializer implements ApplicationListener<MathHelperApplicati
     public void onApplicationEvent(MathHelperApplication.StageReadyEvent event) {
        Scene scene = getScene();
        Stage stage = event.getStage();
-       controller.setup();
        stage.setScene(scene);
+       controller.setup(stage);
        stage.show();
     }
 

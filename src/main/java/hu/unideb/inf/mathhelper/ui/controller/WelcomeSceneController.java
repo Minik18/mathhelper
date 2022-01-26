@@ -1,16 +1,38 @@
 package hu.unideb.inf.mathhelper.ui.controller;
 
+import hu.unideb.inf.mathhelper.dao.LocationDAO;
+import hu.unideb.inf.mathhelper.dao.SceneDAO;
+import hu.unideb.inf.mathhelper.exception.SceneNotFoundException;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
 
 @Component
-public class WelcomeSceneController implements Controller{
+public class WelcomeSceneController implements Controller {
+
+    @Autowired
+    private UserHandleService userHandleService;
+
+    @Autowired
+    private SceneDAO sceneDAO;
+
+    @Autowired
+    private LocationDAO locationDAO;
+
+    @FXML
+    public Text errorText;
+
+    @FXML
+    public AnchorPane anchorPane;
 
     @FXML
     private TextField userInput;
@@ -18,24 +40,33 @@ public class WelcomeSceneController implements Controller{
     @FXML
     private Button submit;
 
-    @Autowired
-    private UserHandleService userHandleService;
-
     @Override
-    public void setup() {
+    public void setup(Stage stage) {
         submit.setOnMouseClicked(event ->
         {
             String text = userInput.getText();
             if (isValid(text)) {
                 userHandleService.updateNickname(text);
-                loadMainScene();
+                loadMainScene(stage);
+            } else {
+                errorText.setVisible(true);
             }
         });
     }
 
-    private void loadMainScene() {
-        //TODO
-        System.out.println("Clicked");
+    private void loadMainScene(Stage stage) {
+        try {
+            Stage newStage = new Stage();
+            Scene scene = sceneDAO.loadScene(locationDAO.getSceneFilePath("main.fxml"));
+            Controller controller = sceneDAO.getController();
+            stage.close();
+            newStage.setScene(scene);
+            controller.setup(newStage);
+            newStage.show();
+        } catch (SceneNotFoundException e) {
+            //TODO
+            e.printStackTrace();
+        }
     }
 
     private boolean isValid(String text) {
