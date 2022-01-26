@@ -2,10 +2,13 @@ package hu.unideb.inf.mathhelper.ui.controller;
 
 import hu.unideb.inf.mathhelper.dao.LevelDAO;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
+import hu.unideb.inf.mathhelper.dao.SceneDAO;
+import hu.unideb.inf.mathhelper.exception.SceneNotFoundException;
 import hu.unideb.inf.mathhelper.model.UserData;
 import hu.unideb.inf.mathhelper.model.level.Level;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
@@ -31,11 +34,17 @@ public class MainController implements Controller{
     @Autowired
     private LocationDAO locationDAO;
 
+    @Autowired
+    private SceneDAO sceneDAO;
+
     @Value("${ui.text.level}")
     private String levelString;
 
     @Value("${ui.text.xp}")
     private String xpString;
+
+    @FXML
+    public AnchorPane centerPane;
 
     @FXML
     public AnchorPane anchorPane;
@@ -93,7 +102,7 @@ public class MainController implements Controller{
      settings.setOnMouseClicked(event -> loadSettingsPane());
      help.setOnMouseClicked(event -> loadHelpPane());
      legal.setOnMouseClicked(event -> loadLegalPane());
-     exit.setOnMouseClicked(event -> exitApp());
+     exit.setOnMouseClicked(event -> exitApp(stage));
      updateUserInformation();
     }
 
@@ -125,14 +134,19 @@ public class MainController implements Controller{
         }
     }
 
-    private void exitApp() {
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
+    private void exitApp(Stage stage) {
         stage.close();
     }
 
     private void loadLegalPane() {
-        //TODO
-        System.out.println("Legal clicked");
+        try {
+            AnchorPane anchorPane = (AnchorPane) sceneDAO.loadScene(locationDAO.getPaneFilePath("legal.fxml")).getRoot();
+            centerPane.getChildren().clear();
+            centerPane.getChildren().addAll(anchorPane);
+        } catch (SceneNotFoundException e) {
+            //TODO
+            e.printStackTrace();
+        }
     }
 
     private void loadHelpPane() {
