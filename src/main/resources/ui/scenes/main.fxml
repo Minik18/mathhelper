@@ -9,11 +9,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.MainController">
+<AnchorPane fx:id="anchorPane" minHeight="720.0" minWidth="1280.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.MainController">
    <children>
       <BorderPane layoutX="193.0" layoutY="89.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -33,11 +34,19 @@
                               </ImageView>
                               <Button fx:id="randomQuestion" mnemonicParsing="false" prefWidth="113.0" text="%random_question" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets left="50.0" right="20.0" />
                                  </HBox.margin>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
                               </Button>
                            </children>
                         </HBox>
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                        </Separator>
                         <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
@@ -55,6 +64,11 @@
                               </Button>
                            </children>
                         </HBox>
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                        </Separator>
                         <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
@@ -72,7 +86,12 @@
                               </Button>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0">
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
@@ -89,6 +108,11 @@
                               </Button>
                            </children>
                         </HBox>
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                        </Separator>
                         <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
@@ -106,6 +130,11 @@
                               </Button>
                            </children>
                         </HBox>
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                        </Separator>
                         <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
@@ -123,6 +152,11 @@
                               </Button>
                            </children>
                         </HBox>
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                        </Separator>
                         <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
@@ -143,6 +177,9 @@
                      </children>
                   </VBox>
                </center>
+               <top>
+                  <Pane maxHeight="1.0" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+               </top>
             </BorderPane>
          </left>
          <top>
@@ -150,125 +187,146 @@
                <center>
                   <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="234.0" HBox.hgrow="ALWAYS">
+                        <VBox alignment="CENTER" maxWidth="234.0" minWidth="234.0" prefHeight="150.0" prefWidth="234.0" HBox.hgrow="NEVER">
                            <children>
-                              <ImageView fitHeight="116.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                              <ImageView fitHeight="150.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../pics/math.png" />
                                  </image>
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin></ImageView>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </ImageView>
                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="168.0" prefWidth="715.0" HBox.hgrow="NEVER">
+                        </VBox>
+                        <Pane maxWidth="1.0" prefHeight="200.0" prefWidth="1.0" style="-fx-background-color: black;" />
+                        <VBox alignment="CENTER" prefHeight="170.0" prefWidth="28.0">
                            <children>
-                              <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets left="25.0" />
-                                 </HBox.margin>
+                              <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../pics/user.png" />
                                  </image>
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </VBox.margin>
                               </ImageView>
-                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets bottom="10.0" left="30.0" top="10.0" />
-                                 </HBox.margin>
-                                 <children>
-                                    <Text fx:id="level" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;level&gt;" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets top="10.0" />
-                                       </VBox.margin>
-                                    </Text>
-                                    <Text fx:id="username" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;username&gt;">
-                                       <font>
-                                          <Font size="36.0" />
-                                       </font>
-                                    </Text>
-                                    <ProgressBar fx:id="xpBar" prefWidth="200.0" progress="0.0" />
-                                    <Text fx:id="xp" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;xp_count&gt; / &lt;xp_max&gt; xp" />
-                                 </children>
-                              </VBox>
-                              <Separator orientation="VERTICAL" prefHeight="200.0" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets bottom="20.0" left="50.0" top="20.0" />
-                                 </HBox.margin>
-                              </Separator>
-                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets left="50.0" />
-                                 </HBox.margin>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%reward_points">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets top="20.0" />
-                                       </VBox.margin>
-                                    </Text>
-                                    <Text fx:id="rewardPoints" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;reward points&gt;" />
-                                    <Text layoutX="56.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%help_points">
-                                       <VBox.margin>
-                                          <Insets top="30.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Text>
-                                    <Text fx:id="helpPoints" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;help points&gt;" />
-                                 </children>
-                              </VBox>
-                              <Separator orientation="VERTICAL" prefHeight="200.0" HBox.hgrow="ALWAYS">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <HBox.margin>
-                                    <Insets bottom="20.0" left="50.0" top="20.0" />
-                                 </HBox.margin>
-                                 <padding>
-                                    <Insets right="50.0" />
-                                 </padding>
-                              </Separator>
-                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%completed_questions">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets top="20.0" />
-                                       </VBox.margin>
-                                    </Text>
-                                    <Text fx:id="completedQuestions" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;completed questions&gt;" />
-                                    <Text layoutX="56.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%completed_finals">
-                                       <VBox.margin>
-                                          <Insets top="30.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Text>
-                                    <Text fx:id="completedFinals" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;completed final&gt;" />
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets right="25.0" />
-                                 </HBox.margin>
-                              </VBox>
                            </children>
-                        </HBox>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="113.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </HBox.margin>
+                           <children>
+                              <Text fx:id="level" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;level&gt;" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Text fx:id="username" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;username&gt;">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Text>
+                              <ProgressBar prefWidth="200.0" progress="0.0" fx:id="xpBar" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;xp_count&gt; / &lt;xp_max&gt; xp" fx:id="xp" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="50.0" top="20.0" />
+                           </HBox.margin>
+                        </Separator>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%reward_points">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Text fx:id="rewardPoints" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;reward points&gt;" />
+                              <Text layoutX="56.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%help_points">
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="helpPoints" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;help points&gt;" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" HBox.hgrow="ALWAYS">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="50.0" top="20.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="50.0" />
+                           </padding>
+                        </Separator>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%completed_questions">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Text fx:id="completedQuestions" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;completed questions&gt;" />
+                              <Text layoutX="56.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%completed_finals">
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="completedFinals" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;completed final&gt;" />
+                           </children>
+                           <HBox.margin>
+                              <Insets right="25.0" />
+                           </HBox.margin>
+                        </VBox>
                      </children>
                   </HBox>
                </center>
             </BorderPane>
          </top>
          <center>
-            <AnchorPane fx:id="centerPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <left>
+                  <Pane prefHeight="626.0" prefWidth="1.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+               </left>
+               <top>
+                  <Pane prefHeight="1.0" prefWidth="790.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <AnchorPane fx:id="centerPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
          </center>
+         <bottom>
+            <Pane prefHeight="1.0" prefWidth="1024.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+         </bottom>
+         <right>
+            <Pane prefHeight="768.0" prefWidth="1.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+         </right>
       </BorderPane>
    </children>
 </AnchorPane>

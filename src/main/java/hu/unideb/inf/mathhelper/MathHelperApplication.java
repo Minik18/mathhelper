@@ -18,7 +18,9 @@ public class MathHelperApplication extends Application {
 
     @Override
     public void init() {
-        applicationContext = new SpringApplicationBuilder(hu.unideb.inf.mathhelper.Application.class).run();
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(hu.unideb.inf.mathhelper.Application.class);
+        builder.headless(false);
+        applicationContext = builder.run();
     }
 
     @Override

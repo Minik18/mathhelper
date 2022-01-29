@@ -8,7 +8,6 @@ import hu.unideb.inf.mathhelper.model.UserData;
 import hu.unideb.inf.mathhelper.model.level.Level;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
@@ -42,6 +41,9 @@ public class MainController implements Controller{
 
     @Value("${ui.text.xp}")
     private String xpString;
+
+    @Value("${ui.text.point}")
+    private String pointString;
 
     @FXML
     public AnchorPane centerPane;
@@ -96,13 +98,13 @@ public class MainController implements Controller{
 
     @Override
     public void setup(Stage stage) {
-     randomQuestion.setOnMouseClicked(event -> loadRandomQuestionPane());
-     categories.setOnMouseClicked(event -> loadCategoryChoosePane());
-     finalTest.setOnMouseClicked(event -> loadFinalTestPane());
-     settings.setOnMouseClicked(event -> loadSettingsPane());
-     help.setOnMouseClicked(event -> loadHelpPane());
-     legal.setOnMouseClicked(event -> loadLegalPane());
-     exit.setOnMouseClicked(event -> exitApp(stage));
+     randomQuestion.setOnMouseClicked(event -> loadPane("random.fxml"));
+     categories.setOnMouseClicked(event -> loadPane("categories.fxml"));
+     finalTest.setOnMouseClicked(event -> loadPane("final.fxml"));
+     settings.setOnMouseClicked(event -> loadPane("settings.fxml"));
+     help.setOnMouseClicked(event -> loadPane("help.fxml"));
+     legal.setOnMouseClicked( event -> loadPane("legal.fxml"));
+     exit.setOnMouseClicked(event -> stage.close());
      updateUserInformation();
     }
 
@@ -112,10 +114,10 @@ public class MainController implements Controller{
         Integer currentXp = userData.getXp();
         Integer maxXp = getMaxXpOnCurrentLevel(levelCount);
         username.setText(userData.getNickname());
-        rewardPoints.setText(userData.getRewardPoints().toString());
-        helpPoints.setText(userData.getHelpPoints().toString());
-        completedQuestions.setText(userData.getNumberOfCompletedQuestions().toString());
-        completedFinals.setText(userData.getCountOfFinals().toString());
+        rewardPoints.setText(userData.getRewardPoints().toString() + pointString);
+        helpPoints.setText(userData.getHelpPoints().toString() + pointString);
+        completedQuestions.setText(userData.getNumberOfCompletedQuestions().toString() + pointString);
+        completedFinals.setText(userData.getCountOfFinals().toString() + pointString);
         level.setText(levelCount + levelString);
         xp.setText(currentXp + " / " + maxXp + xpString);
         xpBar.setProgress(currentXp / (maxXp + 0.0) );
@@ -134,43 +136,15 @@ public class MainController implements Controller{
         }
     }
 
-    private void exitApp(Stage stage) {
-        stage.close();
-    }
-
-    private void loadLegalPane() {
+    private void loadPane(String fileName) {
         try {
-            AnchorPane anchorPane = (AnchorPane) sceneDAO.loadScene(locationDAO.getPaneFilePath("legal.fxml")).getRoot();
+            AnchorPane anchorPane = (AnchorPane) sceneDAO.loadScene(locationDAO.getPaneFilePath(fileName)).getRoot();
+            sceneDAO.getController().setup(null);
             centerPane.getChildren().clear();
-            centerPane.getChildren().addAll(anchorPane);
+            centerPane.getChildren().addAll(anchorPane.getChildren());
         } catch (SceneNotFoundException e) {
             //TODO
             e.printStackTrace();
         }
-    }
-
-    private void loadHelpPane() {
-        //TODO
-        System.out.println("Help clicked");
-    }
-
-    private void loadSettingsPane() {
-        //TODO
-        System.out.println("Settings clicked");
-    }
-
-    private void loadFinalTestPane() {
-        //TODO
-        System.out.println("Finals clicked");
-    }
-
-    private void loadCategoryChoosePane() {
-        //TODO
-        System.out.println("Categories clicked");
-    }
-
-    private void loadRandomQuestionPane() {
-        //TODO
-        System.out.println("Random Question clicked");
     }
 }
