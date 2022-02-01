@@ -18,19 +18,28 @@ public class LocationDAOImpl implements LocationDAO {
     private Location location;
 
     @Override
-    public URL getQuestionFilePath(String fileName) {
+    public URL getQuestionFolderPath() {
         if (location == null) {
             load();
         }
-        return getURLFromPath(location.getQuestionFolder() + "/" + fileName);
+        return getURLFromPath(location.getQuestionFolder());
     }
 
     @Override
-    public URL getPictureFilePath(String fileName) {
+    public String getQuestionPictureFilePath(String fileName) {
         if (location == null) {
             load();
         }
-        return getURLFromPath(location.getPicturesFolder() + "/" + fileName);
+        String folderName = fileName.substring(0,fileName.indexOf("_",5));
+        return getURLFromPath(location.getPicturesFolder() + "/" + folderName + "/" + fileName).toString();
+    }
+
+    @Override
+    public String getUiPictureFilePath(String fileName) {
+        if (location == null) {
+            load();
+        }
+        return getURLFromPath(location.getUiPicturesFolder() + "/" + fileName).toString();
     }
 
     @Override
@@ -77,6 +86,7 @@ public class LocationDAOImpl implements LocationDAO {
                     .withPanesFolder(config.getString("location.ui.panes_folder"))
                     .withScenesFolder(config.getString("location.ui.scenes_folder"))
                     .withTextFolder(config.getString("location.ui.text_folder"))
+                    .withUiPicturesFolder(config.getString("location.ui.pictures_folder"))
                     .build();
         } catch (ConfigurationException e) {
             //TODO: Handle error

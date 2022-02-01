@@ -4,9 +4,11 @@ import java.net.URL;
 
 public interface LocationDAO {
 
-    URL getQuestionFilePath(String fileName);
+    URL getQuestionFolderPath();
 
-    URL getPictureFilePath(String fileName);
+    String getQuestionPictureFilePath(String fileName);
+
+    String getUiPictureFilePath(String fileName);
 
     URL getLevelSystemFilePath();
 

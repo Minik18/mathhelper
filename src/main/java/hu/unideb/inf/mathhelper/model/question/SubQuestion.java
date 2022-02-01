@@ -22,4 +22,31 @@ public class SubQuestion {
     @XmlElement(name = "help")
     private Help help;
 
+    public Integer getPoint() {
+        return point;
+    }
+
+    public Integer getXp() {
+        return xp;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public boolean hasImage() {
+        return !image.equals("null");
+    }
+
+    public Answers getAnswer() {
+        return answer;
+    }
+
+    public Help getHelp() {
+        return help;
+    }
 }

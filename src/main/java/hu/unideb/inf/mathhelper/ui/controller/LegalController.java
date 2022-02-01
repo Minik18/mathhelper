@@ -27,21 +27,13 @@ public class LegalController implements Controller{
 
     @Override
     public void setup(@Nullable Stage stage) {
-        setupWebsiteSite(uniLink, uniLink.getAccessibleText());
-        setupWebsiteSite(picturesLink, picturesLink.getAccessibleText());
-        setupWebsiteSite(mathLink, mathLink.getAccessibleText());
-        contactLink.setOnAction(event -> {
-            try {
-                Desktop.getDesktop().mail(URI.create(contactLink.getAccessibleText()));
-            } catch (IOException e) {
-                //TODO
-                e.printStackTrace();
-            }
-        });
-        contactLink.setBorder(null);
+        setupLink(uniLink, uniLink.getAccessibleText());
+        setupLink(picturesLink, picturesLink.getAccessibleText());
+        setupLink(mathLink, mathLink.getAccessibleText());
+        setupLink(contactLink, contactLink.getAccessibleText());
     }
 
-    private void setupWebsiteSite(Hyperlink link, String site) {
+    private void setupLink(Hyperlink link, String site) {
         link.setOnAction(event -> {
             try {
                 Desktop.getDesktop().browse(URI.create(site));

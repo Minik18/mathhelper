@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,23 +17,23 @@
    <children>
       <BorderPane layoutX="193.0" layoutY="89.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <BorderPane prefHeight="500.0" prefWidth="234.0" BorderPane.alignment="CENTER">
+            <BorderPane prefHeight="500.0" prefWidth="234.0" styleClass="sidebar" BorderPane.alignment="CENTER">
                <center>
-                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" styleClass="right_side" BorderPane.alignment="CENTER">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="hbox" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="54.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                                  <image>
                                     <Image url="@../pics/question.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="randomQuestion" mnemonicParsing="false" prefWidth="113.0" text="%random_question" HBox.hgrow="ALWAYS">
+                              <Button fx:id="randomQuestion" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="54.0" prefWidth="176.0" text="%random_question" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" right="20.0" />
+                                    <Insets right="20.0" />
                                  </HBox.margin>
                                  <opaqueInsets>
                                     <Insets />
@@ -42,134 +41,104 @@
                               </Button>
                            </children>
                         </HBox>
-                        <Separator prefWidth="200.0">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </VBox.margin>
-                        </Separator>
-                        <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="hbox" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                                  <image>
                                     <Image url="@../pics/menu.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="categories" mnemonicParsing="false" text="%categories" HBox.hgrow="ALWAYS">
+                              <Button fx:id="categories" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%categories" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets right="20.0" />
                                  </HBox.margin>
                               </Button>
                            </children>
                         </HBox>
-                        <Separator prefWidth="200.0">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </VBox.margin>
-                        </Separator>
-                        <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="hbox" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                                  <image>
                                     <Image url="@../pics/test.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="finalTest" mnemonicParsing="false" text="%final_test" HBox.hgrow="ALWAYS">
+                              <Button fx:id="finalTest" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%final_test" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets right="20.0" />
                                  </HBox.margin>
                               </Button>
                            </children>
                         </HBox>
-                        <Separator prefWidth="200.0">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </VBox.margin>
-                        </Separator>
-                        <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="hbox" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                                  <image>
                                     <Image url="@../pics/setting.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="settings" mnemonicParsing="false" text="%settings" HBox.hgrow="ALWAYS">
+                              <Button fx:id="settings" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%settings" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets right="20.0" />
                                  </HBox.margin>
                               </Button>
                            </children>
                         </HBox>
-                        <Separator prefWidth="200.0">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </VBox.margin>
-                        </Separator>
-                        <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="hbox" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                                  <image>
                                     <Image url="@../pics/help.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="help" mnemonicParsing="false" text="%help" HBox.hgrow="ALWAYS">
+                              <Button fx:id="help" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%help" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets right="20.0" />
                                  </HBox.margin>
                               </Button>
                            </children>
                         </HBox>
-                        <Separator prefWidth="200.0">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </VBox.margin>
-                        </Separator>
-                        <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="hbox" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                                  <image>
                                     <Image url="@../pics/auction.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="legal" mnemonicParsing="false" text="%legal" HBox.hgrow="ALWAYS">
+                              <Button fx:id="legal" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%legal" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets right="20.0" />
                                  </HBox.margin>
                               </Button>
                            </children>
                         </HBox>
-                        <Separator prefWidth="200.0">
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </VBox.margin>
-                        </Separator>
-                        <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="234.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="hbox" VBox.vgrow="ALWAYS">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                                  <image>
                                     <Image url="@../pics/power-off.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="exit" mnemonicParsing="false" text="%exit" HBox.hgrow="ALWAYS">
+                              <Button fx:id="exit" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%exit" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets left="50.0" />
+                                    <Insets right="20.0" />
                                  </HBox.margin>
                               </Button>
                            </children>
@@ -183,13 +152,13 @@
             </BorderPane>
          </left>
          <top>
-            <BorderPane prefHeight="134.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+            <BorderPane prefHeight="134.0" prefWidth="1024.0" styleClass="sidebar" BorderPane.alignment="CENTER">
                <center>
                   <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
                         <VBox alignment="CENTER" maxWidth="234.0" minWidth="234.0" prefHeight="150.0" prefWidth="234.0" HBox.hgrow="NEVER">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="profilePicture" fitHeight="150.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../pics/math.png" />
                                  </image>
@@ -220,7 +189,7 @@
                               <Insets bottom="10.0" top="10.0" />
                            </HBox.margin>
                            <children>
-                              <Text fx:id="level" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;level&gt;" textAlignment="CENTER">
+                              <Text fx:id="level" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="level_text" text="&lt;level&gt;" textAlignment="CENTER">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -228,26 +197,21 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </Text>
-                              <Text fx:id="username" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;username&gt;">
+                              <Text fx:id="username" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="username_text" text="&lt;username&gt;">
                                  <font>
                                     <Font size="36.0" />
                                  </font>
                               </Text>
                               <ProgressBar prefWidth="200.0" progress="0.0" fx:id="xpBar" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;xp_count&gt; / &lt;xp_max&gt; xp" fx:id="xp" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="value_text" text="&lt;xp_count&gt; / &lt;xp_max&gt; xp" fx:id="xp" />
                            </children>
                         </VBox>
-                        <Separator orientation="VERTICAL" prefHeight="200.0" HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets bottom="20.0" left="50.0" top="20.0" />
-                           </HBox.margin>
-                        </Separator>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets left="50.0" />
                            </HBox.margin>
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%reward_points">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name_text" text="%reward_points">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -255,8 +219,8 @@
                                     <Insets top="20.0" />
                                  </VBox.margin>
                               </Text>
-                              <Text fx:id="rewardPoints" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;reward points&gt;" />
-                              <Text layoutX="56.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%help_points">
+                              <Text fx:id="rewardPoints" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="value_text" text="&lt;reward points&gt;" />
+                              <Text layoutX="56.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name_text" text="%help_points">
                                  <VBox.margin>
                                     <Insets top="30.0" />
                                  </VBox.margin>
@@ -264,23 +228,12 @@
                                     <Font size="18.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="helpPoints" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;help points&gt;" />
+                              <Text fx:id="helpPoints" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="value_text" text="&lt;help points&gt;" />
                            </children>
                         </VBox>
-                        <Separator orientation="VERTICAL" prefHeight="200.0" HBox.hgrow="ALWAYS">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets bottom="20.0" left="50.0" top="20.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets right="50.0" />
-                           </padding>
-                        </Separator>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%completed_questions">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name_text" text="%completed_questions">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -288,8 +241,8 @@
                                     <Insets top="20.0" />
                                  </VBox.margin>
                               </Text>
-                              <Text fx:id="completedQuestions" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;completed questions&gt;" />
-                              <Text layoutX="56.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%completed_finals">
+                              <Text fx:id="completedQuestions" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="value_text" text="&lt;completed questions&gt;" />
+                              <Text layoutX="56.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name_text" text="%completed_finals">
                                  <VBox.margin>
                                     <Insets top="30.0" />
                                  </VBox.margin>
@@ -297,7 +250,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="completedFinals" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;completed final&gt;" />
+                              <Text fx:id="completedFinals" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="value_text" text="&lt;completed final&gt;" />
                            </children>
                            <HBox.margin>
                               <Insets right="25.0" />
@@ -317,7 +270,7 @@
                   <Pane prefHeight="1.0" prefWidth="790.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
                </top>
                <center>
-                  <AnchorPane fx:id="centerPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                  <AnchorPane fx:id="centerPane" prefHeight="200.0" prefWidth="200.0" styleClass="change" stylesheets="@../style/style.css" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
          </center>

@@ -10,6 +10,7 @@ import hu.unideb.inf.mathhelper.service.UserHandleService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -95,6 +96,9 @@ public class MainController implements Controller{
 
     @FXML
     private ProgressBar xpBar;
+
+    @FXML
+    private ImageView profilePicture;
 
     @Override
     public void setup(Stage stage) {

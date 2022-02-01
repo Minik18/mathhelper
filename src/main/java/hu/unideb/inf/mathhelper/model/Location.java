@@ -8,6 +8,7 @@ public class Location {
     private String scenesFolder;
     private String panesFolder;
     private String textFolder;
+    private String uiPicturesFolder;
 
     private Location() {}
 
@@ -18,6 +19,12 @@ public class Location {
         private String scenesFolder;
         private String panesFolder;
         private String textFolder;
+        private String uiPicturesFolder;
+
+        public Builder withUiPicturesFolder(String uiPicturesFolder) {
+            this.uiPicturesFolder = uiPicturesFolder;
+            return this;
+        }
 
         public Builder withLevelsFile(String levelsFile) {
             this.levelsFile = levelsFile;
@@ -57,8 +64,13 @@ public class Location {
             location.panesFolder = this.panesFolder;
             location.scenesFolder = this.scenesFolder;
             location.textFolder = this.textFolder;
+            location.uiPicturesFolder = this.uiPicturesFolder;
             return location;
         }
+    }
+
+    public String getUiPicturesFolder() {
+        return uiPicturesFolder;
     }
 
     public String getScenesFolder() {

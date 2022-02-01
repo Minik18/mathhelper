@@ -29,6 +29,10 @@ public class Question {
     @XmlElement(name = "sub_questions")
     private SubQuestions subQuestion;
 
+    public boolean hasImage() {
+        return !image.equals("null");
+    }
+
     public String getId() {
         return id;
     }
