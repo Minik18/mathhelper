@@ -18,4 +18,6 @@ public interface LocationDAO {
 
     String getTextFilePath(String fileName);
 
+    URL getCategoryFilePath();
+
 }

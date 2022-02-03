@@ -1,21 +1,17 @@
 package hu.unideb.inf.mathhelper.ui.controller;
 
+import hu.unideb.inf.mathhelper.dao.CategoryDAO;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.QuestionDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
 import hu.unideb.inf.mathhelper.exception.QuestionFileNotFoundException;
 import hu.unideb.inf.mathhelper.exception.SceneNotFoundException;
-import hu.unideb.inf.mathhelper.model.question.Answers;
-import hu.unideb.inf.mathhelper.model.question.Help;
-import hu.unideb.inf.mathhelper.model.question.Question;
-import hu.unideb.inf.mathhelper.model.question.SubQuestion;
+import hu.unideb.inf.mathhelper.model.question.*;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -53,6 +49,9 @@ public class QuestionController implements Controller{
     private QuestionDAO questionDAO;
 
     @Autowired
+    private CategoryDAO categoryDAO;
+
+    @Autowired
     private UserHandleService userHandleService;
 
     @Autowired
@@ -79,17 +78,24 @@ public class QuestionController implements Controller{
     @FXML
     private Button check;
 
+    @FXML
+    private ListView<String> listView;
+
     private Map<TextField,ImageView> usedFields;
     private List<Answers> answers;
     private List<Button> helpButtons;
+    private List<Category> selectedCategories;
+    private Map<String,Category> categoryMap;
 
     @Override
     public void setup(Stage stage) {
+        loadCategories();
         start.setOnMouseClicked(event -> {
             start.setDisable(true);
             mainDescription.setVisible(true);
             mainPicture.setVisible(true);
             check.setDisable(false);
+            selectedCategories = convertStringToCategory(listView.getSelectionModel().getSelectedItems());
             load();
         });
         next.setDisable(true);
@@ -104,6 +110,22 @@ public class QuestionController implements Controller{
             check.setDisable(false);
             load();
         });
+    }
+
+    private List<Category> convertStringToCategory(List<String> selectedItems) {
+        List<Category> result = new ArrayList<>();
+        for (String category : selectedItems) {
+            result.add(categoryMap.get(category));
+        }
+        return result;
+    }
+
+    private void loadCategories() {
+        listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        categoryMap = categoryDAO.getCategoryMap();
+        for (Map.Entry<String,Category> entry : categoryMap.entrySet()) {
+            listView.getItems().add(entry.getKey());
+        }
     }
 
     private VBox loadSample() {
@@ -142,9 +164,22 @@ public class QuestionController implements Controller{
     }
 
     private Question getQuestion(List<Question> list) {
-        Random random = new Random();
-        int index = random.nextInt(list.size());
-        return list.get(index);
+        Question question;
+        boolean contains = false;
+        do {
+            Random random = new Random();
+            int index = random.nextInt(list.size());
+            question = list.get(index);
+            for (Category selectedCategory : selectedCategories) {
+                for (Category actualCategory : question.getCategories().getCategoryList()) {
+                    if (selectedCategory.equals(actualCategory)) {
+                        contains = true;
+                        break;
+                    }
+                }
+            }
+        } while (!contains);
+        return question;
     }
 
     private void openImage(Node button ,String name) {

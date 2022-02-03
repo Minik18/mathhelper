@@ -31,6 +31,11 @@ public class Config {
     }
 
     @Bean
+    public CategoryDAO categoryDAO() {
+        return new CategoryDAOImpl();
+    }
+
+    @Bean
     public UserRepositoryDAO userRepositoryDAO(UserRepository userRepository) {
         return new UserRepositoryDAOImpl(userRepository);
     }

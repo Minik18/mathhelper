@@ -9,6 +9,7 @@ public class Location {
     private String panesFolder;
     private String textFolder;
     private String uiPicturesFolder;
+    private String categoryFile;
 
     private Location() {}
 
@@ -20,6 +21,12 @@ public class Location {
         private String panesFolder;
         private String textFolder;
         private String uiPicturesFolder;
+        private String categoryFile;
+
+        public Builder withCategoryFilePath(String categoryFile) {
+            this.categoryFile = categoryFile;
+            return this;
+        }
 
         public Builder withUiPicturesFolder(String uiPicturesFolder) {
             this.uiPicturesFolder = uiPicturesFolder;
@@ -65,8 +72,13 @@ public class Location {
             location.scenesFolder = this.scenesFolder;
             location.textFolder = this.textFolder;
             location.uiPicturesFolder = this.uiPicturesFolder;
+            location.categoryFile = this.categoryFile;
             return location;
         }
+    }
+
+    public String getCategoryFile() {
+        return categoryFile;
     }
 
     public String getUiPicturesFolder() {
