@@ -7,9 +7,6 @@ public class SubQuestion {
     @XmlElement(name = "point")
     private Integer point;
 
-    @XmlElement(name = "xp")
-    private Integer xp;
-
     @XmlElement(name = "description")
     private String description;
 
@@ -24,10 +21,6 @@ public class SubQuestion {
 
     public Integer getPoint() {
         return point;
-    }
-
-    public Integer getXp() {
-        return xp;
     }
 
     public String getDescription() {

@@ -73,6 +73,12 @@ public class QuestionController implements Controller{
     private Button start;
 
     @FXML
+    private Button selectAll;
+
+    @FXML
+    private Button restart;
+
+    @FXML
     private Button next;
 
     @FXML
@@ -89,17 +95,19 @@ public class QuestionController implements Controller{
 
     @Override
     public void setup(Stage stage) {
-        loadCategories();
-        start.setOnMouseClicked(event -> {
-            start.setDisable(true);
-            mainDescription.setVisible(true);
-            mainPicture.setVisible(true);
-            check.setDisable(false);
-            selectedCategories = convertStringToCategory(listView.getSelectionModel().getSelectedItems());
-            load();
-        });
+        restart.setDisable(true);
         next.setDisable(true);
         check.setDisable(true);
+        loadCategories();
+        selectAll.setOnMouseClicked(event -> {
+            selectedCategories = new ArrayList<>(categoryMap.values());
+            listView.getSelectionModel().selectAll();
+            start();
+        });
+        start.setOnMouseClicked(event -> {
+            selectedCategories = convertStringToCategory(listView.getSelectionModel().getSelectedItems());
+            start();
+        });
         check.setOnMouseClicked(event -> {
             next.setDisable(false);
             check.setDisable(true);
@@ -110,6 +118,29 @@ public class QuestionController implements Controller{
             check.setDisable(false);
             load();
         });
+        restart.setOnMouseClicked(event -> {
+            anchorPane.getChildren().clear();
+            restart.setDisable(true);
+            next.setDisable(true);
+            check.setDisable(true);
+            start.setDisable(false);
+            mainDescription.setVisible(false);
+            listView.setDisable(false);
+            selectAll.setDisable(false);
+            mainPicture.setVisible(false);
+            listView.getSelectionModel().clearSelection();
+        });
+    }
+
+    private void start() {
+        start.setDisable(true);
+        mainDescription.setVisible(true);
+        mainPicture.setVisible(true);
+        check.setDisable(false);
+        restart.setDisable(false);
+        listView.setDisable(true);
+        selectAll.setDisable(true);
+        load();
     }
 
     private List<Category> convertStringToCategory(List<String> selectedItems) {
@@ -205,6 +236,7 @@ public class QuestionController implements Controller{
             helpButtons.get(index).setDisable(true);
             index++;
         }
+        //TODO For every successfully answered question add points to user
     }
 
     private void build(List<SubQuestion> subQuestionList) {
