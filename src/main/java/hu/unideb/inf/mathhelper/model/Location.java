@@ -10,6 +10,7 @@ public class Location {
     private String textFolder;
     private String uiPicturesFolder;
     private String categoryFile;
+    private String sampleQuestionFile;
 
     private Location() {}
 
@@ -22,6 +23,12 @@ public class Location {
         private String textFolder;
         private String uiPicturesFolder;
         private String categoryFile;
+        private String sampleQuestionFile;
+
+        public Builder withSampleQuestionFile(String sampleQuestionFile) {
+            this.sampleQuestionFile = sampleQuestionFile;
+            return this;
+        }
 
         public Builder withCategoryFilePath(String categoryFile) {
             this.categoryFile = categoryFile;
@@ -73,12 +80,17 @@ public class Location {
             location.textFolder = this.textFolder;
             location.uiPicturesFolder = this.uiPicturesFolder;
             location.categoryFile = this.categoryFile;
+            location.sampleQuestionFile = this.sampleQuestionFile;
             return location;
         }
     }
 
     public String getCategoryFile() {
         return categoryFile;
+    }
+
+    public String getSampleQuestionFile() {
+        return sampleQuestionFile;
     }
 
     public String getUiPicturesFolder() {

@@ -3,7 +3,7 @@ package hu.unideb.inf.mathhelper.ui.controller;
 import hu.unideb.inf.mathhelper.dao.LevelDAO;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
-import hu.unideb.inf.mathhelper.exception.SceneNotFoundException;
+import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
 import hu.unideb.inf.mathhelper.model.UserData;
 import hu.unideb.inf.mathhelper.model.level.Level;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
@@ -146,7 +146,7 @@ public class MainController implements Controller{
             sceneDAO.getController().setup(null);
             centerPane.getChildren().clear();
             centerPane.getChildren().addAll(anchorPane.getChildren());
-        } catch (SceneNotFoundException e) {
+        } catch (FXMLFileNotFoundException e) {
             //TODO
             e.printStackTrace();
         }

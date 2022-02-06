@@ -1,10 +1,10 @@
 package hu.unideb.inf.mathhelper.ui;
 
 import hu.unideb.inf.mathhelper.MathHelperApplication;
+import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
 import hu.unideb.inf.mathhelper.ui.controller.Controller;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
-import hu.unideb.inf.mathhelper.exception.SceneNotFoundException;
 import hu.unideb.inf.mathhelper.service.UserTrackService;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -50,7 +50,7 @@ public class StageInitializer implements ApplicationListener<MathHelperApplicati
         try {
             scene = sceneDAO.loadScene(path);
             controller = sceneDAO.getController();
-        } catch (SceneNotFoundException e) {
+        } catch (FXMLFileNotFoundException e) {
             //TODO
             e.printStackTrace();
         }

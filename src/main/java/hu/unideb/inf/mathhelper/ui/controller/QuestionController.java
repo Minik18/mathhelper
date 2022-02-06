@@ -4,14 +4,15 @@ import hu.unideb.inf.mathhelper.dao.CategoryDAO;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.QuestionDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
+import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
 import hu.unideb.inf.mathhelper.exception.QuestionFileNotFoundException;
-import hu.unideb.inf.mathhelper.exception.SceneNotFoundException;
 import hu.unideb.inf.mathhelper.model.question.*;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.skin.ScrollPaneSkin;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -19,19 +20,20 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Component
 public class QuestionController implements Controller{
 
     private static final String CORRECT_ANSWER_IMAGE_NAME = "correct.png";
     private static final String WRONG_ANSWER_IMAGE_NAME = "wrong.png";
-    private static final String SAMPLE_FILE_NAME = "sample.fxml";
 
     @Value("${ui.text.open_picture}")
     private String openPicture;
@@ -77,6 +79,9 @@ public class QuestionController implements Controller{
 
     @FXML
     private Button restart;
+
+    @FXML
+    private ScrollPane scrollPane;
 
     @FXML
     private Button next;
@@ -159,22 +164,12 @@ public class QuestionController implements Controller{
         }
     }
 
-    private VBox loadSample() {
-        AnchorPane anchorPane;
-        try {
-            anchorPane =  (AnchorPane)sceneDAO.loadScene(locationDAO.getPaneFilePath(SAMPLE_FILE_NAME)).getRoot();
-            return (VBox) anchorPane.getChildren().get(0);
-        } catch (SceneNotFoundException e) {
-            //TODO
-            throw new RuntimeException();
-        }
-    }
-
     private void load() {
         usedFields = new HashMap<>();
         answers = new ArrayList<>();
         helpButtons = new ArrayList<>();
         List<Question> list;
+        scrollPane.setVvalue(0);
         try {
             list = questionDAO.loadQuestionsIntoList(locationDAO.getQuestionFolderPath().getPath());
             Question question = getQuestion(list);
@@ -185,8 +180,8 @@ public class QuestionController implements Controller{
                 mainPicture.setText(openPicture);
                 mainPicture.setDisable(false);
             } else {
-                mainPicture.setText(noPicture);
                 mainPicture.setDisable(true);
+                mainPicture.setVisible(false);
             }
         } catch (QuestionFileNotFoundException e) {
             e.printStackTrace();
@@ -214,6 +209,7 @@ public class QuestionController implements Controller{
     }
 
     private void openImage(Node button ,String name) {
+        button.setFocusTraversable(false);
         button.setOnMouseClicked(event -> {
             Stage stage = new Stage();
             stage.setTitle(FilenameUtils.getBaseName(name));
@@ -240,57 +236,66 @@ public class QuestionController implements Controller{
     }
 
     private void build(List<SubQuestion> subQuestionList) {
-        VBox root = loadSample();
+        VBox root;
+        try {
+            root = sceneDAO.loadSampleQuestionPane();
+            anchorPane.getChildren().clear();
 
-        anchorPane.getChildren().clear();
+            int index = 0;
+            for (SubQuestion subQuestion : subQuestionList) {
+                HBox main = (HBox) root.getChildren().get(index);
+                VBox boxInMain = (VBox) main.getChildren().get(0);
+                Label desc = (Label) boxInMain.getChildren().get(1);
+                desc.setText(subQuestion.getDescription());
 
-        int index = 0;
-        for (SubQuestion subQuestion : subQuestionList) {
-            HBox main = (HBox) root.getChildren().get(index);
-            VBox boxInMain = (VBox) main.getChildren().get(0);
-            Label desc = (Label) boxInMain.getChildren().get(0);
-            desc.setText(subQuestion.getDescription());
+                HBox secondLine = (HBox) boxInMain.getChildren().get(2);
+                Node picture;
+                HBox result;
+                VBox helpBox;
+                Label helpLabel;
+                if (subQuestion.hasImage()) {
+                    picture = new Button(openPicture);
+                    openImage(picture, subQuestion.getImage());
+                    secondLine.getChildren().add(0, picture);
+                    result = (HBox) secondLine.getChildren().get(1);
+                    helpBox = (VBox) secondLine.getChildren().get(2);
+                    helpLabel = (Label) secondLine.getChildren().get(3);
+                } else {
+                    result = (HBox) secondLine.getChildren().get(0);
+                    helpBox = (VBox) secondLine.getChildren().get(1);
+                    helpLabel = (Label) secondLine.getChildren().get(2);
+                }
 
-            HBox secondLine = (HBox) boxInMain.getChildren().get(1);
-            Node picture;
-            if (subQuestion.hasImage()) {
-                picture = new Button(openPicture);
-                openImage(picture, subQuestion.getImage());
-            } else {
-                picture = new Text(noPicture);
+                ImageView image = (ImageView) result.getChildren().get(2);
+                image.setVisible(false);
+
+                usedFields.put((TextField) result.getChildren().get(1), image);
+                answers.add(subQuestion.getAnswer());
+
+
+                Text cost = (Text) helpBox.getChildren().get(0);
+                Button button = (Button) helpBox.getChildren().get(1);
+                Help help = subQuestion.getHelp();
+                if (help.getNeededPoints() != 0) {
+                    cost.setText(help.getNeededPoints() + points);
+                    button.setOnMouseClicked(event -> {
+                        //TODO Retract points
+                        helpLabel.setVisible(true);
+                        helpLabel.setText(help.getDescription());
+                        secondLine.getChildren().remove(helpBox);
+                    });
+                } else {
+                    secondLine.getChildren().remove(helpBox);
+                }
+                helpButtons.add(button);
+                main.setVisible(true);
+                index++;
             }
-            secondLine.getChildren().add(0,picture);
+            anchorPane.getChildren().add(root);
 
-            HBox result = (HBox) secondLine.getChildren().get(1);
-
-            ImageView image = (ImageView) result.getChildren().get(2);
-            image.setVisible(false);
-
-            usedFields.put( (TextField) result.getChildren().get(1), image);
-            answers.add(subQuestion.getAnswer());
-
-            VBox helpBox = (VBox) secondLine.getChildren().get(2);
-            Text cost = (Text) helpBox.getChildren().get(0);
-            Button button = (Button) helpBox.getChildren().get(1);
-            Help help = subQuestion.getHelp();
-            if (help.getNeededPoints() != 0) {
-                cost.setText(help.getNeededPoints() + points);
-                button.setOnMouseClicked(event -> {
-                    button.setDisable(true);
-                    //TODO Retract points
-                    Label label = (Label) secondLine.getChildren().get(3);
-                    label.setVisible(true);
-                    label.setText(help.getDescription());
-                });
-            } else {
-                cost.setText(help.getNeededPoints() + points);
-                button.setText(noHelp);
-                button.setDisable(true);
-            }
-            helpButtons.add(button);
-            main.setVisible(true);
-            index++;
+        } catch (FXMLFileNotFoundException e) {
+            //TODO handle error
+            e.printStackTrace();
         }
-        anchorPane.getChildren().add(root);
     }
 }

@@ -1,13 +1,14 @@
 package hu.unideb.inf.mathhelper.dao.impl;
 
+import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
 import hu.unideb.inf.mathhelper.ui.controller.Controller;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
-import hu.unideb.inf.mathhelper.exception.SceneNotFoundException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
@@ -30,7 +31,7 @@ public class SceneDAOImpl implements SceneDAO {
     }
 
     @Override
-    public Scene loadScene(URL path) throws SceneNotFoundException{
+    public Scene loadScene(URL path) throws FXMLFileNotFoundException{
         File file = checkFileExistence(path);
         return new Scene(load(file));
     }
@@ -40,15 +41,37 @@ public class SceneDAOImpl implements SceneDAO {
         return controller;
     }
 
-    private File checkFileExistence(URL path) throws SceneNotFoundException {
+    @Override
+    public VBox loadSampleQuestionPane() throws FXMLFileNotFoundException {
+        File file = checkFileExistence(locationDAO.getSampleQuestionPaneFilePath());
+        loadSample(file);
+        return loadSample(file);
+    }
+
+    private File checkFileExistence(URL path) throws FXMLFileNotFoundException {
         File file = new File(path.getPath());
         if (!file.exists()) {
-            throw new SceneNotFoundException("No scene fxml file found in the given path: " + path);
+            throw new FXMLFileNotFoundException("No fxml file found in the given path: " + path);
         } else {
             return file;
         }
     }
 
+    private VBox loadSample(File file) {
+        String sceneName = file.getName();
+        String bundleName = sceneName.substring(0,sceneName.indexOf("."));
+        try {
+            ResourceBundle resource = ResourceBundle.getBundle(locationDAO.getTextFilePath(bundleName), new Locale("hu","HU"));
+            FXMLLoader loader = new FXMLLoader(file.toURI().toURL(),resource);
+            loader.load();
+            Parent parent = loader.getRoot();
+            return (VBox) parent;
+        } catch (IOException e) {
+            //TODO: Handle error
+            e.printStackTrace();
+        }
+        return new VBox();
+    }
 
     private Parent load(File file) {
         String sceneName = file.getName();

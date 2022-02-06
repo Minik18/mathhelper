@@ -2,7 +2,7 @@ package hu.unideb.inf.mathhelper.ui.controller;
 
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
-import hu.unideb.inf.mathhelper.exception.SceneNotFoundException;
+import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -63,7 +63,7 @@ public class WelcomeSceneController implements Controller {
             newStage.setScene(scene);
             controller.setup(newStage);
             newStage.show();
-        } catch (SceneNotFoundException e) {
+        } catch (FXMLFileNotFoundException e) {
             //TODO
             e.printStackTrace();
         }

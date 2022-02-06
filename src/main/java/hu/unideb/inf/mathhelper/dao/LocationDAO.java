@@ -20,4 +20,6 @@ public interface LocationDAO {
 
     URL getCategoryFilePath();
 
+    URL getSampleQuestionPaneFilePath();
+
 }

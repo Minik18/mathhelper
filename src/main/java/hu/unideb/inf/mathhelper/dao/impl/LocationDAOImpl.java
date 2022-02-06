@@ -82,6 +82,14 @@ public class LocationDAOImpl implements LocationDAO {
         return getURLFromPath(location.getCategoryFile());
     }
 
+    @Override
+    public URL getSampleQuestionPaneFilePath() {
+        if (location == null) {
+            load();
+        }
+        return getURLFromPath(location.getSampleQuestionFile());
+    }
+
     private void load() {
         CompositeConfiguration config = new CompositeConfiguration();
         config.addConfiguration(new SystemConfiguration());
@@ -96,6 +104,7 @@ public class LocationDAOImpl implements LocationDAO {
                     .withTextFolder(config.getString("location.ui.text_folder"))
                     .withUiPicturesFolder(config.getString("location.ui.pictures_folder"))
                     .withCategoryFilePath(config.getString("location.category"))
+                    .withSampleQuestionFile(config.getString("location.ui.sample_question_file"))
                     .build();
         } catch (ConfigurationException e) {
             //TODO: Handle error
