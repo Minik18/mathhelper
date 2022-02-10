@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="hu.unideb.inf.mathhelper.ui.controller.FinalController"
-            prefHeight="400.0" prefWidth="600.0">
-
-
+<AnchorPane prefHeight="596.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.FinalController">
+    <children>
+        <AnchorPane fx:id="mainPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                      AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label text="%final_test" textAlignment="CENTER" wrapText="true"/>
+                        <Label text="%rules" textAlignment="CENTER" wrapText="true"/>
+                        <Label text="%rule_desc" textAlignment="CENTER" wrapText="true"/>
+                        <Button fx:id="start" mnemonicParsing="false" text="%start"/>
+                    </children>
+                    <padding>
+                        <Insets top="50.0"/>
+                    </padding>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
 
 </AnchorPane>

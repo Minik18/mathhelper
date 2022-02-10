@@ -8,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
@@ -41,13 +40,6 @@ public class SceneDAOImpl implements SceneDAO {
         return controller;
     }
 
-    @Override
-    public VBox loadSampleQuestionPane() throws FXMLFileNotFoundException {
-        File file = checkFileExistence(locationDAO.getSampleQuestionPaneFilePath());
-        loadSample(file);
-        return loadSample(file);
-    }
-
     private File checkFileExistence(URL path) throws FXMLFileNotFoundException {
         File file = new File(path.getPath());
         if (!file.exists()) {
@@ -55,22 +47,6 @@ public class SceneDAOImpl implements SceneDAO {
         } else {
             return file;
         }
-    }
-
-    private VBox loadSample(File file) {
-        String sceneName = file.getName();
-        String bundleName = sceneName.substring(0,sceneName.indexOf("."));
-        try {
-            ResourceBundle resource = ResourceBundle.getBundle(locationDAO.getTextFilePath(bundleName), new Locale("hu","HU"));
-            FXMLLoader loader = new FXMLLoader(file.toURI().toURL(),resource);
-            loader.load();
-            Parent parent = loader.getRoot();
-            return (VBox) parent;
-        } catch (IOException e) {
-            //TODO: Handle error
-            e.printStackTrace();
-        }
-        return new VBox();
     }
 
     private Parent load(File file) {

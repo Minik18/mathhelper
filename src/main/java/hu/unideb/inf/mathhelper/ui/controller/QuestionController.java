@@ -1,9 +1,6 @@
 package hu.unideb.inf.mathhelper.ui.controller;
 
-import hu.unideb.inf.mathhelper.dao.CategoryDAO;
-import hu.unideb.inf.mathhelper.dao.LocationDAO;
-import hu.unideb.inf.mathhelper.dao.QuestionDAO;
-import hu.unideb.inf.mathhelper.dao.SceneDAO;
+import hu.unideb.inf.mathhelper.dao.*;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
 import hu.unideb.inf.mathhelper.exception.QuestionFileNotFoundException;
 import hu.unideb.inf.mathhelper.model.question.*;
@@ -12,40 +9,29 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.skin.ScrollPaneSkin;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Component
-public class QuestionController implements Controller{
+public class QuestionController implements Controller {
 
     private static final String CORRECT_ANSWER_IMAGE_NAME = "correct.png";
     private static final String WRONG_ANSWER_IMAGE_NAME = "wrong.png";
 
-    @Value("${ui.text.open_picture}")
-    private String openPicture;
-
-    @Value("${ui.text.no_picture}")
-    private String noPicture;
-
     @Value("${ui.text.point}")
     private String points;
-
-    @Value("${ui.text.no_help}")
-    private String noHelp;
 
     @Autowired
     private QuestionDAO questionDAO;
@@ -60,16 +46,10 @@ public class QuestionController implements Controller{
     private LocationDAO locationDAO;
 
     @Autowired
-    private SceneDAO sceneDAO;
+    private PanelDAO panelDAO;
 
     @FXML
-    private AnchorPane anchorPane;
-
-    @FXML
-    private Label mainDescription;
-
-    @FXML
-    private Button mainPicture;
+    private AnchorPane middleAnchor;
 
     @FXML
     private Button start;
@@ -81,9 +61,6 @@ public class QuestionController implements Controller{
     private Button restart;
 
     @FXML
-    private ScrollPane scrollPane;
-
-    @FXML
     private Button next;
 
     @FXML
@@ -92,11 +69,11 @@ public class QuestionController implements Controller{
     @FXML
     private ListView<String> listView;
 
-    private Map<TextField,ImageView> usedFields;
+    private Map<TextField, ImageView> usedFields;
     private List<Answers> answers;
     private List<Button> helpButtons;
     private List<Category> selectedCategories;
-    private Map<String,Category> categoryMap;
+    private Map<String, Category> categoryMap;
 
     @Override
     public void setup(Stage stage) {
@@ -111,7 +88,9 @@ public class QuestionController implements Controller{
         });
         start.setOnMouseClicked(event -> {
             selectedCategories = convertStringToCategory(listView.getSelectionModel().getSelectedItems());
-            start();
+            if (selectedCategories.size() != 0) {
+                start();
+            }
         });
         check.setOnMouseClicked(event -> {
             next.setDisable(false);
@@ -124,23 +103,19 @@ public class QuestionController implements Controller{
             load();
         });
         restart.setOnMouseClicked(event -> {
-            anchorPane.getChildren().clear();
+            middleAnchor.getChildren().clear();
             restart.setDisable(true);
             next.setDisable(true);
             check.setDisable(true);
             start.setDisable(false);
-            mainDescription.setVisible(false);
             listView.setDisable(false);
             selectAll.setDisable(false);
-            mainPicture.setVisible(false);
             listView.getSelectionModel().clearSelection();
         });
     }
 
     private void start() {
         start.setDisable(true);
-        mainDescription.setVisible(true);
-        mainPicture.setVisible(true);
         check.setDisable(false);
         restart.setDisable(false);
         listView.setDisable(true);
@@ -159,7 +134,7 @@ public class QuestionController implements Controller{
     private void loadCategories() {
         listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         categoryMap = categoryDAO.getCategoryMap();
-        for (Map.Entry<String,Category> entry : categoryMap.entrySet()) {
+        for (Map.Entry<String, Category> entry : categoryMap.entrySet()) {
             listView.getItems().add(entry.getKey());
         }
     }
@@ -169,20 +144,10 @@ public class QuestionController implements Controller{
         answers = new ArrayList<>();
         helpButtons = new ArrayList<>();
         List<Question> list;
-        scrollPane.setVvalue(0);
         try {
             list = questionDAO.loadQuestionsIntoList(locationDAO.getQuestionFolderPath().getPath());
             Question question = getQuestion(list);
-            build(question.getSubQuestion().getSubQuestionList());
-            mainDescription.setText(question.getDescription());
-            if (question.hasImage()) {
-                openImage(mainPicture, question.getImage());
-                mainPicture.setText(openPicture);
-                mainPicture.setDisable(false);
-            } else {
-                mainPicture.setDisable(true);
-                mainPicture.setVisible(false);
-            }
+            build(question);
         } catch (QuestionFileNotFoundException e) {
             e.printStackTrace();
             //TODO
@@ -208,8 +173,8 @@ public class QuestionController implements Controller{
         return question;
     }
 
-    private void openImage(Node button ,String name) {
-        button.setFocusTraversable(false);
+    private void openImage(Node button, String name) {
+        button.setVisible(true);
         button.setOnMouseClicked(event -> {
             Stage stage = new Stage();
             stage.setTitle(FilenameUtils.getBaseName(name));
@@ -220,7 +185,7 @@ public class QuestionController implements Controller{
 
     private void validate() {
         int index = 0;
-        for(Map.Entry<TextField,ImageView> entry : usedFields.entrySet()) {
+        for (Map.Entry<TextField, ImageView> entry : usedFields.entrySet()) {
             if (answers.get(index).getAnswerList().contains(entry.getKey().getText())) {
                 entry.getValue().setImage(new Image(locationDAO.getUiPictureFilePath(CORRECT_ANSWER_IMAGE_NAME)));
             } else {
@@ -235,35 +200,43 @@ public class QuestionController implements Controller{
         //TODO For every successfully answered question add points to user
     }
 
-    private void build(List<SubQuestion> subQuestionList) {
-        VBox root;
+    private void build(Question question) {
+        List<SubQuestion> subQuestionList = question.getSubQuestion().getSubQuestionList();
+        BorderPane root;
         try {
-            root = sceneDAO.loadSampleQuestionPane();
-            anchorPane.getChildren().clear();
+            root = panelDAO.loadSampleQuestionPane();
+            middleAnchor.getChildren().clear();
 
+            HBox titleLine = (HBox) root.getTop();
+            ((Label) (titleLine.getChildren().get(0))).setText(question.getDescription());
+            Button questionImage = (Button) (titleLine.getChildren().get(2));
+            if (question.hasImage()) {
+                openImage(questionImage, question.getImage());
+            } else {
+                questionImage.setVisible(false);
+            }
+
+            ScrollPane scrollPane = (ScrollPane) root.getCenter();
+            scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+            scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
+            VBox vbox = (VBox) ((AnchorPane) (scrollPane.getContent())).getChildren().get(0);
             int index = 0;
             for (SubQuestion subQuestion : subQuestionList) {
-                HBox main = (HBox) root.getChildren().get(index);
+                HBox main = (HBox) vbox.getChildren().get(index);
                 VBox boxInMain = (VBox) main.getChildren().get(0);
                 Label desc = (Label) boxInMain.getChildren().get(1);
                 desc.setText(subQuestion.getDescription());
 
                 HBox secondLine = (HBox) boxInMain.getChildren().get(2);
-                Node picture;
-                HBox result;
-                VBox helpBox;
-                Label helpLabel;
+                HBox result = (HBox) secondLine.getChildren().get(0);
+                Button pictureButton = (Button) secondLine.getChildren().get(1);
+                VBox helpBox = (VBox) secondLine.getChildren().get(2);
+                Label helpLabel = (Label) secondLine.getChildren().get(3);
                 if (subQuestion.hasImage()) {
-                    picture = new Button(openPicture);
-                    openImage(picture, subQuestion.getImage());
-                    secondLine.getChildren().add(0, picture);
-                    result = (HBox) secondLine.getChildren().get(1);
-                    helpBox = (VBox) secondLine.getChildren().get(2);
-                    helpLabel = (Label) secondLine.getChildren().get(3);
+                    openImage(pictureButton, subQuestion.getImage());
                 } else {
-                    result = (HBox) secondLine.getChildren().get(0);
-                    helpBox = (VBox) secondLine.getChildren().get(1);
-                    helpLabel = (Label) secondLine.getChildren().get(2);
+                    pictureButton.setVisible(false);
                 }
 
                 ImageView image = (ImageView) result.getChildren().get(2);
@@ -291,7 +264,13 @@ public class QuestionController implements Controller{
                 main.setVisible(true);
                 index++;
             }
-            anchorPane.getChildren().add(root);
+
+            AnchorPane.setLeftAnchor(root,0.0);
+            AnchorPane.setRightAnchor(root,0.0);
+            AnchorPane.setTopAnchor(root,0.0);
+            AnchorPane.setBottomAnchor(root,0.0);
+
+            middleAnchor.getChildren().add(root);
 
         } catch (FXMLFileNotFoundException e) {
             //TODO handle error

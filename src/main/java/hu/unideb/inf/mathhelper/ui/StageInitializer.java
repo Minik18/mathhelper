@@ -7,6 +7,7 @@ import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
 import hu.unideb.inf.mathhelper.service.UserTrackService;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -36,6 +37,11 @@ public class StageInitializer implements ApplicationListener<MathHelperApplicati
        Stage stage = event.getStage();
        stage.setScene(scene);
        controller.setup(stage);
+       if (!firstRun()) {
+           stage.setResizable(false);
+           stage.setFullScreen(true);
+           stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+       }
        stage.show();
     }
 

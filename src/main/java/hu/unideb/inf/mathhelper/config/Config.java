@@ -16,6 +16,11 @@ public class Config {
     }
 
     @Bean
+    public PanelDAO panelDAO() {
+        return new PanelDAOImpl();
+    }
+
+    @Bean
     public LocationDAO locationDAO() {
         return new LocationDAOImpl();
     }
