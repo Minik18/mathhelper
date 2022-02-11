@@ -6,13 +6,17 @@ import hu.unideb.inf.mathhelper.ui.controller.Controller;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
 import hu.unideb.inf.mathhelper.service.UserTrackService;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCombination;
+import javafx.stage.Modality;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
+import java.awt.*;
 import java.net.URL;
 
 @Component
@@ -39,8 +43,12 @@ public class StageInitializer implements ApplicationListener<MathHelperApplicati
        controller.setup(stage);
        if (!firstRun()) {
            stage.setResizable(false);
-           stage.setFullScreen(true);
-           stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+           stage.initStyle(StageStyle.UNDECORATED);
+           Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+           stage.setX(primaryScreenBounds.getMinX());
+           stage.setY(primaryScreenBounds.getMinY());
+           stage.setWidth(primaryScreenBounds.getWidth());
+           stage.setHeight(primaryScreenBounds.getHeight());
        }
        stage.show();
     }

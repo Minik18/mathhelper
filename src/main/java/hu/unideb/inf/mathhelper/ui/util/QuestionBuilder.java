@@ -26,6 +26,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,8 +43,16 @@ public class QuestionBuilder {
     @Autowired
     private PanelDAO panelDAO;
 
-    public void buildQuestionPane(Question question, AnchorPane middleAnchor, Map<TextField, ImageView> usedFields,
-                                  List<Answers> answers,  List<Button> helpButtons) {
+    private Map<TextField, ImageView> usedFields;
+    private  List<Answers> answers;
+    private List<Button> helpButtons;
+
+    public void buildQuestionPane(Question question, AnchorPane middleAnchor) {
+        usedFields = new HashMap<>();
+        answers = new ArrayList<>();
+        helpButtons = new ArrayList<>();
+
+
         List<SubQuestion> subQuestionList = question.getSubQuestion().getSubQuestionList();
         BorderPane root;
         try {
@@ -118,6 +128,18 @@ public class QuestionBuilder {
             //TODO handle error
             e.printStackTrace();
         }
+    }
+
+    public Map<TextField, ImageView> getUsedFields() {
+        return usedFields;
+    }
+
+    public List<Answers> getAnswers() {
+        return answers;
+    }
+
+    public List<Button> getHelpButtons() {
+        return helpButtons;
     }
 
     private void openImage(Node button, String name) {
