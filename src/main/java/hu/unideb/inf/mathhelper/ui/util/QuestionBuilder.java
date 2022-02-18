@@ -7,6 +7,7 @@ import hu.unideb.inf.mathhelper.model.question.Answers;
 import hu.unideb.inf.mathhelper.model.question.Help;
 import hu.unideb.inf.mathhelper.model.question.Question;
 import hu.unideb.inf.mathhelper.model.question.SubQuestion;
+import hu.unideb.inf.mathhelper.ui.model.FinalQuestion;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -148,6 +149,7 @@ public class QuestionBuilder {
             Stage stage = new Stage();
             stage.setTitle(FilenameUtils.getBaseName(name));
             stage.setScene(new Scene(new AnchorPane(new ImageView(new Image(locationDAO.getQuestionPictureFilePath(name))))));
+            stage.setResizable(false);
             stage.show();
         });
     }

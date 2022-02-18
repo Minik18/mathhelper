@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -24,7 +23,7 @@
                   <Pane prefHeight="596.0" prefWidth="1.0" style="-fx-background-color: black;" />
                   <VBox alignment="TOP_CENTER" prefHeight="565.0" prefWidth="167.0">
                      <children>
-                        <Label text="Task part" textAlignment="CENTER" wrapText="true" />
+                        <Label accessibleHelp="%second_part" accessibleText="%first_part" text="Task part" textAlignment="CENTER" wrapText="true" />
                         <HBox alignment="CENTER" prefHeight="45.0" prefWidth="167.0">
                            <children>
                               <Label text="Timer" />
@@ -36,7 +35,7 @@
                                  <children>
                                     <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="255.0" spacing="10.0">
                                        <children>
-                                          <Label text="&quot;1&quot; part" />
+                                          <Label text="%first_part" />
                                           <Separator prefWidth="200.0">
                                              <VBox.margin>
                                                 <Insets left="10.0" right="10.0" />
@@ -55,18 +54,18 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="1" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="12" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="11" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="10" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="9" GridPane.rowIndex="2" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="8" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="7" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="1" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="2" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="3" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="4" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="5" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                                                 <Button focusTraversable="false" mnemonicParsing="false" text="6" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="5" GridPane.rowIndex="1" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="4" GridPane.columnIndex="3" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="3" GridPane.columnIndex="2" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="2" GridPane.columnIndex="1" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="7" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="8" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="9" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="10" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="11" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="12" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                                              </children>
                                           </GridPane>
                                        </children>
@@ -80,7 +79,7 @@
                                  <children>
                                     <VBox alignment="TOP_CENTER" prefHeight="113.0" prefWidth="167.0" spacing="10.0">
                                        <children>
-                                          <Label text="&quot;2/A&quot; part" />
+                                          <Label prefHeight="17.0" prefWidth="92.0" text="%second_part_a" />
                                           <Separator prefWidth="200.0">
                                              <VBox.margin>
                                                 <Insets left="10.0" right="10.0" />
@@ -96,9 +95,9 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="13" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="15" GridPane.columnIndex="2" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="14" GridPane.columnIndex="1" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="13" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="14" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="15" GridPane.columnIndex="2" GridPane.rowIndex="0" />
                                              </children>
                                           </GridPane>
                                        </children>
@@ -112,7 +111,7 @@
                                  <children>
                                     <VBox alignment="TOP_CENTER" prefHeight="113.0" prefWidth="167.0" spacing="10.0">
                                        <children>
-                                          <Label text="&quot;2/B&quot; part" />
+                                          <Label prefHeight="17.0" prefWidth="89.0" text="%second_part_b" textAlignment="CENTER" />
                                           <Separator prefWidth="200.0">
                                              <VBox.margin>
                                                 <Insets left="10.0" right="10.0" />
@@ -128,14 +127,14 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="16" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="18" GridPane.columnIndex="2" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="17" GridPane.columnIndex="1" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="16" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="17" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                <Button focusTraversable="false" mnemonicParsing="false" text="18" GridPane.columnIndex="2" GridPane.rowIndex="0" />
                                              </children>
                                           </GridPane>
                                           <VBox alignment="CENTER" spacing="5.0">
                                              <children>
-                                                <Label text="%choosen_task" />
+                                                <Label text="%chosen_task" />
                                                 <TextField focusTraversable="false" prefHeight="25.0" prefWidth="110.0">
                                                    <VBox.margin>
                                                       <Insets left="20.0" right="20.0" />

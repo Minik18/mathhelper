@@ -27,6 +27,7 @@ public class MathHelperApplication extends Application {
     public void stop() {
         applicationContext.close();
         Platform.exit();
+        Thread.getAllStackTraces().keySet().stream().filter(thread -> thread.getName().matches("\\b(\\w*timer\\w*)\\b")).forEach(System.out::println);
     }
 
     public static class StageReadyEvent extends ApplicationEvent {
