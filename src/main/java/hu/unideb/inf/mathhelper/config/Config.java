@@ -16,11 +16,6 @@ public class Config {
     }
 
     @Bean
-    public PanelDAO panelDAO() {
-        return new PanelDAOImpl();
-    }
-
-    @Bean
     public LocationDAO locationDAO() {
         return new LocationDAOImpl();
     }
@@ -46,7 +41,12 @@ public class Config {
     }
 
     @Bean
-    public SceneDAO sceneDAO(ApplicationContext applicationContext) {
-        return new SceneDAOImpl(applicationContext);
+    public SceneDAO sceneDAO(ApplicationContext applicationContext, LocationDAO locationDAO) {
+        return new SceneDAOImpl(applicationContext, locationDAO);
+    }
+
+    @Bean
+    public PanelDAO panelDAO(ApplicationContext applicationContext, LocationDAO locationDAO) {
+        return new PanelDAOImpl(locationDAO, applicationContext);
     }
 }

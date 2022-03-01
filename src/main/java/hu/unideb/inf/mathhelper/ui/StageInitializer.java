@@ -2,13 +2,12 @@ package hu.unideb.inf.mathhelper.ui;
 
 import hu.unideb.inf.mathhelper.MathHelperApplication;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
-import hu.unideb.inf.mathhelper.ui.controller.Controller;
+import hu.unideb.inf.mathhelper.ui.controller.SceneController;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
 import hu.unideb.inf.mathhelper.service.UserTrackService;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -16,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
 import java.net.URL;
 
 @Component
@@ -26,7 +24,7 @@ public class StageInitializer implements ApplicationListener<MathHelperApplicati
     private final LocationDAO locationDAO;
     private final UserTrackService userTrackService;
 
-    private Controller controller;
+    private SceneController sceneController;
 
     @Autowired
     public StageInitializer(SceneDAO sceneDAO, LocationDAO locationDAO, UserTrackService userTrackService) {
@@ -40,7 +38,7 @@ public class StageInitializer implements ApplicationListener<MathHelperApplicati
        Scene scene = getScene();
        Stage stage = event.getStage();
        stage.setScene(scene);
-       controller.setup(stage);
+       sceneController.setup(stage);
        if (!firstRun()) {
            stage.setResizable(false);
            stage.initStyle(StageStyle.UNDECORATED);
@@ -63,7 +61,7 @@ public class StageInitializer implements ApplicationListener<MathHelperApplicati
         }
         try {
             scene = sceneDAO.loadScene(path);
-            controller = sceneDAO.getController();
+            sceneController = sceneDAO.getController();
         } catch (FXMLFileNotFoundException e) {
             //TODO
             e.printStackTrace();

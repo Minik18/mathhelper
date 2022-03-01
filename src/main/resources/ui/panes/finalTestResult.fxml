@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -14,9 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0"
-            prefWidth="1044.0" xmlns="http://javafx.com/javafx/17"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.finalTest.FinalTestController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.finalTest.FinalTestResultController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <right>
@@ -25,12 +22,10 @@
                   <Pane prefHeight="596.0" prefWidth="1.0" style="-fx-background-color: black;" />
                   <VBox alignment="TOP_CENTER" prefHeight="565.0" prefWidth="167.0">
                      <children>
-                        <Label fx:id="taskPart" accessibleHelp="%second_part" accessibleText="%first_part" text="Task part" textAlignment="CENTER" wrapText="true" />
-                        <HBox alignment="CENTER" prefHeight="45.0" prefWidth="167.0">
-                           <children>
-                              <Label fx:id="timerLabel" text="Timer" />
-                           </children>
-                        </HBox>
+                        <Label text="%navigation_tab" textAlignment="CENTER" wrapText="true">
+                           <padding>
+                              <Insets bottom="10.0" top="5.0" />
+                           </padding></Label>
                         <VBox prefHeight="367.0" prefWidth="167.0">
                            <children>
                               <HBox alignment="TOP_CENTER" prefHeight="169.0" prefWidth="167.0">
@@ -44,17 +39,17 @@
                                              </VBox.margin>
                                           </Separator>
                                           <GridPane fx:id="firstPartGridPane" alignment="CENTER" prefHeight="127.0" prefWidth="167.0">
-                                            <columnConstraints>
+                                             <columnConstraints>
                                                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                            </columnConstraints>
-                                            <rowConstraints>
-                                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                            </rowConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                             </rowConstraints>
                                              <children>
                                                 <Button focusTraversable="false" mnemonicParsing="false" text="1" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                                                 <Button focusTraversable="false" mnemonicParsing="false" text="2" GridPane.columnIndex="1" GridPane.rowIndex="0" />
@@ -136,15 +131,11 @@
                                           </GridPane>
                                           <VBox alignment="CENTER" spacing="5.0">
                                              <children>
-                                                <Label text="%chosen_task" />
-                                                <TextField fx:id="chosenQuestion" focusTraversable="false" prefHeight="25.0" prefWidth="110.0">
-                                                   <VBox.margin>
-                                                      <Insets left="20.0" right="20.0" />
-                                                   </VBox.margin>
-                                                </TextField>
+                                                <Label text="%chosen_task" wrapText="true" />
+                                                <Label fx:id="unwantedLabel" text="Index" />
                                              </children>
                                              <VBox.margin>
-                                                <Insets top="10.0" />
+                                                <Insets top="20.0" />
                                              </VBox.margin>
                                           </VBox>
                                        </children>
@@ -158,22 +149,17 @@
                         </VBox>
                         <Button fx:id="nextQuestion" focusTraversable="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="%next_question">
                            <VBox.margin>
-                              <Insets top="60.0" />
+                              <Insets top="50.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="nextPart" focusTraversable="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="%next_part">
+                        <Button fx:id="summary" focusTraversable="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="148.0" text="%summary">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Button>
                         <Button fx:id="finish" focusTraversable="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="%finish">
                            <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button fx:id="exit" focusTraversable="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" text="%exit">
-                           <VBox.margin>
-                              <Insets bottom="5.0" top="20.0" />
+                              <Insets top="20.0" />
                            </VBox.margin>
                         </Button>
                      </children>

@@ -4,38 +4,26 @@ import hu.unideb.inf.mathhelper.dao.*;
 import hu.unideb.inf.mathhelper.exception.QuestionFileNotFoundException;
 import hu.unideb.inf.mathhelper.model.question.*;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
+import hu.unideb.inf.mathhelper.ui.model.FinalQuestion;
+import hu.unideb.inf.mathhelper.ui.util.QuestionValidator;
 import hu.unideb.inf.mathhelper.ui.util.QuestionBuilder;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 
 @Component
-public class QuestionController implements Controller {
+public class QuestionSceneController implements PanelController {
 
-    private static final String CORRECT_ANSWER_IMAGE_NAME = "correct.png";
-    private static final String WRONG_ANSWER_IMAGE_NAME = "wrong.png";
-
-    @Autowired
-    private QuestionDAO questionDAO;
-
-    @Autowired
-    private CategoryDAO categoryDAO;
-
-    @Autowired
-    private UserHandleService userHandleService;
-
-    @Autowired
-    private LocationDAO locationDAO;
-
-    @Autowired
-    private QuestionBuilder questionBuilder;
+    private final QuestionDAO questionDAO;
+    private final CategoryDAO categoryDAO;
+    private final UserHandleService userHandleService;
+    private final LocationDAO locationDAO;
+    private final QuestionValidator questionValidator;
+    private final QuestionBuilder questionBuilder;
 
     @FXML
     private AnchorPane middleAnchor;
@@ -60,9 +48,20 @@ public class QuestionController implements Controller {
 
     private List<Category> selectedCategories;
     private Map<String, Category> categoryMap;
+    private Question question;
+
+    @Autowired
+    public QuestionSceneController(QuestionDAO questionDAO, CategoryDAO categoryDAO, UserHandleService userHandleService, LocationDAO locationDAO, QuestionValidator questionValidator, QuestionBuilder questionBuilder) {
+        this.questionDAO = questionDAO;
+        this.categoryDAO = categoryDAO;
+        this.userHandleService = userHandleService;
+        this.locationDAO = locationDAO;
+        this.questionValidator = questionValidator;
+        this.questionBuilder = questionBuilder;
+    }
 
     @Override
-    public void setup(Stage stage) {
+    public void setup() {
         restart.setDisable(true);
         next.setDisable(true);
         check.setDisable(true);
@@ -129,7 +128,7 @@ public class QuestionController implements Controller {
         List<Question> list;
         try {
             list = questionDAO.loadQuestionsIntoList(locationDAO.getQuestionFolderPath().getPath());
-            Question question = getQuestion(list);
+            question = getQuestion(list);
             questionBuilder.buildQuestionPane(question,middleAnchor);
         } catch (QuestionFileNotFoundException e) {
             e.printStackTrace();
@@ -157,19 +156,12 @@ public class QuestionController implements Controller {
     }
 
     private void validate() {
-        int index = 0;
-        for (Map.Entry<TextField, ImageView> entry : questionBuilder.getUsedFields().entrySet()) {
-            if (questionBuilder.getAnswers().get(index).getAnswerList().contains(entry.getKey().getText())) {
-                entry.getValue().setImage(new Image(locationDAO.getUiPictureFilePath(CORRECT_ANSWER_IMAGE_NAME)));
-            } else {
-
-                entry.getValue().setImage(new Image(locationDAO.getUiPictureFilePath(WRONG_ANSWER_IMAGE_NAME)));
-            }
-            entry.getValue().setVisible(true);
-            entry.getKey().setDisable(true);
-            questionBuilder.getHelpButtons().get(index).setDisable(true);
-            index++;
-        }
+        FinalQuestion finalQuestion = new FinalQuestion();
+        finalQuestion.setQuestion(question);
+        finalQuestion.setHelpButtons(questionBuilder.getHelpButtons());
+        finalQuestion.setAnswers(questionBuilder.getAnswers());
+        finalQuestion.setUsedFields(questionBuilder.getUsedFields());
+        questionValidator.validateQuestion(finalQuestion);
         //TODO For every successfully answered question add points to user
     }
 }

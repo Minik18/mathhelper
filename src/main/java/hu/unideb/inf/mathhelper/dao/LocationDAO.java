@@ -14,12 +14,12 @@ public interface LocationDAO {
 
     URL getSceneFilePath(String fileName);
 
-    URL getPaneFilePath(String fileName);
+    String getPaneFilePath(String fileName);
 
     String getTextFilePath(String fileName);
 
     URL getCategoryFilePath();
 
-    URL getSampleQuestionPaneFilePath();
+    String getSampleQuestionPaneFilePath();
 
 }

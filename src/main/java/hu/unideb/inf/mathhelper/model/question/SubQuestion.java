@@ -19,6 +19,16 @@ public class SubQuestion {
     @XmlElement(name = "help")
     private Help help;
 
+    private boolean result;
+
+    public boolean isRight() {
+        return result;
+    }
+
+    public void setResult(boolean result) {
+        this.result = result;
+    }
+
     public Integer getPoint() {
         return point;
     }

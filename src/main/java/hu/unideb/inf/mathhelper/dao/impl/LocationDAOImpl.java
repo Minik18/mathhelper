@@ -59,11 +59,11 @@ public class LocationDAOImpl implements LocationDAO {
     }
 
     @Override
-    public URL getPaneFilePath(String fileName) {
+    public String getPaneFilePath(String fileName) {
         if (location == null) {
             load();
         }
-        return getURLFromPath(location.getPanesFolder() + "/" + fileName);
+        return getURLFromPath(location.getPanesFolder() + "/" + fileName).getPath();
     }
 
     @Override
@@ -83,11 +83,11 @@ public class LocationDAOImpl implements LocationDAO {
     }
 
     @Override
-    public URL getSampleQuestionPaneFilePath() {
+    public String getSampleQuestionPaneFilePath() {
         if (location == null) {
             load();
         }
-        return getURLFromPath(location.getSampleQuestionFile());
+        return getURLFromPath(location.getSampleQuestionFile()).getPath();
     }
 
     private void load() {

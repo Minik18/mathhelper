@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.List;
 
 @Component
-public class SettingsController implements Controller{
+public class SettingsSceneController implements PanelController {
 
     private static final List<String> ALLOWED_PICTURE_EXTENSIONS = List.of("png","jpg",".ico");
 
@@ -23,7 +23,7 @@ public class SettingsController implements Controller{
     private Text pictureErrorText;
 
     @Override
-    public void setup(Stage stage) {
+    public void setup() {
         browse.setOnMouseClicked(event -> {
             Stage newStage = new Stage();
             FileChooser fileChooser = new FileChooser();

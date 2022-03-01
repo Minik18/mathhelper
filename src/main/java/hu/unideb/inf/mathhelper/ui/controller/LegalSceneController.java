@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URI;
 
 @Component
-public class LegalController implements Controller{
+public class LegalSceneController implements PanelController {
 
     @FXML
     public Hyperlink contactLink;
@@ -26,7 +26,7 @@ public class LegalController implements Controller{
     private Hyperlink mathLink;
 
     @Override
-    public void setup(@Nullable Stage stage) {
+    public void setup() {
         setupLink(uniLink, uniLink.getAccessibleText());
         setupLink(picturesLink, picturesLink.getAccessibleText());
         setupLink(mathLink, mathLink.getAccessibleText());

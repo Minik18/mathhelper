@@ -4,10 +4,10 @@ import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 
 @Component
-public class HelpController implements Controller{
+public class HelpSceneController implements PanelController {
 
     @Override
-    public void setup(Stage stage) {
+    public void setup() {
 
     }
 }

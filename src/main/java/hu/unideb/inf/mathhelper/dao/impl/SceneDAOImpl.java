@@ -2,6 +2,7 @@ package hu.unideb.inf.mathhelper.dao.impl;
 
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
 import hu.unideb.inf.mathhelper.ui.controller.Controller;
+import hu.unideb.inf.mathhelper.ui.controller.SceneController;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
 import javafx.fxml.FXMLLoader;
@@ -19,13 +20,13 @@ import java.util.ResourceBundle;
 
 public class SceneDAOImpl implements SceneDAO {
 
-    private Controller controller;
+    private Controller sceneController;
     private final ApplicationContext applicationContext;
+    private final LocationDAO locationDAO;
 
-    @Autowired
-    private LocationDAO locationDAO;
 
-    public SceneDAOImpl(ApplicationContext applicationContext) {
+    public SceneDAOImpl(ApplicationContext applicationContext, LocationDAO locationDAO) {
+        this.locationDAO = locationDAO;
         this.applicationContext = applicationContext;
     }
 
@@ -36,8 +37,8 @@ public class SceneDAOImpl implements SceneDAO {
     }
 
     @Override
-    public Controller getController() {
-        return controller;
+    public SceneController getController() {
+        return (SceneController) sceneController;
     }
 
     private File checkFileExistence(URL path) throws FXMLFileNotFoundException {
@@ -58,7 +59,7 @@ public class SceneDAOImpl implements SceneDAO {
             loader.setControllerFactory(applicationContext::getBean);
             loader.load();
             Parent parent = loader.getRoot();
-            controller = loader.getController();
+            sceneController = loader.getController();
             return parent;
         } catch (IOException e) {
             //TODO: Handle error

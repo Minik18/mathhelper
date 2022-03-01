@@ -2,11 +2,12 @@ package hu.unideb.inf.mathhelper.ui.controller;
 
 import hu.unideb.inf.mathhelper.dao.LevelDAO;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
-import hu.unideb.inf.mathhelper.dao.SceneDAO;
+import hu.unideb.inf.mathhelper.dao.PanelDAO;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
 import hu.unideb.inf.mathhelper.model.UserData;
 import hu.unideb.inf.mathhelper.model.level.Level;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
+import hu.unideb.inf.mathhelper.ui.observer.PlayerObserver;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
@@ -23,19 +24,13 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Component
-public class MainController implements Controller{
+public class MainSceneController implements SceneController {
 
-    @Autowired
-    private UserHandleService userHandleService;
-
-    @Autowired
-    private LevelDAO levelDAO;
-
-    @Autowired
-    private LocationDAO locationDAO;
-
-    @Autowired
-    private SceneDAO sceneDAO;
+    private final UserHandleService userHandleService;
+    private final LevelDAO levelDAO;
+    private final LocationDAO locationDAO;
+    private final PanelDAO panelDAO;
+    private final PlayerObserver playerObserver;
 
     @Value("${ui.text.level}")
     private String levelString;
@@ -57,9 +52,6 @@ public class MainController implements Controller{
 
     @FXML
     private Button randomQuestion;
-
-    @FXML
-    private Button categories;
 
     @FXML
     private Button finalTest;
@@ -100,10 +92,21 @@ public class MainController implements Controller{
     @FXML
     private ImageView profilePicture;
 
+    @Autowired
+    public MainSceneController(UserHandleService userHandleService, LevelDAO levelDAO, LocationDAO locationDAO,
+                               PanelDAO panelDAO, PlayerObserver playerObserver) {
+        this.userHandleService = userHandleService;
+        this.levelDAO = levelDAO;
+        this.locationDAO = locationDAO;
+        this.panelDAO = panelDAO;
+        this.playerObserver = playerObserver;
+        playerObserver.setMainController(this);
+    }
+
     @Override
     public void setup(Stage stage) {
+
      randomQuestion.setOnMouseClicked(event -> loadPane("random.fxml"));
-     categories.setOnMouseClicked(event -> loadPane("categories.fxml"));
      finalTest.setOnMouseClicked(event -> loadPane("final.fxml"));
      settings.setOnMouseClicked(event -> loadPane("settings.fxml"));
      help.setOnMouseClicked(event -> loadPane("help.fxml"));
@@ -112,7 +115,26 @@ public class MainController implements Controller{
      updateUserInformation();
     }
 
-    private void updateUserInformation() {
+    public void lockButtons() {
+        randomQuestion.setDisable(true);
+        finalTest.setDisable(true);
+        settings.setDisable(true);
+        help.setDisable(true);
+        legal.setDisable(true);
+        exit.setDisable(true);
+    }
+
+    public void unlockButtons() {
+        randomQuestion.setDisable(false);
+        finalTest.setDisable(false);
+        settings.setDisable(false);
+        help.setDisable(false);
+        legal.setDisable(false);
+        exit.setDisable(false);
+        loadPane("final.fxml");
+    }
+
+    public void updateUserInformation() {
         UserData userData = userHandleService.getUserData();
         Integer levelCount = userData.getLevel();
         Integer currentXp = userData.getXp();
@@ -142,8 +164,8 @@ public class MainController implements Controller{
 
     private void loadPane(String fileName) {
         try {
-            AnchorPane anchorPane = (AnchorPane) sceneDAO.loadScene(locationDAO.getPaneFilePath(fileName)).getRoot();
-            sceneDAO.getController().setup(null);
+            AnchorPane anchorPane = panelDAO.loadPanel(fileName);
+            panelDAO.getController().setup();
             centerPane.getChildren().clear();
             centerPane.getChildren().addAll(anchorPane.getChildren());
         } catch (FXMLFileNotFoundException e) {

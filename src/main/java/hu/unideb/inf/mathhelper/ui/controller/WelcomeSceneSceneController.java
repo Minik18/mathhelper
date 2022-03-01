@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 import java.util.Locale;
 
 @Component
-public class WelcomeSceneController implements Controller {
+public class WelcomeSceneSceneController implements SceneController {
 
     @Autowired
     private UserHandleService userHandleService;
@@ -58,10 +58,10 @@ public class WelcomeSceneController implements Controller {
         try {
             Stage newStage = new Stage();
             Scene scene = sceneDAO.loadScene(locationDAO.getSceneFilePath("main.fxml"));
-            Controller controller = sceneDAO.getController();
+            SceneController sceneController = sceneDAO.getController();
             stage.close();
             newStage.setScene(scene);
-            controller.setup(newStage);
+            sceneController.setup(newStage);
             newStage.show();
         } catch (FXMLFileNotFoundException e) {
             //TODO
