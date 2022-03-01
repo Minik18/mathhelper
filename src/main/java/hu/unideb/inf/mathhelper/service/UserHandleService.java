@@ -10,8 +10,12 @@ public interface UserHandleService {
 
     UserData getUserData();
 
-    void incrementHelpPoint(Integer amount);
+    void incrementCompletedFinalQuestions();
 
     void addCompletedQuestionId(String questionId);
+
+    void decrementHelpPoints(Integer amount);
+
+    void decrementRewardPoints(Integer amount);
 
 }

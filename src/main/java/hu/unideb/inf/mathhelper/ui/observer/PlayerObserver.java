@@ -45,9 +45,13 @@ public class PlayerObserver {
         finalQuestions = finalQuestionList;
     }
 
+    public void updateUserInformation() {
+        mainController.updateUserInformation();
+    }
+
     public void endOfFinalTest() {
         mainController.unlockButtons();
-        mainController.updateUserInformation();
+        updateUserInformation();
     }
 
     public void startOfFinalTest() {

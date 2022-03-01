@@ -7,7 +7,8 @@ import hu.unideb.inf.mathhelper.model.question.Answers;
 import hu.unideb.inf.mathhelper.model.question.Help;
 import hu.unideb.inf.mathhelper.model.question.Question;
 import hu.unideb.inf.mathhelper.model.question.SubQuestion;
-import hu.unideb.inf.mathhelper.ui.model.FinalQuestion;
+import hu.unideb.inf.mathhelper.service.UserHandleService;
+import hu.unideb.inf.mathhelper.ui.observer.PlayerObserver;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -20,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.apache.commons.io.FilenameUtils;
@@ -38,15 +40,23 @@ public class QuestionBuilder {
     @Value("${ui.text.point}")
     private String points;
 
-    @Autowired
-    private LocationDAO locationDAO;
-
-    @Autowired
-    private PanelDAO panelDAO;
+    private final LocationDAO locationDAO;
+    private final UserHandleService userHandleService;
+    private final PlayerObserver playerObserver;
+    private final PanelDAO panelDAO;
 
     private Map<TextField, ImageView> usedFields;
     private  List<Answers> answers;
     private List<Button> helpButtons;
+
+    @Autowired
+    public QuestionBuilder(LocationDAO locationDAO, UserHandleService userHandleService,
+                           PlayerObserver playerObserver, PanelDAO panelDAO) {
+        this.locationDAO = locationDAO;
+        this.userHandleService = userHandleService;
+        this.playerObserver = playerObserver;
+        this.panelDAO = panelDAO;
+    }
 
     public void buildQuestionPane(Question question, AnchorPane middleAnchor) {
         usedFields = new HashMap<>();
@@ -105,10 +115,18 @@ public class QuestionBuilder {
                 if (help.getNeededPoints() != 0) {
                     cost.setText(help.getNeededPoints() + points);
                     button.setOnMouseClicked(event -> {
-                        //TODO Retract points
-                        helpLabel.setVisible(true);
-                        helpLabel.setText(help.getDescription());
-                        secondLine.getChildren().remove(helpBox);
+                        if (userHandleService.getUserData().getHelpPoints() >= help.getNeededPoints()) {
+                            helpLabel.setVisible(true);
+                            helpLabel.setText(help.getDescription());
+                            secondLine.getChildren().remove(helpBox);
+                            cost.setText(cost.getText().substring(0,cost.getText().length()-1));
+                            cost.setFill(Color.BLACK);
+                            userHandleService.decrementHelpPoints(help.getNeededPoints());
+                            playerObserver.updateUserInformation();
+                        } else {
+                            cost.setFill(Color.RED);
+                            cost.setText(cost.getText() + "!");
+                        }
                     });
                 } else {
                     secondLine.getChildren().remove(helpBox);

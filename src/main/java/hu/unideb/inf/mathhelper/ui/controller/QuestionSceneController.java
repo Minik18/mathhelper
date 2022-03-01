@@ -51,7 +51,9 @@ public class QuestionSceneController implements PanelController {
     private Question question;
 
     @Autowired
-    public QuestionSceneController(QuestionDAO questionDAO, CategoryDAO categoryDAO, UserHandleService userHandleService, LocationDAO locationDAO, QuestionValidator questionValidator, QuestionBuilder questionBuilder) {
+    public QuestionSceneController(QuestionDAO questionDAO, CategoryDAO categoryDAO,
+                                   UserHandleService userHandleService, LocationDAO locationDAO,
+                                   QuestionValidator questionValidator, QuestionBuilder questionBuilder) {
         this.questionDAO = questionDAO;
         this.categoryDAO = categoryDAO;
         this.userHandleService = userHandleService;
@@ -128,31 +130,47 @@ public class QuestionSceneController implements PanelController {
         List<Question> list;
         try {
             list = questionDAO.loadQuestionsIntoList(locationDAO.getQuestionFolderPath().getPath());
-            question = getQuestion(list);
-            questionBuilder.buildQuestionPane(question,middleAnchor);
+            Optional<Question> optionalQuestion = getQuestion(list);
+            if (optionalQuestion.isPresent()) {
+                question = optionalQuestion.get();
+                questionBuilder.buildQuestionPane(question, middleAnchor);
+            } else {
+                reportToUser();
+            }
         } catch (QuestionFileNotFoundException e) {
             e.printStackTrace();
             //TODO
         }
     }
 
-    private Question getQuestion(List<Question> list) {
-        Question question;
-        boolean contains = false;
-        do {
+    private void reportToUser() {
+        Label label = new Label("Az összes feladat megoldva! A beállításokban lehetőség van a már megoldott feladatok listázására.");
+        restart.fire();
+        AnchorPane.setBottomAnchor(label, 0.0);
+        AnchorPane.setTopAnchor(label, 0.0);
+        AnchorPane.setRightAnchor(label, 0.0);
+        AnchorPane.setLeftAnchor(label, 0.0);
+        middleAnchor.getChildren().add(label);
+    }
+
+    private Optional<Question> getQuestion(List<Question> list) {
+        List<String> ids = userHandleService.getUserData().getCompletedQuestionIds();
+        List<Question> questions = list.stream()
+                .filter(question1 -> {
+                    List<Category> categories = question1.getCategories().getCategoryList();
+                    Optional<Category> category = selectedCategories.stream()
+                            .filter(categories::contains)
+                            .findFirst();
+                    return category.isPresent();
+                })
+                .filter(question1 -> !ids.contains(question1.getId()))
+                .toList();
+        if (questions.size() == 0) {
+            return Optional.empty();
+        } else {
             Random random = new Random();
-            int index = random.nextInt(list.size());
-            question = list.get(index);
-            for (Category selectedCategory : selectedCategories) {
-                for (Category actualCategory : question.getCategories().getCategoryList()) {
-                    if (selectedCategory.equals(actualCategory)) {
-                        contains = true;
-                        break;
-                    }
-                }
-            }
-        } while (!contains);
-        return question;
+            return Optional.of(questions.get(random.nextInt(questions.size())));
+        }
     }
 
     private void validate() {
@@ -162,6 +180,5 @@ public class QuestionSceneController implements PanelController {
         finalQuestion.setAnswers(questionBuilder.getAnswers());
         finalQuestion.setUsedFields(questionBuilder.getUsedFields());
         questionValidator.validateQuestion(finalQuestion);
-        //TODO For every successfully answered question add points to user
     }
 }

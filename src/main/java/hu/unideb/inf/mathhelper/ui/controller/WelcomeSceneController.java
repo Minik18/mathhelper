@@ -5,19 +5,22 @@ import hu.unideb.inf.mathhelper.dao.SceneDAO;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import javafx.fxml.FXML;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
 
 @Component
-public class WelcomeSceneSceneController implements SceneController {
+public class WelcomeSceneController implements SceneController {
 
     @Autowired
     private UserHandleService userHandleService;
@@ -62,6 +65,13 @@ public class WelcomeSceneSceneController implements SceneController {
             stage.close();
             newStage.setScene(scene);
             sceneController.setup(newStage);
+            newStage.setResizable(false);
+            newStage.initStyle(StageStyle.UNDECORATED);
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+            newStage.setX(primaryScreenBounds.getMinX());
+            newStage.setY(primaryScreenBounds.getMinY());
+            newStage.setWidth(primaryScreenBounds.getWidth());
+            newStage.setHeight(primaryScreenBounds.getHeight());
             newStage.show();
         } catch (FXMLFileNotFoundException e) {
             //TODO

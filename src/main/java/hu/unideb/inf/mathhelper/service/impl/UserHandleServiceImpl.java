@@ -34,7 +34,15 @@ public class UserHandleServiceImpl implements UserHandleService {
     public void incrementXp(Integer amount) {
         if (amount >= 1) {
             user.incrementXp(amount);
-            //TODO: Handle level up
+            Level currentLevel = levels.get(user.getLevel()-1);
+            Integer requiredXp = currentLevel.getRequiredXp();
+            if (requiredXp <= user.getXp()) {
+                user.decrementXp(requiredXp);
+                user.incrementRewardPoints(currentLevel.getRewardPoints());
+                user.incrementHelpPoints(currentLevel.getHelpPoints());
+                user.incrementLevel();
+            }
+            updateUser();
         }
     }
 
@@ -42,7 +50,7 @@ public class UserHandleServiceImpl implements UserHandleService {
     public void updateNickname(String newNickname) {
         if (validNickname(newNickname)) {
             user.setNickname(newNickname);
-            userTrackService.updateCurrentUser(user);
+            updateUser();
         }
     }
 
@@ -61,17 +69,34 @@ public class UserHandleServiceImpl implements UserHandleService {
     }
 
     @Override
-    public void incrementHelpPoint(Integer amount) {
-        if (amount >= 1) {
-            user.incrementHelpPoints(amount);
-        }
+    public void incrementCompletedFinalQuestions() {
+        user.incrementCountOfFinals();
+        updateUser();
     }
 
     @Override
     public void addCompletedQuestionId(String questionId) {
         if (!user.getCompletedQuestionIds().contains(questionId)) {
             user.addCompletedQuestionIds(questionId);
+            user.incrementNumberOfCompletedQuestions();
+            updateUser();
         }
+    }
+
+    @Override
+    public void decrementHelpPoints(Integer amount) {
+        user.decrementHelpPoints(amount);
+        updateUser();
+    }
+
+    @Override
+    public void decrementRewardPoints(Integer amount) {
+        user.decrementRewardPoints(amount);
+        updateUser();
+    }
+
+    private void updateUser() {
+        userTrackService.updateCurrentUser(user);
     }
 
     private boolean validNickname(String newNickname) {

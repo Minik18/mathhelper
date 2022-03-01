@@ -13,7 +13,7 @@ public class User {
 
     private String nickname;
 
-    @ElementCollection(targetClass=String.class)
+    @ElementCollection(targetClass=String.class, fetch = FetchType.EAGER)
     private List<String> completedQuestionIds = new ArrayList<>();
     private Integer countOfFinals;
     private Integer level;
@@ -35,8 +35,8 @@ public class User {
     protected User() {
     }
 
-    public void incrementCountOfFinals(Integer count) {
-        countOfFinals += count;
+    public void incrementCountOfFinals() {
+        countOfFinals++;
     }
 
     public void setNickname(String nickname) {

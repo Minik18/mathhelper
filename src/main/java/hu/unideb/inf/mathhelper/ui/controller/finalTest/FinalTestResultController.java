@@ -4,6 +4,7 @@ import hu.unideb.inf.mathhelper.dao.PanelDAO;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
 import hu.unideb.inf.mathhelper.model.FinalResult;
 import hu.unideb.inf.mathhelper.model.question.SubQuestion;
+import hu.unideb.inf.mathhelper.service.UserHandleService;
 import hu.unideb.inf.mathhelper.ui.controller.PanelController;
 import hu.unideb.inf.mathhelper.ui.model.FinalQuestion;
 import hu.unideb.inf.mathhelper.ui.util.QuestionValidator;
@@ -28,6 +29,7 @@ public class FinalTestResultController implements PanelController {
     private final PlayerObserver playerObserver;
     private final QuestionValidator questionValidator;
     private final PanelDAO panelDAO;
+    private final UserHandleService userHandleService;
 
     @Value("${ui.text.unwanted}")
     private String unwantedText;
@@ -65,10 +67,11 @@ public class FinalTestResultController implements PanelController {
 
     @Autowired
     public FinalTestResultController(PlayerObserver playerObserver, QuestionValidator questionValidator,
-                                     PanelDAO panelDAO) {
+                                     PanelDAO panelDAO, UserHandleService userHandleService) {
         this.playerObserver = playerObserver;
         this.questionValidator = questionValidator;
         this.panelDAO = panelDAO;
+        this.userHandleService = userHandleService;
     }
 
     @Override
@@ -82,7 +85,7 @@ public class FinalTestResultController implements PanelController {
         questionButtons.addAll(secondAPartGridPane.getChildren());
         questionButtons.addAll(secondBPartGridPane.getChildren());
 
-        questionButtons.forEach(node -> node.setOnMouseClicked(event -> changeQuestionByIndex(Integer.parseInt(((Button)node).getText()) - 1)));
+        questionButtons.forEach(node -> node.setOnMouseClicked(event -> changeQuestionByIndex(Integer.parseInt(((Button) node).getText()) - 1)));
 
 
         finish.setOnMouseClicked(event -> exit());
@@ -91,6 +94,11 @@ public class FinalTestResultController implements PanelController {
         changeQuestionByIndex(0);
 
         FinalResult result = calculateResult();
+
+        if (result.getPercentage() >= 25) {
+            userHandleService.incrementCompletedFinalQuestions();
+            playerObserver.updateUserInformation();
+        }
 
         playerObserver.setFinalResult(result);
 
@@ -102,10 +110,10 @@ public class FinalTestResultController implements PanelController {
             AnchorPane anchorPane = panelDAO.loadPanel("summary.fxml");
             panelDAO.getController().setup();
             middleAnchor.getChildren().clear();
-            AnchorPane.setBottomAnchor(anchorPane,0.0);
-            AnchorPane.setTopAnchor(anchorPane,0.0);
-            AnchorPane.setRightAnchor(anchorPane,0.0);
-            AnchorPane.setLeftAnchor(anchorPane,0.0);
+            AnchorPane.setBottomAnchor(anchorPane, 0.0);
+            AnchorPane.setTopAnchor(anchorPane, 0.0);
+            AnchorPane.setRightAnchor(anchorPane, 0.0);
+            AnchorPane.setLeftAnchor(anchorPane, 0.0);
             middleAnchor.getChildren().add(anchorPane);
         } catch (FXMLFileNotFoundException e) {
             //TODO
@@ -147,7 +155,7 @@ public class FinalTestResultController implements PanelController {
                 }
             }
         }
-        return new FinalResult(sum,reached);
+        return new FinalResult(sum, reached);
     }
 
     private void exit() {
