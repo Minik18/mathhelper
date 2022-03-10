@@ -12,9 +12,10 @@ public class User {
     private Long id;
 
     private String nickname;
+    private String profilePictureName;
 
     @ElementCollection(targetClass=String.class, fetch = FetchType.EAGER)
-    private List<String> completedQuestionIds = new ArrayList<>();
+    private List<String> completedQuestionIds;
     private Integer countOfFinals;
     private Integer level;
     private Integer xp;
@@ -24,12 +25,18 @@ public class User {
 
     public User(String nickname) {
         this.nickname = nickname;
+        resetData();
+    }
+
+    public void resetData() {
         this.helpPoints = 0;
         this.level = 1;
         this.xp = 0;
         this.numberOfCompletedQuestions = 0;
         this.rewardPoints = 0;
         this.countOfFinals = 0;
+        this.profilePictureName = "";
+        completedQuestionIds = new ArrayList<>();
     }
 
     protected User() {
@@ -109,5 +116,13 @@ public class User {
 
     public Integer getCountOfFinals() {
         return countOfFinals;
+    }
+
+    public String getProfilePictureName() {
+        return profilePictureName;
+    }
+
+    public void updateProfilePicture(String path) {
+        this.profilePictureName = path;
     }
 }

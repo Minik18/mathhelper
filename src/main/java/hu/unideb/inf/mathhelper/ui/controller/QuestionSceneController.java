@@ -24,6 +24,7 @@ public class QuestionSceneController implements PanelController {
     private final LocationDAO locationDAO;
     private final QuestionValidator questionValidator;
     private final QuestionBuilder questionBuilder;
+    private final SettingsDAO settingsDAO;
 
     @FXML
     private AnchorPane middleAnchor;
@@ -53,13 +54,15 @@ public class QuestionSceneController implements PanelController {
     @Autowired
     public QuestionSceneController(QuestionDAO questionDAO, CategoryDAO categoryDAO,
                                    UserHandleService userHandleService, LocationDAO locationDAO,
-                                   QuestionValidator questionValidator, QuestionBuilder questionBuilder) {
+                                   QuestionValidator questionValidator, QuestionBuilder questionBuilder,
+                                   SettingsDAO settingsDAO) {
         this.questionDAO = questionDAO;
         this.categoryDAO = categoryDAO;
         this.userHandleService = userHandleService;
         this.locationDAO = locationDAO;
         this.questionValidator = questionValidator;
         this.questionBuilder = questionBuilder;
+        this.settingsDAO = settingsDAO;
     }
 
     @Override
@@ -155,16 +158,29 @@ public class QuestionSceneController implements PanelController {
 
     private Optional<Question> getQuestion(List<Question> list) {
         List<String> ids = userHandleService.getUserData().getCompletedQuestionIds();
-        List<Question> questions = list.stream()
-                .filter(question1 -> {
-                    List<Category> categories = question1.getCategories().getCategoryList();
-                    Optional<Category> category = selectedCategories.stream()
-                            .filter(categories::contains)
-                            .findFirst();
-                    return category.isPresent();
-                })
-                .filter(question1 -> !ids.contains(question1.getId()))
-                .toList();
+        List<Question> questions;
+        if(!settingsDAO.getSettings().isUseSolvedQuestions()) {
+            questions = list.stream()
+                    .filter(question1 -> {
+                        List<Category> categories = question1.getCategories().getCategoryList();
+                        Optional<Category> category = selectedCategories.stream()
+                                .filter(categories::contains)
+                                .findFirst();
+                        return category.isPresent();
+                    })
+                    .filter(question1 -> !ids.contains(question1.getId()))
+                    .toList();
+        } else {
+            questions = list.stream()
+                    .filter(question1 -> {
+                        List<Category> categories = question1.getCategories().getCategoryList();
+                        Optional<Category> category = selectedCategories.stream()
+                                .filter(categories::contains)
+                                .findFirst();
+                        return category.isPresent();
+                    })
+                    .toList();
+        }
         if (questions.size() == 0) {
             return Optional.empty();
         } else {

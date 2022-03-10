@@ -2,6 +2,7 @@ package hu.unideb.inf.mathhelper.service.impl;
 
 import hu.unideb.inf.mathhelper.dao.LevelDAO;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
+import hu.unideb.inf.mathhelper.exception.InvalidUsernameException;
 import hu.unideb.inf.mathhelper.model.User;
 import hu.unideb.inf.mathhelper.model.UserData;
 import hu.unideb.inf.mathhelper.model.level.Level;
@@ -47,10 +48,12 @@ public class UserHandleServiceImpl implements UserHandleService {
     }
 
     @Override
-    public void updateNickname(String newNickname) {
+    public void updateNickname(String newNickname) throws InvalidUsernameException{
         if (validNickname(newNickname)) {
             user.setNickname(newNickname);
             updateUser();
+        } else {
+            throw new InvalidUsernameException();
         }
     }
 
@@ -65,6 +68,7 @@ public class UserHandleServiceImpl implements UserHandleService {
                 .withLevel(user.getLevel())
                 .withRewardPoints(user.getRewardPoints())
                 .withCountOfFinals(user.getCountOfFinals())
+                .withProfilePictureName(user.getProfilePictureName())
                 .build();
     }
 
@@ -95,18 +99,34 @@ public class UserHandleServiceImpl implements UserHandleService {
         updateUser();
     }
 
+    @Override
+    public void resetUserData() {
+        user.resetData();
+        updateUser();
+    }
+
+    @Override
+    public void updateProfilePicture(String name) {
+        user.updateProfilePicture(name);
+        updateUser();
+    }
+
     private void updateUser() {
         userTrackService.updateCurrentUser(user);
     }
 
     private boolean validNickname(String newNickname) {
         boolean valid = true;
-        if (newNickname.length() > MAX_LENGTH) {
+        if (newNickname.equals("default")) {
             valid = false;
         } else {
-            newNickname = newNickname.replace(" ","");
-            if(newNickname.length() < MIN_LENGTH) {
+            if (newNickname.length() > MAX_LENGTH) {
                 valid = false;
+            } else {
+                newNickname = newNickname.replace(" ", "");
+                if (newNickname.length() < MIN_LENGTH) {
+                    valid = false;
+                }
             }
         }
         return valid;

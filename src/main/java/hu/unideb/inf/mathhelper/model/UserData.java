@@ -12,6 +12,7 @@ public class UserData {
     private Integer helpPoints;
     private Integer rewardPoints;
     private Integer countOfFinals;
+    private String profilePictureName;
 
     private UserData() {
 
@@ -26,7 +27,12 @@ public class UserData {
         private Integer helpPoints;
         private Integer rewardPoints;
         private Integer countOfFinals;
+        private String profilePictureName;
 
+        public Builder withProfilePictureName(String name) {
+            this.profilePictureName = name;
+            return this;
+        }
 
         public Builder withCountOfFinals(Integer number) {
             this.countOfFinals = number;
@@ -78,6 +84,7 @@ public class UserData {
             userData.numberOfCompletedQuestions = this.numberOfCompletedQuestions;
             userData.rewardPoints = this.rewardPoints;
             userData.countOfFinals = this.countOfFinals;
+            userData.profilePictureName = this.profilePictureName;
             return userData;
         }
     }
@@ -112,5 +119,9 @@ public class UserData {
 
     public Integer getRewardPoints() {
         return rewardPoints;
+    }
+
+    public String getProfilePictureName() {
+        return profilePictureName;
     }
 }

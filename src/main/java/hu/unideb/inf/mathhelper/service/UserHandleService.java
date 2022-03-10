@@ -1,12 +1,13 @@
 package hu.unideb.inf.mathhelper.service;
 
+import hu.unideb.inf.mathhelper.exception.InvalidUsernameException;
 import hu.unideb.inf.mathhelper.model.UserData;
 
 public interface UserHandleService {
 
     void incrementXp(Integer amount);
 
-    void updateNickname(String newNickname);
+    void updateNickname(String newNickname) throws InvalidUsernameException;
 
     UserData getUserData();
 
@@ -17,5 +18,9 @@ public interface UserHandleService {
     void decrementHelpPoints(Integer amount);
 
     void decrementRewardPoints(Integer amount);
+
+    void resetUserData();
+
+    void updateProfilePicture(String name);
 
 }

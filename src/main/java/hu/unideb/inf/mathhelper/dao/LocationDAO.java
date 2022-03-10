@@ -18,7 +18,15 @@ public interface LocationDAO {
 
     String getTextFilePath(String fileName);
 
+    URL getDefaultSettingsFilePath();
+
+    String getSettingsFilePath();
+
     URL getCategoryFilePath();
+
+    String getProfilePictureFilePath(String name);
+
+    String getProfilePictureFolderPath();
 
     String getSampleQuestionPaneFilePath();
 
