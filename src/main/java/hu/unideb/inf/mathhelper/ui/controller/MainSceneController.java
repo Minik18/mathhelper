@@ -63,6 +63,9 @@ public class MainSceneController implements SceneController {
     private Button settings;
 
     @FXML
+    private Button battle;
+
+    @FXML
     private Button help;
 
     @FXML
@@ -110,13 +113,14 @@ public class MainSceneController implements SceneController {
     @Override
     public void setup(Stage stage) {
 
-     randomQuestion.setOnMouseClicked(event -> loadPane("random.fxml"));
-     finalTest.setOnMouseClicked(event -> loadPane("final.fxml"));
-     settings.setOnMouseClicked(event -> loadPane("settings.fxml"));
-     help.setOnMouseClicked(event -> loadPane("help.fxml"));
-     legal.setOnMouseClicked( event -> loadPane("legal.fxml"));
-     exit.setOnMouseClicked(event -> stage.close());
-     updateUserInformation();
+        battle.setOnMouseClicked(event -> loadPane("battle.fxml"));
+        randomQuestion.setOnMouseClicked(event -> loadPane("random.fxml"));
+        finalTest.setOnMouseClicked(event -> loadPane("final.fxml"));
+        settings.setOnMouseClicked(event -> loadPane("settings.fxml"));
+        help.setOnMouseClicked(event -> loadPane("help.fxml"));
+        legal.setOnMouseClicked(event -> loadPane("legal.fxml"));
+        exit.setOnMouseClicked(event -> stage.close());
+        updateUserInformation();
     }
 
     public void lockButtons() {
@@ -150,7 +154,7 @@ public class MainSceneController implements SceneController {
         completedFinals.setText(userData.getCountOfFinals().toString() + pointString);
         level.setText(levelCount + levelString);
         xp.setText(currentXp + " / " + maxXp + xpString);
-        xpBar.setProgress(currentXp / (maxXp + 0.0) );
+        xpBar.setProgress(currentXp / (maxXp + 0.0));
         String profilePicName = userData.getProfilePictureName();
         if (!profilePicName.equals("")) {
             try {
@@ -171,7 +175,7 @@ public class MainSceneController implements SceneController {
             return levelObj.get().getRequiredXp();
         } else {
             //TODO Handle situation
-            throw new NoSuchElementException("There is no level inside levels.xml with level : " + level );
+            throw new NoSuchElementException("There is no level inside levels.xml with level : " + level);
         }
     }
 

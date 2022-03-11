@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="596.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.BattleController">
+   <children>
+      <ImageView fx:id="equation" fitHeight="67.0" fitWidth="130.0" layoutX="703.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" translateZ="1.0">
+         <image>
+            <Image url="@../pics/equation.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="to" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="144.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" width="200.0" AnchorPane.bottomAnchor="231.0" AnchorPane.leftAnchor="144.0" AnchorPane.rightAnchor="700.0" AnchorPane.topAnchor="165.0" />
+      <Rectangle fx:id="from" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="661.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" translateZ="-1.0" width="200.0" AnchorPane.bottomAnchor="231.0" AnchorPane.leftAnchor="661.0" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="165.0" />
+   </children>
+</AnchorPane>
