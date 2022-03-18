@@ -122,6 +122,14 @@ public class LocationDAOImpl implements LocationDAO {
         return getURLFromPath(location.getSampleQuestionFile()).getPath();
     }
 
+    @Override
+    public URL getBossesSystemFilePath() {
+        if (location == null) {
+            load();
+        }
+        return getURLFromPath(location.getBossesFile());
+    }
+
     private void load() {
         CompositeConfiguration config = new CompositeConfiguration();
         config.addConfiguration(new SystemConfiguration());
@@ -140,6 +148,7 @@ public class LocationDAOImpl implements LocationDAO {
                     .withDefaultSettingsFile(config.getString("location.settings.default_settings"))
                     .withSettingsFile(config.getString("location.settings.settings"))
                     .withProfilePictureFolder(config.getString("location.profile_picture_folder"))
+                    .withBossesFile(config.getString("location.boss"))
                     .build();
         } catch (ConfigurationException e) {
             //TODO: Handle error

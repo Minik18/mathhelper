@@ -17,10 +17,12 @@ public interface UserHandleService {
 
     void decrementHelpPoints(Integer amount);
 
-    void decrementRewardPoints(Integer amount);
-
     void resetUserData();
 
     void updateProfilePicture(String name);
+
+    void incrementStudentKnowledgePoints(Integer amount);
+
+    void incrementBossLevel();
 
 }

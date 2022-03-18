@@ -14,6 +14,7 @@ public class Location {
     private String defaultSettingsFile;
     private String settingsFile;
     private String profilePictureFolder;
+    private String bossesFile;
 
     private Location() {}
 
@@ -30,6 +31,12 @@ public class Location {
         private String defaultSettingsFile;
         private String settingsFile;
         private String profilePictureFolder;
+        private String bossesFile;
+
+        public Builder withBossesFile(String bossFilePath) {
+            this.bossesFile = bossFilePath;
+            return this;
+        }
 
         public Builder withProfilePictureFolder(String profilePictureFolder) {
             this.profilePictureFolder = profilePictureFolder;
@@ -105,8 +112,13 @@ public class Location {
             location.settingsFile = this.settingsFile;
             location.defaultSettingsFile = this.defaultSettingsFile;
             location.profilePictureFolder = this.profilePictureFolder;
+            location.bossesFile = this.bossesFile;
             return location;
         }
+    }
+
+    public String getBossesFile() {
+        return bossesFile;
     }
 
     public String getCategoryFile() {

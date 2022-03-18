@@ -30,4 +30,6 @@ public interface LocationDAO {
 
     String getSampleQuestionPaneFilePath();
 
+    URL getBossesSystemFilePath();
+
 }

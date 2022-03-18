@@ -8,4 +8,8 @@ public interface SettingsDAO {
 
     void changeShowSolvedQuestions(boolean value);
 
+    void changeFirstOpenBossFight(boolean value);
+
+    void changeAllBossesDefeated(boolean value);
+
 }

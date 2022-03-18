@@ -69,6 +69,8 @@ public class UserHandleServiceImpl implements UserHandleService {
                 .withRewardPoints(user.getRewardPoints())
                 .withCountOfFinals(user.getCountOfFinals())
                 .withProfilePictureName(user.getProfilePictureName())
+                .withStudentKnowledgePoints(user.getStudentKnowledgePoints())
+                .withBossLevel(user.getCurrentBossLevel())
                 .build();
     }
 
@@ -94,12 +96,6 @@ public class UserHandleServiceImpl implements UserHandleService {
     }
 
     @Override
-    public void decrementRewardPoints(Integer amount) {
-        user.decrementRewardPoints(amount);
-        updateUser();
-    }
-
-    @Override
     public void resetUserData() {
         user.resetData();
         updateUser();
@@ -108,6 +104,19 @@ public class UserHandleServiceImpl implements UserHandleService {
     @Override
     public void updateProfilePicture(String name) {
         user.updateProfilePicture(name);
+        updateUser();
+    }
+
+    @Override
+    public void incrementStudentKnowledgePoints(Integer amount) {
+        user.decrementRewardPoints(amount);
+        user.incrementStudentKnowledgePoints(amount);
+        updateUser();
+    }
+
+    @Override
+    public void incrementBossLevel() {
+        user.incrementBossLevel();
         updateUser();
     }
 

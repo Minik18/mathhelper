@@ -26,6 +26,11 @@ public class Config {
     }
 
     @Bean
+    public BossDAO bossDAO(LocationDAO locationDAO) {
+        return new BossDAOImpl(locationDAO);
+    }
+
+    @Bean
     public PicturesDAO picturesDAO() {
         return new PicturesDAOImpl();
     }

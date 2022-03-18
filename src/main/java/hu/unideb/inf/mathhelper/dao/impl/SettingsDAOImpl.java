@@ -29,15 +29,25 @@ public class SettingsDAOImpl implements SettingsDAO {
 
     @Override
     public Settings getSettings() {
-        if (settings == null) {
-            load();
-        }
+        load();
         return settings;
     }
 
     @Override
     public void changeShowSolvedQuestions(boolean value) {
         properties.setProperty("show_solved_questions",String.valueOf(value));
+        updateFile();
+    }
+
+    @Override
+    public void changeFirstOpenBossFight(boolean value) {
+        properties.setProperty("first_boss_fight_open",String.valueOf(value));
+        updateFile();
+    }
+
+    @Override
+    public void changeAllBossesDefeated(boolean value) {
+        properties.setProperty("all_bosses_defeated",String.valueOf(value));
         updateFile();
     }
 
@@ -66,7 +76,9 @@ public class SettingsDAOImpl implements SettingsDAO {
         try {
             properties.load(new FileInputStream(settingsFile));
             this.settings = new Settings.Builder()
-                    .setUseSolvedQuestions(Boolean.getBoolean(properties.getProperty("show_solved_questions")))
+                    .setUseSolvedQuestions(Boolean.parseBoolean(properties.getProperty("show_solved_questions")))
+                    .setFirstBossFightOpen(Boolean.parseBoolean(properties.getProperty("first_boss_fight_open")))
+                    .setAllBossesDefeated(Boolean.parseBoolean(properties.getProperty("all_bosses_defeated")))
                     .build();
         } catch (IOException e) {
             e.printStackTrace();

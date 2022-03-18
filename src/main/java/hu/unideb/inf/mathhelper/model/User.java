@@ -22,6 +22,8 @@ public class User {
     private Integer numberOfCompletedQuestions;
     private Integer helpPoints;
     private Integer rewardPoints;
+    private Integer studentKnowledgePoints;
+    private Integer currentBossLevel;
 
     public User(String nickname) {
         this.nickname = nickname;
@@ -29,6 +31,8 @@ public class User {
     }
 
     public void resetData() {
+        currentBossLevel = 0;
+        this.studentKnowledgePoints = 10;
         this.helpPoints = 0;
         this.level = 1;
         this.xp = 0;
@@ -40,6 +44,10 @@ public class User {
     }
 
     protected User() {
+    }
+
+    public void incrementBossLevel() {
+        currentBossLevel++;
     }
 
     public void incrementCountOfFinals() {
@@ -86,6 +94,10 @@ public class User {
         this.rewardPoints -= rewardPoints;
     }
 
+    public void incrementStudentKnowledgePoints(Integer studentKnowledgePoints) {
+        this.studentKnowledgePoints += studentKnowledgePoints;
+    }
+
     public String getNickname() {
         return nickname;
     }
@@ -124,5 +136,13 @@ public class User {
 
     public void updateProfilePicture(String path) {
         this.profilePictureName = path;
+    }
+
+    public Integer getStudentKnowledgePoints() {
+        return studentKnowledgePoints;
+    }
+
+    public Integer getCurrentBossLevel() {
+        return currentBossLevel;
     }
 }
