@@ -130,6 +130,7 @@ public class SettingsSceneController implements PanelController {
             if (result.isPresent() && result.get().equals(ButtonType.OK)) {
                 userHandleService.resetUserData();
                 playerObserver.updateUserInformation();
+                settingsDAO.changeAllBossesDefeated(false);
             }
         });
 
