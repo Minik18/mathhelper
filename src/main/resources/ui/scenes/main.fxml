@@ -48,10 +48,10 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                                  <image>
-                                    <Image url="@../pics/menu.png" />
+                                    <Image url="@../pics/swords.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="categories" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%categories" HBox.hgrow="ALWAYS">
+                              <Button fx:id="battle" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%battle" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
@@ -164,7 +164,7 @@
                      <children>
                         <VBox alignment="CENTER" maxWidth="234.0" minWidth="234.0" prefHeight="150.0" prefWidth="234.0" HBox.hgrow="NEVER">
                            <children>
-                              <ImageView fx:id="profilePicture" fitHeight="150.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="150.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../pics/math.png" />
                                  </image>
@@ -177,7 +177,7 @@
                         <Pane maxWidth="1.0" prefHeight="200.0" prefWidth="1.0" style="-fx-background-color: black;" />
                         <VBox alignment="CENTER" prefHeight="170.0" prefWidth="28.0">
                            <children>
-                              <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="profilePicture" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../pics/user.png" />
                                  </image>

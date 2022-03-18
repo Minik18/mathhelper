@@ -3,6 +3,7 @@ package hu.unideb.inf.mathhelper.ui.observer;
 import hu.unideb.inf.mathhelper.model.FinalResult;
 import hu.unideb.inf.mathhelper.ui.controller.finalTest.FinalSceneController;
 import hu.unideb.inf.mathhelper.ui.controller.MainSceneController;
+import hu.unideb.inf.mathhelper.ui.controller.finalTest.FinalTestController;
 import hu.unideb.inf.mathhelper.ui.model.FinalQuestion;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ public class PlayerObserver {
 
     private MainSceneController mainController;
     private FinalSceneController finalSceneController;
+    private FinalTestController finalTestController;
     private List<FinalQuestion> finalQuestions;
     private FinalQuestion unwantedQuestion;
     private FinalResult finalResult;
@@ -43,6 +45,19 @@ public class PlayerObserver {
 
     public void setResults(List<FinalQuestion> finalQuestionList) {
         finalQuestions = finalQuestionList;
+    }
+
+    public FinalTestController getFinalTestController() {
+        return finalTestController;
+    }
+
+    public PlayerObserver setFinalTestController(FinalTestController finalTestController) {
+        this.finalTestController = finalTestController;
+        return this;
+    }
+
+    public void timerStopped() {
+        finalTestController.stoppedTimer();
     }
 
     public void updateUserInformation() {

@@ -75,6 +75,22 @@ public class LocationDAOImpl implements LocationDAO {
     }
 
     @Override
+    public URL getDefaultSettingsFilePath() {
+        if (location == null) {
+            load();
+        }
+        return getURLFromPath(location.getDefaultSettingsFile());
+    }
+
+    @Override
+    public String getSettingsFilePath() {
+        if (location == null) {
+            load();
+        }
+        return location.getSettingsFile();
+    }
+
+    @Override
     public URL getCategoryFilePath() {
         if (location == null) {
             load();
@@ -83,11 +99,35 @@ public class LocationDAOImpl implements LocationDAO {
     }
 
     @Override
+    public String getProfilePictureFilePath(String name) {
+        if (location == null) {
+            load();
+        }
+        return location.getProfilePictureFolder() + "/" + name;
+    }
+
+    @Override
+    public String getProfilePictureFolderPath() {
+        if (location == null) {
+            load();
+        }
+        return location.getProfilePictureFolder() + "/";
+    }
+
+    @Override
     public String getSampleQuestionPaneFilePath() {
         if (location == null) {
             load();
         }
         return getURLFromPath(location.getSampleQuestionFile()).getPath();
+    }
+
+    @Override
+    public URL getBossesSystemFilePath() {
+        if (location == null) {
+            load();
+        }
+        return getURLFromPath(location.getBossesFile());
     }
 
     private void load() {
@@ -105,6 +145,10 @@ public class LocationDAOImpl implements LocationDAO {
                     .withUiPicturesFolder(config.getString("location.ui.pictures_folder"))
                     .withCategoryFilePath(config.getString("location.category"))
                     .withSampleQuestionFile(config.getString("location.ui.sample_question_file"))
+                    .withDefaultSettingsFile(config.getString("location.settings.default_settings"))
+                    .withSettingsFile(config.getString("location.settings.settings"))
+                    .withProfilePictureFolder(config.getString("location.profile_picture_folder"))
+                    .withBossesFile(config.getString("location.boss"))
                     .build();
         } catch (ConfigurationException e) {
             //TODO: Handle error

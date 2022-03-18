@@ -11,6 +11,10 @@ public class Location {
     private String uiPicturesFolder;
     private String categoryFile;
     private String sampleQuestionFile;
+    private String defaultSettingsFile;
+    private String settingsFile;
+    private String profilePictureFolder;
+    private String bossesFile;
 
     private Location() {}
 
@@ -24,6 +28,30 @@ public class Location {
         private String uiPicturesFolder;
         private String categoryFile;
         private String sampleQuestionFile;
+        private String defaultSettingsFile;
+        private String settingsFile;
+        private String profilePictureFolder;
+        private String bossesFile;
+
+        public Builder withBossesFile(String bossFilePath) {
+            this.bossesFile = bossFilePath;
+            return this;
+        }
+
+        public Builder withProfilePictureFolder(String profilePictureFolder) {
+            this.profilePictureFolder = profilePictureFolder;
+            return this;
+        }
+
+        public Builder withDefaultSettingsFile(String defaultSettingsFile) {
+            this.defaultSettingsFile = defaultSettingsFile;
+            return this;
+        }
+
+        public Builder withSettingsFile(String settingsFile) {
+            this.settingsFile = settingsFile;
+            return this;
+        }
 
         public Builder withSampleQuestionFile(String sampleQuestionFile) {
             this.sampleQuestionFile = sampleQuestionFile;
@@ -81,8 +109,16 @@ public class Location {
             location.uiPicturesFolder = this.uiPicturesFolder;
             location.categoryFile = this.categoryFile;
             location.sampleQuestionFile = this.sampleQuestionFile;
+            location.settingsFile = this.settingsFile;
+            location.defaultSettingsFile = this.defaultSettingsFile;
+            location.profilePictureFolder = this.profilePictureFolder;
+            location.bossesFile = this.bossesFile;
             return location;
         }
+    }
+
+    public String getBossesFile() {
+        return bossesFile;
     }
 
     public String getCategoryFile() {
@@ -119,5 +155,17 @@ public class Location {
 
     public String getTextFolder() {
         return textFolder;
+    }
+
+    public String getDefaultSettingsFile() {
+        return defaultSettingsFile;
+    }
+
+    public String getSettingsFile() {
+        return settingsFile;
+    }
+
+    public String getProfilePictureFolder() {
+        return profilePictureFolder;
     }
 }

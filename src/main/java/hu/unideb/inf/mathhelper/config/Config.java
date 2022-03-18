@@ -16,8 +16,18 @@ public class Config {
     }
 
     @Bean
+    public SettingsDAO settingsDAO(LocationDAO locationDAO) {
+        return new SettingsDAOImpl(locationDAO);
+    }
+
+    @Bean
     public LocationDAO locationDAO() {
         return new LocationDAOImpl();
+    }
+
+    @Bean
+    public BossDAO bossDAO(LocationDAO locationDAO) {
+        return new BossDAOImpl(locationDAO);
     }
 
     @Bean

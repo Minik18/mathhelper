@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<bosses>
+    <boss>
+        <name>Elsőfokú egyenlet</name>
+        <picture>bosses/linearEquation.png</picture>
+        <about>Ő az első legyőzendő feladattípus. Az örök kérdés itt is fennáll, ki gondolta jónak betűk bevezetését számok közé? Szerencsére viszont nem nehéz, hiszen már általánosban is mindenki tanulta és megodlotta. Sok sikert! </about>
+        <difficulty>10</difficulty>
+    </boss>
+    <boss>
+        <name>Másodfokú egyenlet</name>
+        <picture>bosses/equation.png</picture>
+        <about>Ő a nagytestvére az elsőfokú egyenleteknek. Nem sokkal nehezebb mint öccse, viszont itt már figyelni kell az "összes lehetséges megoldásra", ahogyan azt tanították. Sok sikert!</about>
+        <difficulty>30</difficulty>
+    </boss>
+    <boss>
+        <name>Elsőfokú egyenletrendszer</name>
+        <picture>bosses/...</picture>
+        <about>Kezd bonyolódni a helyzet. Mostmár több különféle betű is szerepel egy feladatban, ráadásul több sorban. De aggodalomra semmi ok, csak nehéznek néz ki, de nem az. Sok sikert!</about>
+        <difficulty>35</difficulty>
+    </boss>
+    <boss>
+        <name>Síkgeometria</name>
+        <picture>bosses/...</picture>
+        <about>El is érkeztünk első geometriával kapcsolatos feladatunkhoz. Formák, alakzatok csak mese, itt is ugyan úgy számokkal kell számolni, csak nem teljesen egyértelmű mikor mivel. Sok sikert!</about>
+        <difficulty>40</difficulty>
+    </boss>
+    <boss>
+        <name>Függvények</name>
+        <picture>bosses/...</picture>
+        <about>Sokak félelmei, sokak szerelmei de egy biztos, ők is csak nehéznek tűnő feladatok. Mögöttük is ugyanúgy csak számok vannak, semmi több. És egy kis jó tanács a legyőzéséhez, jobbra pozitív, ballra negatív. Sok sikert!</about>
+        <difficulty>60</difficulty>
+    </boss>
+    <boss>
+        <name>Másodfokú egyenletrendszer</name>
+        <picture>bosses/...</picture>
+        <about>Ezzel vissza is kanyarodtunk a tiszta számokhoz. Rég volt, hiányzott is nagyon, vagyis, nem mindenkinek. Ők itt a másodfokú egyenletrendszerek, több sorban, több változóval, másodfokon. Sok sikert!</about>
+        <difficulty>90</difficulty>
+    </boss>
+    <boss>
+        <name>Térgeometria</name>
+        <picture>bosses/...</picture>
+        <about>Emlékeztek a jő öreg geometria feladatokra 2D-ben? Nos itt a nagytestvérük. Ő már megtalálta a 'z' tengellyel együtt a 3. síkot és ezzel egy magasabb szintre lépett. Könnyne legyőzhető, amenyniben megtaláljuk azt a pontot, ahol visszavezethető minden 2D-re. Sok sikert!</about>
+        <difficulty>130</difficulty>
+    </boss>
+    <boss>
+        <name>Valószínűségszámítás és kombinatorika</name>
+        <picture>bosses/...</picture>
+        <about>Valószínűségszámítás. Az ő erősségük a jövő jósolása. Képesek kiszámítani mekkora válószínűséggel nem fogja őket tudni megoldani senki. Kombinatorika. Az erejük a valószínűségek összesítésében rejlik. Kettene gyütt erős párost alkotnak, de legyőzhetőek. Sok sikert!</about>
+        <difficulty>160</difficulty>
+    </boss>
+    <boss>
+        <name>Logaritmus és exponenciális egyenletek</name>
+        <picture>bosses/...</picture>
+        <about>Újra és újra vissza a számokhoz. Mostmár szavak is megjelentek: log, lg. Illetve, bemutatom az ismeretleneket a hatványkitevőkben. Ők egymás jóbarátai, az egyik átvezethető a másikba és fordítva, ezzel kilehet cselezni őket. Sok sikert!</about>
+        <difficulty>200</difficulty>
+    </boss>
+    <boss>
+        <name>Trigonometria</name>
+        <picture>bosses/...</picture>
+        <about>Ha már szavakről volt szó előzőnek is, itt is megjelenik pár furcsa szó: sin, cos és társai. Ráadásul ha olyan kedvük van nem is csak egyenletekben szerepelnek hanem függvényként jelennek meg. Veszélyesek az biztos. Sok sikert!</about>
+        <difficulty>230</difficulty>
+    </boss>
+    <boss>
+        <name>Érettségi 45 perces része</name>
+        <picture>bosses/...</picture>
+        <about>Ezzel el is értünk a nagy megmérettetés első fordulójához. Ők a "kis 45 percesek". Könnyű őket gyorsan megoldani, 12-en vannak mint egy kisebb baráti kör, akik csak arra játszanak hogy könnyűnek tűnő feladatokba 1-1 kis buktatót rakjanak. Aggodalomra nincs ok. Sok sikert!</about>
+        <difficulty>250</difficulty>
+    </boss>
+    <boss>
+        <name>Érettségi második része</name>
+        <picture>bosses/...</picture>
+        <about>A "kis 45 percesek" baráti köréből kikerült 6 olyan feladat, amely már felsőbbrendűnek tartja megát. De teljesen ők sem állapodtak meg az erőviszonyokat illetően, hiszen közöttük is van 3 még nehezebb. Legyézősükhöz ismerni kell minden praktikát a legkisebbektől a legnagyobbakig. Sok sikert!</about>
+        <difficulty>300</difficulty>
+    </boss>
+    <boss>
+        <name>Érettségi</name>
+        <picture>bosses/...</picture>
+        <about>És elérkezett a fő, a legek legje, az egyetlen ami számít a metk érettségi napján, maga az ÉRETTSÉGI. Itt már minden tudásra szükség lesz, amit az előző feladattípusokból össze lehett szedni, hiszen mind a 18 gyengébb-erősebb feladat a vizsgázó útjába áll. Ráadásul az idő sem kegyelmez neki. Sok sikert!</about>
+        <difficulty>400</difficulty>
+    </boss>
+</bosses>

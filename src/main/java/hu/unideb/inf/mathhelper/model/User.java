@@ -12,27 +12,42 @@ public class User {
     private Long id;
 
     private String nickname;
+    private String profilePictureName;
 
     @ElementCollection(targetClass=String.class, fetch = FetchType.EAGER)
-    private List<String> completedQuestionIds = new ArrayList<>();
+    private List<String> completedQuestionIds;
     private Integer countOfFinals;
     private Integer level;
     private Integer xp;
     private Integer numberOfCompletedQuestions;
     private Integer helpPoints;
     private Integer rewardPoints;
+    private Integer studentKnowledgePoints;
+    private Integer currentBossLevel;
 
     public User(String nickname) {
         this.nickname = nickname;
+        resetData();
+    }
+
+    public void resetData() {
+        currentBossLevel = 0;
+        this.studentKnowledgePoints = 10;
         this.helpPoints = 0;
         this.level = 1;
         this.xp = 0;
         this.numberOfCompletedQuestions = 0;
         this.rewardPoints = 0;
         this.countOfFinals = 0;
+        this.profilePictureName = "";
+        completedQuestionIds = new ArrayList<>();
     }
 
     protected User() {
+    }
+
+    public void incrementBossLevel() {
+        currentBossLevel++;
     }
 
     public void incrementCountOfFinals() {
@@ -79,6 +94,10 @@ public class User {
         this.rewardPoints -= rewardPoints;
     }
 
+    public void incrementStudentKnowledgePoints(Integer studentKnowledgePoints) {
+        this.studentKnowledgePoints += studentKnowledgePoints;
+    }
+
     public String getNickname() {
         return nickname;
     }
@@ -109,5 +128,21 @@ public class User {
 
     public Integer getCountOfFinals() {
         return countOfFinals;
+    }
+
+    public String getProfilePictureName() {
+        return profilePictureName;
+    }
+
+    public void updateProfilePicture(String path) {
+        this.profilePictureName = path;
+    }
+
+    public Integer getStudentKnowledgePoints() {
+        return studentKnowledgePoints;
+    }
+
+    public Integer getCurrentBossLevel() {
+        return currentBossLevel;
     }
 }

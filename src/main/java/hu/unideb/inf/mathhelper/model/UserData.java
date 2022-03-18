@@ -12,6 +12,9 @@ public class UserData {
     private Integer helpPoints;
     private Integer rewardPoints;
     private Integer countOfFinals;
+    private String profilePictureName;
+    private Integer studentKnowledgePoint;
+    private Integer bossLevel;
 
     private UserData() {
 
@@ -26,7 +29,24 @@ public class UserData {
         private Integer helpPoints;
         private Integer rewardPoints;
         private Integer countOfFinals;
+        private String profilePictureName;
+        private Integer studentKnowledgePoint;
+        private Integer bossLevel;
 
+        public Builder withBossLevel(Integer level) {
+            this.bossLevel = level;
+            return this;
+        }
+
+        public Builder withStudentKnowledgePoints(Integer points) {
+            this.studentKnowledgePoint = points;
+            return this;
+        }
+
+        public Builder withProfilePictureName(String name) {
+            this.profilePictureName = name;
+            return this;
+        }
 
         public Builder withCountOfFinals(Integer number) {
             this.countOfFinals = number;
@@ -78,8 +98,15 @@ public class UserData {
             userData.numberOfCompletedQuestions = this.numberOfCompletedQuestions;
             userData.rewardPoints = this.rewardPoints;
             userData.countOfFinals = this.countOfFinals;
+            userData.profilePictureName = this.profilePictureName;
+            userData.studentKnowledgePoint = this.studentKnowledgePoint;
+            userData.bossLevel = this.bossLevel;
             return userData;
         }
+    }
+
+    public Integer getBossLevel() {
+        return bossLevel;
     }
 
     public Integer getCountOfFinals() {
@@ -112,5 +139,13 @@ public class UserData {
 
     public Integer getRewardPoints() {
         return rewardPoints;
+    }
+
+    public String getProfilePictureName() {
+        return profilePictureName;
+    }
+
+    public Integer getStudentKnowledgePoint() {
+        return studentKnowledgePoint;
     }
 }

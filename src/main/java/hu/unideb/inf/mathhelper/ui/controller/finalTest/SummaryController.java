@@ -1,6 +1,7 @@
 package hu.unideb.inf.mathhelper.ui.controller.finalTest;
 
 import hu.unideb.inf.mathhelper.model.FinalResult;
+import hu.unideb.inf.mathhelper.service.UserHandleService;
 import hu.unideb.inf.mathhelper.ui.controller.PanelController;
 import hu.unideb.inf.mathhelper.ui.observer.PlayerObserver;
 import javafx.fxml.FXML;

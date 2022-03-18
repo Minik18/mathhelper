@@ -3,7 +3,9 @@ package hu.unideb.inf.mathhelper.ui.controller;
 import hu.unideb.inf.mathhelper.dao.LevelDAO;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.PanelDAO;
+import hu.unideb.inf.mathhelper.dao.PicturesDAO;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
+import hu.unideb.inf.mathhelper.exception.ImageNotFoundException;
 import hu.unideb.inf.mathhelper.model.UserData;
 import hu.unideb.inf.mathhelper.model.level.Level;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
@@ -15,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -31,6 +34,7 @@ public class MainSceneController implements SceneController {
     private final LocationDAO locationDAO;
     private final PanelDAO panelDAO;
     private final PlayerObserver playerObserver;
+    private final PicturesDAO picturesDAO;
 
     @Value("${ui.text.level}")
     private String levelString;
@@ -58,6 +62,9 @@ public class MainSceneController implements SceneController {
 
     @FXML
     private Button settings;
+
+    @FXML
+    private Button battle;
 
     @FXML
     private Button help;
@@ -94,25 +101,27 @@ public class MainSceneController implements SceneController {
 
     @Autowired
     public MainSceneController(UserHandleService userHandleService, LevelDAO levelDAO, LocationDAO locationDAO,
-                               PanelDAO panelDAO, PlayerObserver playerObserver) {
+                               PanelDAO panelDAO, PlayerObserver playerObserver, PicturesDAO picturesDAO) {
         this.userHandleService = userHandleService;
         this.levelDAO = levelDAO;
         this.locationDAO = locationDAO;
         this.panelDAO = panelDAO;
         this.playerObserver = playerObserver;
+        this.picturesDAO = picturesDAO;
         playerObserver.setMainController(this);
     }
 
     @Override
     public void setup(Stage stage) {
 
-     randomQuestion.setOnMouseClicked(event -> loadPane("random.fxml"));
-     finalTest.setOnMouseClicked(event -> loadPane("final.fxml"));
-     settings.setOnMouseClicked(event -> loadPane("settings.fxml"));
-     help.setOnMouseClicked(event -> loadPane("help.fxml"));
-     legal.setOnMouseClicked( event -> loadPane("legal.fxml"));
-     exit.setOnMouseClicked(event -> stage.close());
-     updateUserInformation();
+        battle.setOnMouseClicked(event -> loadPane("battle.fxml"));
+        randomQuestion.setOnMouseClicked(event -> loadPane("random.fxml"));
+        finalTest.setOnMouseClicked(event -> loadPane("final.fxml"));
+        settings.setOnMouseClicked(event -> loadPane("settings.fxml"));
+        help.setOnMouseClicked(event -> loadPane("help.fxml"));
+        legal.setOnMouseClicked(event -> loadPane("legal.fxml"));
+        exit.setOnMouseClicked(event -> stage.close());
+        updateUserInformation();
     }
 
     public void lockButtons() {
@@ -146,7 +155,18 @@ public class MainSceneController implements SceneController {
         completedFinals.setText(userData.getCountOfFinals().toString() + pointString);
         level.setText(levelCount + levelString);
         xp.setText(currentXp + " / " + maxXp + xpString);
-        xpBar.setProgress(currentXp / (maxXp + 0.0) );
+        xpBar.setProgress(currentXp / (maxXp + 0.0));
+        String profilePicName = userData.getProfilePictureName();
+        if (!profilePicName.equals("")) {
+            try {
+                profilePicture.setImage(picturesDAO.loadPicture(locationDAO.getProfilePictureFilePath(userData.getProfilePictureName())));
+            } catch (ImageNotFoundException e) {
+                //TODO
+                e.printStackTrace();
+            }
+        } else {
+            userHandleService.updateProfilePicture(FilenameUtils.getName(profilePicture.getImage().getUrl()));
+        }
     }
 
     private Integer getMaxXpOnCurrentLevel(Integer level) {
@@ -158,7 +178,7 @@ public class MainSceneController implements SceneController {
             return levelObj.get().getRequiredXp();
         } else {
             //TODO Handle situation
-            throw new NoSuchElementException("There is no level inside levels.xml with level : " + level );
+            throw new NoSuchElementException("There is no level inside levels.xml with level : " + level);
         }
     }
 

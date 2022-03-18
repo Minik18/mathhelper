@@ -155,7 +155,23 @@ public class FinalTestResultController implements PanelController {
                 }
             }
         }
-        return new FinalResult(sum, reached);
+        FinalResult finalResult = new FinalResult(sum, reached);
+        Integer percentage = finalResult.getPercentage();
+        if (percentage < 40 && percentage >= 25) {
+            userHandleService.incrementXp(30);
+            userHandleService.incrementCompletedFinalQuestions();
+        } else if (percentage < 60) {
+            userHandleService.incrementXp(50);
+            userHandleService.incrementCompletedFinalQuestions();
+        } else if (percentage < 80) {
+            userHandleService.incrementXp(80);
+            userHandleService.incrementCompletedFinalQuestions();
+        } else {
+            userHandleService.incrementXp(100);
+            userHandleService.incrementCompletedFinalQuestions();
+        }
+        playerObserver.updateUserInformation();
+        return finalResult;
     }
 
     private void exit() {

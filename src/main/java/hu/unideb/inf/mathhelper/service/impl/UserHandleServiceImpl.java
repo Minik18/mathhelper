@@ -2,6 +2,7 @@ package hu.unideb.inf.mathhelper.service.impl;
 
 import hu.unideb.inf.mathhelper.dao.LevelDAO;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
+import hu.unideb.inf.mathhelper.exception.InvalidUsernameException;
 import hu.unideb.inf.mathhelper.model.User;
 import hu.unideb.inf.mathhelper.model.UserData;
 import hu.unideb.inf.mathhelper.model.level.Level;
@@ -47,10 +48,12 @@ public class UserHandleServiceImpl implements UserHandleService {
     }
 
     @Override
-    public void updateNickname(String newNickname) {
+    public void updateNickname(String newNickname) throws InvalidUsernameException{
         if (validNickname(newNickname)) {
             user.setNickname(newNickname);
             updateUser();
+        } else {
+            throw new InvalidUsernameException();
         }
     }
 
@@ -65,6 +68,9 @@ public class UserHandleServiceImpl implements UserHandleService {
                 .withLevel(user.getLevel())
                 .withRewardPoints(user.getRewardPoints())
                 .withCountOfFinals(user.getCountOfFinals())
+                .withProfilePictureName(user.getProfilePictureName())
+                .withStudentKnowledgePoints(user.getStudentKnowledgePoints())
+                .withBossLevel(user.getCurrentBossLevel())
                 .build();
     }
 
@@ -90,8 +96,27 @@ public class UserHandleServiceImpl implements UserHandleService {
     }
 
     @Override
-    public void decrementRewardPoints(Integer amount) {
+    public void resetUserData() {
+        user.resetData();
+        updateUser();
+    }
+
+    @Override
+    public void updateProfilePicture(String name) {
+        user.updateProfilePicture(name);
+        updateUser();
+    }
+
+    @Override
+    public void incrementStudentKnowledgePoints(Integer amount) {
         user.decrementRewardPoints(amount);
+        user.incrementStudentKnowledgePoints(amount);
+        updateUser();
+    }
+
+    @Override
+    public void incrementBossLevel() {
+        user.incrementBossLevel();
         updateUser();
     }
 
@@ -101,12 +126,16 @@ public class UserHandleServiceImpl implements UserHandleService {
 
     private boolean validNickname(String newNickname) {
         boolean valid = true;
-        if (newNickname.length() > MAX_LENGTH) {
+        if (newNickname.equals("default")) {
             valid = false;
         } else {
-            newNickname = newNickname.replace(" ","");
-            if(newNickname.length() < MIN_LENGTH) {
+            if (newNickname.length() > MAX_LENGTH) {
                 valid = false;
+            } else {
+                newNickname = newNickname.replace(" ", "");
+                if (newNickname.length() < MIN_LENGTH) {
+                    valid = false;
+                }
             }
         }
         return valid;

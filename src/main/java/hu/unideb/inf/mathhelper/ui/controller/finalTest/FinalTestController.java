@@ -16,7 +16,6 @@ import javafx.scene.layout.GridPane;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -61,7 +60,6 @@ public class FinalTestController implements PanelController {
 
     private List<FinalQuestion> finalQuestions;
     private List<Node> firstPartButtons;
-    private List<Node> secondBPartButtons;
     private List<Node> secondPartButtons;
     private TimerTask timerTask;
     private FinalQuestion currentQuestion;
@@ -74,10 +72,11 @@ public class FinalTestController implements PanelController {
 
     @Override
     public void setup() {
+        playerObserver.setFinalTestController(this);
         finalQuestions = finalQuestionBuilder.getFinalTestList();
         firstPartButtons = firstPartGridPane.getChildren();
         secondPartButtons = secondAPartGridPane.getChildren();
-        secondBPartButtons = secondBPartGridPane.getChildren();
+        List<Node> secondBPartButtons = secondBPartGridPane.getChildren();
         secondPartButtons.addAll(secondBPartButtons);
 
         firstPartButtons.forEach(node -> node.setOnMouseClicked(event -> changeQuestionByIndex(Integer.parseInt(((Button)node).getText()) - 1)));
@@ -91,6 +90,14 @@ public class FinalTestController implements PanelController {
 
         setupForFirstPart();
 
+    }
+
+    public void stoppedTimer() {
+        if (secondPartButtons.get(0).isDisable()) { //First part
+            setupForSecondPart();
+        } else {                                    //Second part
+            finishTest();
+        }
     }
 
     private void changeQuestionByIndex(Integer index) {
@@ -124,7 +131,7 @@ public class FinalTestController implements PanelController {
         finish.setDisable(true);
         chosenQuestion.setDisable(true);
         changeQuestionByIndex(0);
-        timerTask = new RemainingTime(timerLabel,45 * 60);
+        timerTask = new RemainingTime(timerLabel,45 * 60, playerObserver);
         startTimer();
     }
 
@@ -143,7 +150,7 @@ public class FinalTestController implements PanelController {
         timer = new Timer();
         if (((RemainingTime) timerTask).hasRunStarted()) {
             timerTask.cancel();
-            timerTask = new RemainingTime(timerLabel, 135 * 60);
+            timerTask = new RemainingTime(timerLabel, 135 * 60,playerObserver);
         }
         timer.scheduleAtFixedRate(timerTask, 0, 1000);
     }
