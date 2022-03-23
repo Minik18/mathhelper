@@ -17,7 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -162,8 +161,6 @@ public class MainSceneController implements SceneController {
                 //TODO
                 e.printStackTrace();
             }
-        } else {
-            userHandleService.updateProfilePicture(FilenameUtils.getName(profilePicture.getImage().getUrl()));
         }
     }
 

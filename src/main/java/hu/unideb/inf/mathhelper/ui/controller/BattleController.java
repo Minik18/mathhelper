@@ -177,8 +177,8 @@ public class BattleController implements PanelController {
                         wrongPicture.setOpacity(0.0);
                         correctPicture.setOpacity(0.0);
                         start.setDisable(false);
-                        enemyFade.play();
                     });
+                    enemyFade.play();
                 });
             } else {
                 resultFadeTransition = new FadeTransition(Duration.seconds(3), wrongPicture);

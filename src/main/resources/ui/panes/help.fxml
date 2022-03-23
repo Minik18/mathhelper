@@ -12,7 +12,7 @@
    <children>
       <VBox alignment="TOP_CENTER" layoutX="458.0" layoutY="192.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="%help_screen">
+            <Label text="%help_screen" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin></Label>
@@ -34,20 +34,20 @@
                   <Insets bottom="50.0" top="50.0" />
                </VBox.margin>
                <children>
-                  <Label text="%navigation" GridPane.rowIndex="1" />
-                  <Label text="%final_test" GridPane.rowIndex="4" />
-                  <Label text="%random_question" GridPane.rowIndex="3" />
-                  <Label text="%settings" GridPane.rowIndex="5" />
-                  <Label text="%battle" GridPane.rowIndex="6" />
-                  <Label text="%navigation_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                  <Label text="%random_question_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                  <Label text="%settings_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                  <Label text="%final_test_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                  <Label text="%battle_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                  <Label text="%question" GridPane.rowIndex="2" />
-                  <Label text="%question_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                  <Label text="%profil" />
-                  <Label text="%profil_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" text="%navigation" wrapText="true" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" text="%final_test" wrapText="true" GridPane.rowIndex="4" />
+                  <Label alignment="CENTER" text="%random_question" wrapText="true" GridPane.rowIndex="3" />
+                  <Label alignment="CENTER" text="%settings" wrapText="true" GridPane.rowIndex="5" />
+                  <Label alignment="CENTER" text="%battle" wrapText="true" GridPane.rowIndex="6" />
+                  <Label alignment="CENTER" text="%navigation_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" text="%random_question_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" text="%settings_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" text="%final_test_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" text="%battle_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" text="%question" wrapText="true" GridPane.rowIndex="2" />
+                  <Label alignment="CENTER" text="%question_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" text="%profil" wrapText="true" />
+                  <Label alignment="CENTER" text="%profil_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
                </children>
             </GridPane>
          </children>
