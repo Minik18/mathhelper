@@ -161,7 +161,7 @@ public class BattleController implements PanelController {
             Integer difficulty = currentBoss.getDifficulty();
             double chanceToWin = knowledge / (difficulty * 1.0);
             Random ran = new Random();
-            double random = ran.nextDouble(1) + 1;
+            double random = ran.nextDouble(1) + 0.75;
             boolean win = chanceToWin >= random;
             FadeTransition resultFadeTransition;
             if (win) {
@@ -171,23 +171,15 @@ public class BattleController implements PanelController {
                     enemyFade.setFromValue(1.0);
                     enemyFade.setToValue(0.0);
                     enemyFade.setOnFinished(event2 -> {
-                        enemyPicture.setImage(new Image(locationDAO.getUiPictureFilePath(currentBoss.getPicturePath())));
-                        FadeTransition newEnemyFade = new FadeTransition(Duration.seconds(4), enemyPicture);
-                        newEnemyFade.setFromValue(0.0);
-                        newEnemyFade.setFromValue(1.0);
-                        newEnemyFade.setOnFinished(event3 -> {
-                            userHandleService.incrementBossLevel();
-                            setupBoss();
-                            textBook.setOpacity(0.0);
-                            wrongPicture.setOpacity(0.0);
-                            correctPicture.setOpacity(0.0);
-                            start.setDisable(false);
-                        });
-                        newEnemyFade.play();
+                        setupBoss();
+                        userHandleService.incrementBossLevel();
+                        textBook.setOpacity(0.0);
+                        wrongPicture.setOpacity(0.0);
+                        correctPicture.setOpacity(0.0);
+                        start.setDisable(false);
+                        enemyFade.play();
                     });
-                    enemyFade.play();
                 });
-
             } else {
                 resultFadeTransition = new FadeTransition(Duration.seconds(3), wrongPicture);
                 resultFadeTransition.setOnFinished(event1 -> {
