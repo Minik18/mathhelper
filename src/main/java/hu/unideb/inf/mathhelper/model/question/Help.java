@@ -10,4 +10,11 @@ public class Help {
     @XmlElement(name = "needed_points")
     private Integer neededPoints;
 
+    public String getDescription() {
+        return description;
+    }
+
+    public Integer getNeededPoints() {
+        return neededPoints;
+    }
 }

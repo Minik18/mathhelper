@@ -1,15 +1,35 @@
 package hu.unideb.inf.mathhelper.dao;
 
+import java.io.InputStream;
+
 public interface LocationDAO {
 
-    String getQuestionsFolderPath();
+    String getQuestionFolderPath();
 
-    String getPicturesFolderPath();
+    String getQuestionPictureFilePath(String fileName);
 
-    String getLevelSystemFilePath();
+    String getUiPictureFilePath(String fileName);
 
-    String getScenesFolderPath();
+    InputStream getLevelSystemFilePath();
 
-    String getPanesFolderPath();
+    String getSceneFilePath(String fileName);
+
+    String getPaneFilePath(String fileName);
+
+    String getTextFilePath(String fileName);
+
+    String getDefaultSettingsFilePath();
+
+    String getSettingsFilePath();
+
+    String getCategoryFilePath();
+
+    String getProfilePictureFilePath(String name);
+
+    String getProfilePictureFolderPath();
+
+    String getSampleQuestionPaneFilePath();
+
+    InputStream getBossesSystemFilePath();
 
 }

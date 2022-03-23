@@ -15,7 +15,6 @@
             <sub_questions>
                 <sub_question>
                     <point>2</point>
-                    <xp>20</xp>
                     <help>
                         <description>A ∩ jel a metszet, amely azt jelöli, hogy mind a 2 halmazban lévő elemeket várja. A \ jelentése pedig az első halmaz elemeiből kivonva a második halmazét. A ∪ az unió, amely összesíti a 2 halmaz elemeit. </description>
                         <needed_points>2</needed_points>
@@ -27,6 +26,7 @@
                         <answer>{3; 4; 5; 6}</answer>
                         <answer>3;4;5;6</answer>
                         <answer>3,4,5,6</answer>
+                        <answer>3, 4, 5, 6</answer>
                         <answer>3 4 5 6</answer>
                     </answers>
                 </sub_question>
@@ -45,7 +45,6 @@
             <sub_questions>
                 <sub_question>
                     <point>2</point>
-                    <xp>20</xp>
                     <help>
                         <description>Rögzítsük le Dorkát és csak a másik 6 lányt vegyük figyelembe a számításkor.</description>
                         <needed_points>2</needed_points>
@@ -72,7 +71,6 @@
             <sub_questions>
                 <sub_question>
                     <point>3</point>
-                    <xp>30</xp>
                     <help>
                         <description>null</description>
                         <needed_points>0</needed_points>
@@ -101,7 +99,6 @@
             <sub_questions>
                 <sub_question>
                     <point>2</point>
-                    <xp>20</xp>
                     <help>
                         <description>0</description>
                         <needed_points>0</needed_points>
@@ -129,7 +126,6 @@
             <sub_questions>
                 <sub_question>
                     <point>1</point>
-                    <xp>10</xp>
                     <help>
                         <description>A minimum hely a legkisebb x érték.</description>
                         <needed_points>1</needed_points>
@@ -142,7 +138,6 @@
                 </sub_question>
                 <sub_question>
                     <point>1</point>
-                    <xp>10</xp>
                     <help>
                         <description>A minimum érték az y érték.</description>
                         <needed_points>1</needed_points>
@@ -168,7 +163,6 @@
             <sub_questions>
                 <sub_question>
                     <point>2</point>
-                    <xp>20</xp>
                     <help>
                         <description>Először érdemes kiszámolni a téglatest térfogatát, majd pedig az így kapott értékből kiszámitani a kocka 1 oldalát. Téglatest térfogat képlet: a*b*c. Kocka térfogat képlet: a^3</description>
                         <needed_points>2</needed_points>
@@ -195,7 +189,6 @@
             <sub_questions>
                 <sub_question>
                     <point>3</point>
-                    <xp>30</xp>
                     <help>
                         <description>null</description>
                         <needed_points>0</needed_points>
@@ -222,7 +215,6 @@
             <sub_questions>
                 <sub_question>
                     <point>2</point>
-                    <xp>20</xp>
                     <help>
                         <description>Érdemes a 16-ot 2 alapú hatványként felírni és mivel az alapok így már egyenlőek, így a hatványok is azok lesznek. Ezzel egy elsőfokú egyenlőségre egyszerüsítve.</description>
                         <needed_points>2</needed_points>
@@ -248,7 +240,6 @@
             <sub_questions>
                 <sub_question>
                     <point>3</point>
-                    <xp>30</xp>
                     <help>
                         <description>Egy ciklus 4 munkanap + 2 szabadnapból áll. 100 napon alatt 100/6=16 teljes ciklus történik úgy, hogy a 16. ciklus végén az őr dolgozik és 96 nap telt el.</description>
                         <needed_points>3</needed_points>
@@ -275,7 +266,6 @@
             <sub_questions>
                 <sub_question>
                     <point>1</point>
-                    <xp>10</xp>
                     <help>
                         <description>Használandó képlet: a(n) = a(1)* (n-1)*d</description>
                         <needed_points>1</needed_points>
@@ -288,7 +278,6 @@
                 </sub_question>
                 <sub_question>
                     <point>1</point>
-                    <xp>10</xp>
                     <help>
                         <description>Használandó képlet: a(n) = a(1)* (n-1)*d</description>
                         <needed_points>1</needed_points>
@@ -314,7 +303,6 @@
             <sub_questions>
                 <sub_question>
                     <point>2</point>
-                    <xp>20</xp>
                     <help>
                         <description>Elég kiszámolnunk a K és P pont távolságát, melynek képlete: |KP| = √( ( P(1)-K(1) )^2 + ( P(2)-K(2) )^2 )</description>
                         <needed_points>2</needed_points>
@@ -327,7 +315,6 @@
                 </sub_question>
                 <sub_question>
                     <point>2</point>
-                    <xp>20</xp>
                     <help>
                         <description>Az x és y a kör középpontjának koordínátáit, az r pedig a sugarat jelöli.</description>
                         <needed_points>2</needed_points>
@@ -353,7 +340,6 @@
             <sub_questions>
                 <sub_question>
                     <point>3</point>
-                    <xp>30</xp>
                     <help>
                         <description>Mivel a kockák különböző színűek így megkülönböztetjük őket. Akkor lehet legalább 11 az eredmény, ha a dobott számok (5,6) illetve (6,5) illetve (6,6).</description>
                         <needed_points>3</needed_points>
@@ -382,7 +368,6 @@
             <sub_questions>
                 <sub_question>
                     <point>2</point>
-                    <xp>20</xp>
                     <help>
                         <description>null</description>
                         <needed_points>0</needed_points>
@@ -397,7 +382,6 @@
                 </sub_question>
                 <sub_question>
                     <point>2</point>
-                    <xp>20</xp>
                     <help>
                         <description>null</description>
                         <needed_points>0</needed_points>
@@ -413,7 +397,6 @@
                 </sub_question>
                 <sub_question>
                     <point>3</point>
-                    <xp>30</xp>
                     <help>
                         <description>null</description>
                         <needed_points>0</needed_points>
@@ -427,7 +410,6 @@
                 </sub_question>
                 <sub_question>
                     <point>5</point>
-                    <xp>50</xp>
                     <help>
                         <description>Egy egyszerű egyenletrendszer segítségével feltudjuk írni a képleteket. Jelölje x a km-t illetve y a kilométerenkénti árat. Ekkor a kérdéses egyenletrendszer: I. 2825=6,5*y+x II. 4190=10,4*y+x</description>
                         <needed_points>5</needed_points>
@@ -456,7 +438,6 @@
             <sub_questions>
                 <sub_question>
                     <point>5</point>
-                    <xp>50</xp>
                     <help>
                         <description>A gúla felszínének képlete A=T(alap)+P, ahol a P a palást. A gúla egyik oldalának területét kitudjuk számolni mivel háromszögekből áll. Állítsunk merőleges háromszöget a gúla közepébe, ahol a 2 befogó a test magassága és az alap hosszának fele, átfogója pedig a kérdéses oldal, melyet a Pitagorasz-tétellel könnyen kiszámíthatunk. Így tudjuk a gúla oldalának hosszát, melyből kiszámítható 1 oldal területe. </description>
                         <needed_points>5</needed_points>
@@ -470,7 +451,6 @@
                 </sub_question>
                 <sub_question>
                     <point>4</point>
-                    <xp>40</xp>
                     <help>
                         <description>Az így keletekezett csonkagúla fedőéle feleakkora mint az alapja. A magassága a testnek is a fele. A használandó képlet: V=(M * ( T(alap) + T(fedőlap) ) )/3</description>
                         <needed_points>4</needed_points>
@@ -484,7 +464,6 @@
                 </sub_question>
                 <sub_question>
                     <point>2</point>
-                    <xp>20</xp>
                     <help>
                         <description>null</description>
                         <needed_points>0</needed_points>
@@ -513,7 +492,6 @@
             <sub_questions>
                 <sub_question>
                     <point>6</point>
-                    <xp>60</xp>
                     <help>
                         <description>Irjuk fel növekvő sorrendben a jegyeket. A medián a középső érték (vagy páros szamú elem esetén a 2 középső átlaga), az átlag pedig a jegyek összege osztva a darabszámukkal. Ezt ezután vagy egynenletbe foglaljuk.</description>
                         <needed_points>5</needed_points>
@@ -527,7 +505,6 @@
                 </sub_question>
                 <sub_question>
                     <point>3</point>
-                    <xp>30</xp>
                     <help>
                         <description>Egyenletrendszerbe foglalva az adatokat megkapjuk, hogy I. x/9=3 II. y/6=4,5 , ahol x az első félévben szerzett jegyek összege, y pedig a második félévben szerzett jegyek összege.</description>
                         <needed_points>3</needed_points>
@@ -541,7 +518,6 @@
                 </sub_question>
                 <sub_question>
                     <point>4</point>
-                    <xp>40</xp>
                     <help>
                         <description>Akkor lesz egész szám az átlag, ha a kiválasztott értékek az alábbiak: (1,3) (1,5) (2,4) (3,5)</description>
                         <needed_points>4</needed_points>
@@ -569,7 +545,6 @@
             <sub_questions>
                 <sub_question>
                     <point>6</point>
-                    <xp>60</xp>
                     <help>
                         <description>A cosinus tétel segítségével kitudjuk számolni ezt. Ahhoz szükségünk lesz az |AB|, |BC| és |AC| értékekre. Miután azokat megszereztük a cosinus tétel: c^2=a^2+b^2 -2*a*b*cosß</description>
                         <needed_points>5</needed_points>
@@ -585,7 +560,6 @@
                 </sub_question>
                 <sub_question>
                     <point>7</point>
-                    <xp>70</xp>
                     <help>
                         <description>Az egyenes egyenlete: Ax+By=A(x0)+B(y0), ahol A és B a normálvektor x és y koordinátái és x0 és y0 az egyenes egy pontjának x és y koordinátái. Az egyenesen biztosan rajta van a B pont és mivel magasságvonalról van szó, így az AC oldalt merőlegesen metszik. Ennek következtében AB irányvektora az a kérdéses egyenes normálvektora. A magasságpont pedig 2 magasságvonal metszéspontjában helyezkedik el.</description>
                         <needed_points>5</needed_points>
@@ -599,7 +573,6 @@
                 </sub_question>
                 <sub_question>
                 <point>4</point>
-                <xp>40</xp>
                     <help>
                         <description>null</description>
                         <needed_points>0</needed_points>
@@ -626,7 +599,6 @@
             <sub_questions>
                 <sub_question>
                     <point>8</point>
-                    <xp>80</xp>
                     <help>
                         <description>Írjunk fel egyenletrendszert a második és 5. tag falhasználásával, hogy megkapjuk az első tagot és a differenciált. Ezután számoljuk ki az első 16 tag összegét majd a 106. tag összegét. A 2 megkapott érték segítségével számoljuk ki a kért átlagot.</description>
                         <needed_points>5</needed_points>
@@ -640,7 +612,6 @@
                 </sub_question>
                 <sub_question>
                     <point>9</point>
-                    <xp>90</xp>
                     <help>
                         <description>Egy egyenletrendszer segítségével számoljuk ki az első tag értékét és a q-t. Az egyenletrendszert a második és 5. tag segítségével írjuk fel. Írjuk fel az (n-1). tag és a 10000000 egynelőségét. Logaritmus segítéségvel számoljuk ki a hatványban szereplő n-et. Ezzel megkapjuk hogy hanyadik elem az utolsó ami még kisebb mint a megadott szám.</description>
                         <needed_points>5</needed_points>
@@ -668,7 +639,6 @@
             <sub_questions>
                 <sub_question>
                     <point>4</point>
-                    <xp>40</xp>
                     <help>
                         <description>Alkalmazzunk Venn-diagramot a felrajzoláshoz. A diagramot a legbelső elemtől kezdve töltsük ki.</description>
                         <needed_points>4</needed_points>
@@ -681,7 +651,6 @@
                 </sub_question>
                 <sub_question>
                     <point>5</point>
-                    <xp>50</xp>
                     <help>
                         <description>Egy kis téglalap vízszintes oldalának hossza 16a/6, a szélessége pedig 9a/4, ahol 'a' jelöli az 1 egységet a kis téglalapon. Ezeknek kell venni az arányukat.</description>
                         <needed_points>5</needed_points>
@@ -697,7 +666,6 @@
                 </sub_question>
                 <sub_question>
                     <point>5</point>
-                    <xp>50</xp>
                     <help>
                         <description>null</description>
                         <needed_points>0</needed_points>
@@ -712,7 +680,6 @@
                 </sub_question>
                 <sub_question>
                     <point>3</point>
-                    <xp>30</xp>
                     <help>
                         <description>null</description>
                         <needed_points>0</needed_points>

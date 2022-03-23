@@ -1,0 +1,83 @@
+package hu.unideb.inf.mathhelper.ui.observer;
+
+import hu.unideb.inf.mathhelper.model.FinalResult;
+import hu.unideb.inf.mathhelper.ui.controller.finalTest.FinalSceneController;
+import hu.unideb.inf.mathhelper.ui.controller.MainSceneController;
+import hu.unideb.inf.mathhelper.ui.controller.finalTest.FinalTestController;
+import hu.unideb.inf.mathhelper.ui.model.FinalQuestion;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+@Component
+public class PlayerObserver {
+
+    private MainSceneController mainController;
+    private FinalSceneController finalSceneController;
+    private FinalTestController finalTestController;
+    private List<FinalQuestion> finalQuestions;
+    private FinalQuestion unwantedQuestion;
+    private FinalResult finalResult;
+
+    public void setMainController(MainSceneController mainController) {
+        this.mainController = mainController;
+    }
+
+    public void setFinalSceneController(FinalSceneController finalSceneController) {
+        this.finalSceneController = finalSceneController;
+    }
+
+    public void setUnwantedQuestion(FinalQuestion unwantedQuestion) {
+        this.unwantedQuestion = unwantedQuestion;
+    }
+
+    public List<FinalQuestion> getFinalQuestions() {
+        return finalQuestions;
+    }
+
+    public FinalQuestion getUnwantedQuestion() {
+        return unwantedQuestion;
+    }
+
+    public void finishTest() {
+        finalSceneController.finishTest();
+    }
+
+    public void setResults(List<FinalQuestion> finalQuestionList) {
+        finalQuestions = finalQuestionList;
+    }
+
+    public FinalTestController getFinalTestController() {
+        return finalTestController;
+    }
+
+    public PlayerObserver setFinalTestController(FinalTestController finalTestController) {
+        this.finalTestController = finalTestController;
+        return this;
+    }
+
+    public void timerStopped() {
+        finalTestController.stoppedTimer();
+    }
+
+    public void updateUserInformation() {
+        mainController.updateUserInformation();
+    }
+
+    public void endOfFinalTest() {
+        mainController.unlockButtons();
+        updateUserInformation();
+    }
+
+    public void startOfFinalTest() {
+        mainController.lockButtons();
+    }
+
+    public void setFinalResult(FinalResult result) {
+        this.finalResult = result;
+    }
+
+    public FinalResult getFinalResult() {
+        return finalResult;
+    }
+}

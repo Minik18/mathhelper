@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 public class UserTrackServiceImpl implements UserTrackService {
 
     private User currentUser;
+    private final UserRepositoryDAO userRepositoryDAO;
 
     @Autowired
     public UserTrackServiceImpl(UserRepositoryDAO userRepositoryDAO) {
         currentUser = userRepositoryDAO.getUser();
+        this.userRepositoryDAO = userRepositoryDAO;
     }
 
     @Override
@@ -24,5 +26,6 @@ public class UserTrackServiceImpl implements UserTrackService {
     @Override
     public void updateCurrentUser(User user) {
         currentUser = user;
+        userRepositoryDAO.save(user);
     }
 }
