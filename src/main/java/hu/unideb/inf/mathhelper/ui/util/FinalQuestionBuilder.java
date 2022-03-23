@@ -1,6 +1,5 @@
 package hu.unideb.inf.mathhelper.ui.util;
 
-import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.QuestionDAO;
 import hu.unideb.inf.mathhelper.exception.QuestionFileNotFoundException;
 import hu.unideb.inf.mathhelper.model.question.Part;
@@ -17,23 +16,23 @@ import java.util.Random;
 @Component
 public class FinalQuestionBuilder {
 
-    @Autowired
-    private QuestionBuilder questionBuilder;
+    private final QuestionBuilder questionBuilder;
+    private final QuestionDAO questionDAO;
 
     @Autowired
-    private LocationDAO locationDAO;
-
-    @Autowired
-    private QuestionDAO questionDAO;
+    public FinalQuestionBuilder(QuestionBuilder questionBuilder, QuestionDAO questionDAO) {
+        this.questionBuilder = questionBuilder;
+        this.questionDAO = questionDAO;
+    }
 
     public List<FinalQuestion> getFinalTestList() {
         try {
             List<Question> allQuestion = questionDAO.loadQuestionsIntoList();
             List<FinalQuestion> result = new ArrayList<>();
             List<Question> chosenQuestions = getRandomQuestionList(allQuestion);
-            for(Question question : chosenQuestions) {
+            for (Question question : chosenQuestions) {
                 FinalQuestion finalQuestion = new FinalQuestion();
-                questionBuilder.buildQuestionPane(question,finalQuestion.getRootOfGraphicalUiElements());
+                questionBuilder.buildQuestionPane(question, finalQuestion.getRootOfGraphicalUiElements());
                 finalQuestion.setQuestion(question)
                         .setAnswers(questionBuilder.getAnswers())
                         .setHelpButtons(questionBuilder.getHelpButtons())
@@ -72,14 +71,14 @@ public class FinalQuestionBuilder {
 
     private void getRandomQuestionInPart(List<Question> allQuestions, List<Question> currentQuestions, Part part) {
         Question chosen = null;
-        do{
+        do {
             Random random = new Random();
             int index = random.nextInt(allQuestions.size());
             Question temp = allQuestions.get(index);
             if (temp.getPart().equals(part) && !currentQuestions.contains(temp)) {
                 chosen = temp;
             }
-        } while(chosen == null);
+        } while (chosen == null);
         currentQuestions.add(chosen);
     }
 

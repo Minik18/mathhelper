@@ -7,8 +7,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +16,7 @@ public class FinalQuestion {
     private List<Answers> answers;
     private List<Button> helpButtons;
     private Question question;
-    private AnchorPane rootOfGraphicalUiElements;
+    private final AnchorPane rootOfGraphicalUiElements;
 
     public FinalQuestion() {
         rootOfGraphicalUiElements = new AnchorPane();

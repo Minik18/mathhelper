@@ -157,7 +157,7 @@ public class FinalTestResultController implements PanelController {
         }
         FinalResult finalResult = new FinalResult(sum, reached);
         Integer percentage = finalResult.getPercentage();
-        if(percentage >= 25) {
+        if (percentage >= 25) {
             if (percentage < 40) {
                 userHandleService.incrementXp(30);
                 userHandleService.incrementCompletedFinalQuestions();

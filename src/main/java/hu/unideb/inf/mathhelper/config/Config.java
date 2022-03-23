@@ -42,8 +42,8 @@ public class Config {
     }
 
     @Bean
-    public CategoryDAO categoryDAO() {
-        return new CategoryDAOImpl();
+    public CategoryDAO categoryDAO(LocationDAO locationDAO) {
+        return new CategoryDAOImpl(locationDAO);
     }
 
     @Bean

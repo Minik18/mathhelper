@@ -14,7 +14,7 @@ public class User {
     private String nickname;
     private String profilePictureName;
 
-    @ElementCollection(targetClass=String.class, fetch = FetchType.EAGER)
+    @ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
     private List<String> completedQuestionIds;
     private Integer countOfFinals;
     private Integer level;

@@ -1,6 +1,5 @@
 package hu.unideb.inf.mathhelper.ui.controller;
 
-import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -79,9 +79,9 @@ public class FinalTestController implements PanelController {
         List<Node> secondBPartButtons = secondBPartGridPane.getChildren();
         secondPartButtons.addAll(secondBPartButtons);
 
-        firstPartButtons.forEach(node -> node.setOnMouseClicked(event -> changeQuestionByIndex(Integer.parseInt(((Button)node).getText()) - 1)));
+        firstPartButtons.forEach(node -> node.setOnMouseClicked(event -> changeQuestionByIndex(Integer.parseInt(((Button) node).getText()) - 1)));
 
-        secondPartButtons.forEach(node -> node.setOnMouseClicked(event -> changeQuestionByIndex(Integer.parseInt(((Button)node).getText()) - 1)));
+        secondPartButtons.forEach(node -> node.setOnMouseClicked(event -> changeQuestionByIndex(Integer.parseInt(((Button) node).getText()) - 1)));
 
         exit.setOnMouseClicked(event -> restart());
         finish.setOnMouseClicked(event -> finishTest());
@@ -131,7 +131,7 @@ public class FinalTestController implements PanelController {
         finish.setDisable(true);
         chosenQuestion.setDisable(true);
         changeQuestionByIndex(0);
-        timerTask = new RemainingTime(timerLabel,45 * 60, playerObserver);
+        timerTask = new RemainingTime(timerLabel, 45 * 60, playerObserver);
         startTimer();
     }
 
@@ -150,7 +150,7 @@ public class FinalTestController implements PanelController {
         timer = new Timer();
         if (((RemainingTime) timerTask).hasRunStarted()) {
             timerTask.cancel();
-            timerTask = new RemainingTime(timerLabel, 135 * 60,playerObserver);
+            timerTask = new RemainingTime(timerLabel, 135 * 60, playerObserver);
         }
         timer.scheduleAtFixedRate(timerTask, 0, 1000);
     }

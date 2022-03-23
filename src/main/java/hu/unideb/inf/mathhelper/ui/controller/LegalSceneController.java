@@ -2,8 +2,6 @@ package hu.unideb.inf.mathhelper.ui.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
-import javafx.stage.Stage;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;

@@ -156,7 +156,7 @@ public class QuestionSceneController implements PanelController {
     private Optional<Question> getQuestion(List<Question> list) {
         List<String> ids = userHandleService.getUserData().getCompletedQuestionIds();
         List<Question> questions;
-        if(!settingsDAO.getSettings().isUseSolvedQuestions()) {
+        if (!settingsDAO.getSettings().isUseSolvedQuestions()) {
             questions = list.stream()
                     .filter(question1 -> {
                         List<Category> categories = question1.getCategories().getCategoryList();
@@ -188,10 +188,10 @@ public class QuestionSceneController implements PanelController {
 
     private void validate() {
         FinalQuestion finalQuestion = new FinalQuestion();
-        finalQuestion.setQuestion(question);
-        finalQuestion.setHelpButtons(questionBuilder.getHelpButtons());
-        finalQuestion.setAnswers(questionBuilder.getAnswers());
-        finalQuestion.setUsedFields(questionBuilder.getUsedFields());
+        finalQuestion.setQuestion(question)
+            .setHelpButtons(questionBuilder.getHelpButtons())
+            .setAnswers(questionBuilder.getAnswers())
+            .setUsedFields(questionBuilder.getUsedFields());
         questionValidator.validateQuestion(finalQuestion);
     }
 }

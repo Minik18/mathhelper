@@ -140,10 +140,10 @@ public class BattleController implements PanelController {
 
     private void load(AnchorPane pane) {
         root.getChildren().clear();
-        AnchorPane.setBottomAnchor(pane,0.0);
-        AnchorPane.setTopAnchor(pane,0.0);
-        AnchorPane.setRightAnchor(pane,0.0);
-        AnchorPane.setLeftAnchor(pane,0.0);
+        AnchorPane.setBottomAnchor(pane, 0.0);
+        AnchorPane.setTopAnchor(pane, 0.0);
+        AnchorPane.setRightAnchor(pane, 0.0);
+        AnchorPane.setLeftAnchor(pane, 0.0);
         root.getChildren().add(pane);
         panelDAO.getController().setup();
     }
@@ -167,12 +167,12 @@ public class BattleController implements PanelController {
             if (win) {
                 resultFadeTransition = new FadeTransition(Duration.seconds(3), correctPicture);
                 resultFadeTransition.setOnFinished(event1 -> {
-                    FadeTransition enemyFade = new FadeTransition(Duration.seconds(4),enemyPicture);
+                    FadeTransition enemyFade = new FadeTransition(Duration.seconds(4), enemyPicture);
                     enemyFade.setFromValue(1.0);
                     enemyFade.setToValue(0.0);
                     enemyFade.setOnFinished(event2 -> {
                         enemyPicture.setImage(new Image(locationDAO.getUiPictureFilePath(currentBoss.getPicturePath())));
-                        FadeTransition newEnemyFade = new FadeTransition(Duration.seconds(4),enemyPicture);
+                        FadeTransition newEnemyFade = new FadeTransition(Duration.seconds(4), enemyPicture);
                         newEnemyFade.setFromValue(0.0);
                         newEnemyFade.setFromValue(1.0);
                         newEnemyFade.setOnFinished(event3 -> {

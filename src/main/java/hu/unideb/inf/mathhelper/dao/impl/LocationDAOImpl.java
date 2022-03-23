@@ -38,7 +38,7 @@ public class LocationDAOImpl implements LocationDAO {
         if (location == null) {
             load();
         }
-        String folderName = fileName.substring(0,fileName.indexOf("_",5));
+        String folderName = fileName.substring(0, fileName.indexOf("_", 5));
         return getURLFromPath(location.getPicturesFolder() + "/" + folderName + "/" + fileName);
     }
 

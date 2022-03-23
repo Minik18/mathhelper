@@ -46,7 +46,7 @@ public class QuestionBuilder {
     private final PanelDAO panelDAO;
 
     private Map<TextField, ImageView> usedFields;
-    private  List<Answers> answers;
+    private List<Answers> answers;
     private List<Button> helpButtons;
 
     @Autowired
@@ -119,7 +119,7 @@ public class QuestionBuilder {
                             helpLabel.setVisible(true);
                             helpLabel.setText(help.getDescription());
                             secondLine.getChildren().remove(helpBox);
-                            cost.setText(cost.getText().substring(0,cost.getText().length()-1));
+                            cost.setText(cost.getText().substring(0, cost.getText().length() - 1));
                             cost.setFill(Color.BLACK);
                             userHandleService.decrementHelpPoints(help.getNeededPoints());
                             playerObserver.updateUserInformation();
@@ -136,10 +136,10 @@ public class QuestionBuilder {
                 index++;
             }
 
-            AnchorPane.setLeftAnchor(root,0.0);
-            AnchorPane.setRightAnchor(root,0.0);
-            AnchorPane.setTopAnchor(root,0.0);
-            AnchorPane.setBottomAnchor(root,0.0);
+            AnchorPane.setLeftAnchor(root, 0.0);
+            AnchorPane.setRightAnchor(root, 0.0);
+            AnchorPane.setTopAnchor(root, 0.0);
+            AnchorPane.setBottomAnchor(root, 0.0);
 
             middleAnchor.getChildren().add(root);
 
@@ -165,6 +165,7 @@ public class QuestionBuilder {
         button.setVisible(true);
         button.setOnMouseClicked(event -> {
             Stage stage = new Stage();
+            stage.initOwner(button.getScene().getWindow());
             stage.setTitle(FilenameUtils.getBaseName(name));
             stage.setScene(new Scene(new AnchorPane(new ImageView(new Image(locationDAO.getQuestionPictureFilePath(name))))));
             stage.setResizable(false);

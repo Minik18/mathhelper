@@ -47,13 +47,8 @@ public class PlayerObserver {
         finalQuestions = finalQuestionList;
     }
 
-    public FinalTestController getFinalTestController() {
-        return finalTestController;
-    }
-
-    public PlayerObserver setFinalTestController(FinalTestController finalTestController) {
+    public void setFinalTestController(FinalTestController finalTestController) {
         this.finalTestController = finalTestController;
-        return this;
     }
 
     public void timerStopped() {

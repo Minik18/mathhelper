@@ -33,7 +33,6 @@ public class MainSceneController implements SceneController {
     private final LevelDAO levelDAO;
     private final LocationDAO locationDAO;
     private final PanelDAO panelDAO;
-    private final PlayerObserver playerObserver;
     private final PicturesDAO picturesDAO;
 
     @Value("${ui.text.level}")
@@ -106,7 +105,6 @@ public class MainSceneController implements SceneController {
         this.levelDAO = levelDAO;
         this.locationDAO = locationDAO;
         this.panelDAO = panelDAO;
-        this.playerObserver = playerObserver;
         this.picturesDAO = picturesDAO;
         playerObserver.setMainController(this);
     }

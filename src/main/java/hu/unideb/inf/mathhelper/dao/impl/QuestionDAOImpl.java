@@ -60,7 +60,7 @@ public class QuestionDAOImpl implements QuestionDAO {
                 }
                 jar.close();
             } else {
-                File folder = new File(locationDAO.getQuestionFolderPath().replace("file:",""));
+                File folder = new File(locationDAO.getQuestionFolderPath().replace("file:", ""));
                 for (File file : Objects.requireNonNull(folder.listFiles())) {
                     Root root = (Root) unmarshaller.unmarshal(file);
                     result.addAll(root.getQuestionsObject().getQuestionList());

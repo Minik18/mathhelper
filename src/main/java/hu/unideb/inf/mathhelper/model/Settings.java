@@ -18,7 +18,8 @@ public class Settings {
         return allBossesDefeated;
     }
 
-    private Settings() {}
+    private Settings() {
+    }
 
     public static class Builder {
 

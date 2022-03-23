@@ -47,10 +47,10 @@ public class PanelDAOImpl implements PanelDAO {
 
     private Parent load(String path) {
         String sceneName = new File(path).getName();
-        String bundleName = sceneName.substring(0,sceneName.indexOf("."));
+        String bundleName = sceneName.substring(0, sceneName.indexOf("."));
         try {
-            ResourceBundle resource = ResourceBundle.getBundle(locationDAO.getTextFilePath(bundleName), new Locale("hu","HU"));
-            FXMLLoader loader = new FXMLLoader(new URL(path),resource);
+            ResourceBundle resource = ResourceBundle.getBundle(locationDAO.getTextFilePath(bundleName), new Locale("hu", "HU"));
+            FXMLLoader loader = new FXMLLoader(new URL(path), resource);
             loader.setControllerFactory(applicationContext::getBean);
             loader.load();
             controller = loader.getController();

@@ -9,7 +9,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import java.io.*;
 import java.util.*;
 
 public class LevelDAOImpl implements LevelDAO {
@@ -29,6 +28,7 @@ public class LevelDAOImpl implements LevelDAO {
         }
         return levels;
     }
+
     private void loadLevel() {
         JAXBContext jaxbContext;
         Unmarshaller unmarshaller;

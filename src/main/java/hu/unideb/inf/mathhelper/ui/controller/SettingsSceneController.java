@@ -27,7 +27,7 @@ import java.util.Optional;
 @Component
 public class SettingsSceneController implements PanelController {
 
-    private static final List<String> ALLOWED_PICTURE_EXTENSIONS = List.of("png","jpg",".ico");
+    private static final List<String> ALLOWED_PICTURE_EXTENSIONS = List.of("png", "jpg", ".ico");
     private final SettingsDAO settingsDAO;
     private final UserHandleService userHandleService;
     private final PlayerObserver playerObserver;
@@ -79,11 +79,11 @@ public class SettingsSceneController implements PanelController {
                 pictureSubmit.setOnMouseClicked(event1 -> {
                     UserData userData = userHandleService.getUserData();
                     File currentPicture = new File(locationDAO.getProfilePictureFilePath(userData.getProfilePictureName()));
-                    if(!file.getPath().equals(currentPicture.getPath())) {
+                    if (!file.getPath().equals(currentPicture.getPath())) {
                         try {
                             Path source = Path.of(file.getPath());
                             File folder = new File(locationDAO.getProfilePictureFolderPath());
-                            if(!folder.exists()) {
+                            if (!folder.exists()) {
                                 folder.mkdirs();
                             }
                             Path destination = Path.of(locationDAO.getProfilePictureFilePath(file.getName()));

@@ -9,7 +9,7 @@ import java.io.File;
 public class PicturesDAOImpl implements PicturesDAO {
 
     @Override
-    public Image loadPicture(String name) throws ImageNotFoundException{
+    public Image loadPicture(String name) throws ImageNotFoundException {
         return checkFileValidation(name);
     }
 
@@ -18,6 +18,6 @@ public class PicturesDAOImpl implements PicturesDAO {
         if (!file.exists()) {
             throw new ImageNotFoundException("Image with name " + name + " not found");
         }
-        return new Image("file:"+file.getPath());
+        return new Image("file:" + file.getPath());
     }
 }

@@ -1,7 +1,6 @@
 package hu.unideb.inf.mathhelper.service.impl;
 
 import hu.unideb.inf.mathhelper.dao.LevelDAO;
-import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.exception.InvalidUsernameException;
 import hu.unideb.inf.mathhelper.model.User;
 import hu.unideb.inf.mathhelper.model.UserData;
@@ -24,8 +23,7 @@ public class UserHandleServiceImpl implements UserHandleService {
     private final User user;
 
     @Autowired
-    public UserHandleServiceImpl(UserTrackService userTrackService, LevelDAO levelDAO,
-                                 LocationDAO locationDAO) {
+    public UserHandleServiceImpl(UserTrackService userTrackService, LevelDAO levelDAO) {
         this.userTrackService = userTrackService;
         user = userTrackService.getCurrentUser();
         levels = levelDAO.getLevelSystem();
@@ -35,7 +33,7 @@ public class UserHandleServiceImpl implements UserHandleService {
     public void incrementXp(Integer amount) {
         if (amount >= 1) {
             user.incrementXp(amount);
-            Level currentLevel = levels.get(user.getLevel()-1);
+            Level currentLevel = levels.get(user.getLevel() - 1);
             Integer requiredXp = currentLevel.getRequiredXp();
             if (requiredXp <= user.getXp()) {
                 user.decrementXp(requiredXp);
@@ -48,7 +46,7 @@ public class UserHandleServiceImpl implements UserHandleService {
     }
 
     @Override
-    public void updateNickname(String newNickname) throws InvalidUsernameException{
+    public void updateNickname(String newNickname) throws InvalidUsernameException {
         if (validNickname(newNickname)) {
             user.setNickname(newNickname);
             updateUser();

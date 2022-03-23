@@ -36,7 +36,7 @@ public class QuestionValidator {
     public void validateQuestion(FinalQuestion finalQuestion) {
         List<Answers> answers = finalQuestion.getAnswers();
         List<Button> helpButtons = finalQuestion.getHelpButtons();
-        Map<TextField,ImageView> usedFields = finalQuestion.getUsedFields();
+        Map<TextField, ImageView> usedFields = finalQuestion.getUsedFields();
         List<String> ids = userHandleService.getUserData().getCompletedQuestionIds();
         int index = 0;
         int correctAnswers = 0;
@@ -56,7 +56,7 @@ public class QuestionValidator {
             index++;
         }
         if (correctAnswers == finalQuestion.getQuestion().getSubQuestion().getSubQuestionList().size()) {
-            if(!ids.contains(finalQuestion.getQuestion().getId())) {
+            if (!ids.contains(finalQuestion.getQuestion().getId())) {
                 userHandleService.addCompletedQuestionId(finalQuestion.getQuestion().getId());
                 userHandleService.incrementXp(finalQuestion.getQuestion().getXp());
                 playerObserver.updateUserInformation();

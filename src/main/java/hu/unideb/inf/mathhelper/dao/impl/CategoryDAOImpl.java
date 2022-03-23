@@ -7,14 +7,16 @@ import org.apache.commons.configuration.CompositeConfiguration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.configuration.SystemConfiguration;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 
 public class CategoryDAOImpl implements CategoryDAO {
 
-    @Autowired
-    private LocationDAO locationDAO;
+    private final LocationDAO locationDAO;
+
+    public CategoryDAOImpl(LocationDAO locationDAO) {
+        this.locationDAO = locationDAO;
+    }
 
     @Override
     public Map<String, Category> getCategoryMap() {
@@ -23,8 +25,8 @@ public class CategoryDAOImpl implements CategoryDAO {
             CompositeConfiguration config = new CompositeConfiguration();
             config.addConfiguration(new SystemConfiguration());
             config.addConfiguration(new PropertiesConfiguration(locationDAO.getCategoryFilePath()));
-            for(Category category : Category.values()) {
-                result.put(config.getString(category.name()),category);
+            for (Category category : Category.values()) {
+                result.put(config.getString(category.name()), category);
             }
         } catch (ConfigurationException e) {
             e.printStackTrace();

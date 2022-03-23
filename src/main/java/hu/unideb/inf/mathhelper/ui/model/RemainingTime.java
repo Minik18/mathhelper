@@ -24,7 +24,7 @@ public class RemainingTime extends TimerTask {
     public void run() {
         this.hasStarted = true;
         if (seconds > 0) {
-            Platform.runLater(() -> label.setText( String.format("%d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, (seconds % 60))));
+            Platform.runLater(() -> label.setText(String.format("%d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, (seconds % 60))));
             seconds--;
         } else {
             playerObserver.timerStopped();

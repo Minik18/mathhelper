@@ -16,7 +16,8 @@ public class Location {
     private String profilePictureFolder;
     private String bossesFile;
 
-    private Location() {}
+    private Location() {
+    }
 
     public static class Builder {
         private String levelsFile;

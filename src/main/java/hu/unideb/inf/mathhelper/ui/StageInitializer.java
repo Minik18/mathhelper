@@ -6,9 +6,7 @@ import hu.unideb.inf.mathhelper.ui.controller.SceneController;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
 import hu.unideb.inf.mathhelper.service.UserTrackService;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,20 +31,16 @@ public class StageInitializer implements ApplicationListener<MathHelperApplicati
 
     @Override
     public void onApplicationEvent(MathHelperApplication.StageReadyEvent event) {
-       Scene scene = getScene();
-       Stage stage = event.getStage();
-       stage.setScene(scene);
-       sceneController.setup(stage);
-       if (!firstRun()) {
-           stage.setResizable(false);
-           stage.initStyle(StageStyle.UNDECORATED);
-           Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-           stage.setX(primaryScreenBounds.getMinX());
-           stage.setY(primaryScreenBounds.getMinY());
-           stage.setWidth(primaryScreenBounds.getWidth());
-           stage.setHeight(primaryScreenBounds.getHeight());
-       }
-       stage.show();
+        Scene scene = getScene();
+        Stage stage = event.getStage();
+        stage.setScene(scene);
+        sceneController.setup(stage);
+        if (!firstRun()) {
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setMaximized(true);
+        }
+        stage.show();
     }
 
     private Scene getScene() {

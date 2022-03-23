@@ -29,7 +29,7 @@ public class SceneDAOImpl implements SceneDAO {
     }
 
     @Override
-    public Scene loadScene(String path){
+    public Scene loadScene(String path) {
         return new Scene(load(path));
     }
 
@@ -40,10 +40,10 @@ public class SceneDAOImpl implements SceneDAO {
 
     private Parent load(String path) {
         String sceneName = new File(path).getName();
-        String bundleName = sceneName.substring(0,sceneName.indexOf("."));
+        String bundleName = sceneName.substring(0, sceneName.indexOf("."));
         try {
-            ResourceBundle resource = ResourceBundle.getBundle(locationDAO.getTextFilePath(bundleName), new Locale("hu","HU"));
-            FXMLLoader loader = new FXMLLoader(new URL(path),resource);
+            ResourceBundle resource = ResourceBundle.getBundle(locationDAO.getTextFilePath(bundleName), new Locale("hu", "HU"));
+            FXMLLoader loader = new FXMLLoader(new URL(path), resource);
             loader.setControllerFactory(applicationContext::getBean);
             loader.load();
             Parent parent = loader.getRoot();

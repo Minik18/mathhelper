@@ -35,25 +35,25 @@ public class SettingsDAOImpl implements SettingsDAO {
 
     @Override
     public void changeShowSolvedQuestions(boolean value) {
-        properties.setProperty("show_solved_questions",String.valueOf(value));
+        properties.setProperty("show_solved_questions", String.valueOf(value));
         updateFile();
     }
 
     @Override
     public void changeFirstOpenBossFight(boolean value) {
-        properties.setProperty("first_boss_fight_open",String.valueOf(value));
+        properties.setProperty("first_boss_fight_open", String.valueOf(value));
         updateFile();
     }
 
     @Override
     public void changeAllBossesDefeated(boolean value) {
-        properties.setProperty("all_bosses_defeated",String.valueOf(value));
+        properties.setProperty("all_bosses_defeated", String.valueOf(value));
         updateFile();
     }
 
     private void updateFile() {
         try {
-            properties.store(new FileWriter(settingsFile),null);
+            properties.store(new FileWriter(settingsFile), null);
         } catch (IOException e) {
             //TODO
             e.printStackTrace();
