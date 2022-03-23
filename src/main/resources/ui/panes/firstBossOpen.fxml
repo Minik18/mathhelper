@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.FirstBossOpenController">
+<AnchorPane fx:id="root" prefHeight="596.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.FirstBossOpenController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="428.0" layoutY="197.0" prefHeight="200.0" prefWidth="100.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -19,7 +19,7 @@
             <Label fx:id="third" text="%task" />
             <Label fx:id="fourth" text="%how" />
             <Label fx:id="last" text="%finally" />
-            <Button fx:id="start" focusTraversable="false" mnemonicParsing="false" prefHeight="22.0" prefWidth="148.0" text="%start">
+            <Button fx:id="start" focusTraversable="false" mnemonicParsing="false" prefHeight="22.0" prefWidth="148.0" text="%start" textAlignment="CENTER">
                <VBox.margin>
                   <Insets top="100.0" />
                </VBox.margin>
