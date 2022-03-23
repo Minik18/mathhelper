@@ -3,6 +3,7 @@ package hu.unideb.inf.mathhelper.ui.controller;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SettingsDAO;
 import hu.unideb.inf.mathhelper.exception.InvalidUsernameException;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.model.Settings;
 import hu.unideb.inf.mathhelper.model.UserData;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
@@ -89,8 +90,7 @@ public class SettingsSceneController implements PanelController {
                             Path destination = Path.of(locationDAO.getProfilePictureFilePath(file.getName()));
                             Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
                         } catch (IOException e) {
-                            //TODO
-                            e.printStackTrace();
+                            AppLogger.logError(e);
                         }
                         String newText = "Tallózás";
                         browse.setText(newText);

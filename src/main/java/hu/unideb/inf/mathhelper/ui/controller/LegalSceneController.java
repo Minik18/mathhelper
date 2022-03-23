@@ -1,5 +1,6 @@
 package hu.unideb.inf.mathhelper.ui.controller;
 
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import org.springframework.stereotype.Component;
@@ -36,8 +37,7 @@ public class LegalSceneController implements PanelController {
             try {
                 Desktop.getDesktop().browse(URI.create(site));
             } catch (IOException e) {
-                //TODO
-                e.printStackTrace();
+                AppLogger.logError(e);
             }
         });
         link.setBorder(null);

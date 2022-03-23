@@ -3,6 +3,7 @@ package hu.unideb.inf.mathhelper.ui.util;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.PanelDAO;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.model.question.Answers;
 import hu.unideb.inf.mathhelper.model.question.Help;
 import hu.unideb.inf.mathhelper.model.question.Question;
@@ -144,8 +145,7 @@ public class QuestionBuilder {
             middleAnchor.getChildren().add(root);
 
         } catch (FXMLFileNotFoundException e) {
-            //TODO handle error
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
     }
 

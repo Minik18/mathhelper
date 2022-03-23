@@ -1,5 +1,6 @@
 package hu.unideb.inf.mathhelper.dao.impl;
 
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.ui.controller.Controller;
 import hu.unideb.inf.mathhelper.ui.controller.SceneController;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
@@ -50,8 +51,7 @@ public class SceneDAOImpl implements SceneDAO {
             sceneController = loader.getController();
             return parent;
         } catch (IOException e) {
-            //TODO: Handle error
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
         return new GridPane();
     }

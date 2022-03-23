@@ -6,6 +6,7 @@ import hu.unideb.inf.mathhelper.dao.PanelDAO;
 import hu.unideb.inf.mathhelper.dao.PicturesDAO;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
 import hu.unideb.inf.mathhelper.exception.ImageNotFoundException;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.model.UserData;
 import hu.unideb.inf.mathhelper.model.level.Level;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
@@ -158,8 +159,7 @@ public class MainSceneController implements SceneController {
             try {
                 profilePicture.setImage(picturesDAO.loadPicture(locationDAO.getProfilePictureFilePath(userData.getProfilePictureName())));
             } catch (ImageNotFoundException e) {
-                //TODO
-                e.printStackTrace();
+                AppLogger.logError(e);
             }
         }
     }
@@ -172,8 +172,9 @@ public class MainSceneController implements SceneController {
         if (levelObj.isPresent()) {
             return levelObj.get().getRequiredXp();
         } else {
-            //TODO Handle situation
-            throw new NoSuchElementException("There is no level inside levels.xml with level : " + level);
+            NoSuchElementException e = new NoSuchElementException("There is no level inside levels.xml with level : " + level);
+            AppLogger.logError(e);
+            throw e;
         }
     }
 
@@ -184,7 +185,7 @@ public class MainSceneController implements SceneController {
             centerPane.getChildren().clear();
             centerPane.getChildren().addAll(anchorPane.getChildren());
         } catch (FXMLFileNotFoundException e) {
-            //TODO
+            AppLogger.logError(e);
             e.printStackTrace();
         }
     }

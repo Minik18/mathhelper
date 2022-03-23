@@ -2,6 +2,7 @@ package hu.unideb.inf.mathhelper.ui.controller.finalTest;
 
 import hu.unideb.inf.mathhelper.dao.PanelDAO;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.ui.controller.PanelController;
 import hu.unideb.inf.mathhelper.ui.observer.PlayerObserver;
 import javafx.fxml.FXML;
@@ -54,8 +55,7 @@ public class FinalSceneController implements PanelController {
             panelDAO.getController().setup();
             mainPane.getChildren().add(loadedRoot);
         } catch (FXMLFileNotFoundException e) {
-            //TODO
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
     }
 }

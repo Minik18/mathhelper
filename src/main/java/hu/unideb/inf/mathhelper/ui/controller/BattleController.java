@@ -5,6 +5,7 @@ import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.PanelDAO;
 import hu.unideb.inf.mathhelper.dao.SettingsDAO;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.model.boss.Boss;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import hu.unideb.inf.mathhelper.ui.observer.PlayerObserver;
@@ -109,8 +110,7 @@ public class BattleController implements PanelController {
             AnchorPane loaded = panelDAO.loadPanel("firstBossOpen.fxml");
             load(loaded);
         } catch (FXMLFileNotFoundException e) {
-            //TODO
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
     }
 
@@ -133,8 +133,7 @@ public class BattleController implements PanelController {
             AnchorPane loaded = panelDAO.loadPanel("defeatedAllBosses.fxml");
             load(loaded);
         } catch (FXMLFileNotFoundException e) {
-            //TODO
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
     }
 

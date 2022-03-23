@@ -3,6 +3,7 @@ package hu.unideb.inf.mathhelper.ui.controller;
 import hu.unideb.inf.mathhelper.dao.PanelDAO;
 import hu.unideb.inf.mathhelper.dao.SettingsDAO;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -97,8 +98,7 @@ public class FirstBossOpenController implements PanelController {
                 root.getChildren().add(loaded);
                 panelDAO.getController().setup();
             } catch (FXMLFileNotFoundException e) {
-                //TODO
-                e.printStackTrace();
+                AppLogger.logError(e);
             }
         });
 

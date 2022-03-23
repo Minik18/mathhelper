@@ -1,6 +1,7 @@
 package hu.unideb.inf.mathhelper.dao.impl;
 
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.model.Location;
 import hu.unideb.inf.mathhelper.service.RunTypeTracker;
 import org.apache.commons.configuration.CompositeConfiguration;
@@ -165,8 +166,7 @@ public class LocationDAOImpl implements LocationDAO {
                     .withBossesFile(config.getString("location.boss"))
                     .build();
         } catch (ConfigurationException e) {
-            //TODO: Handle error
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
     }
 
@@ -176,8 +176,7 @@ public class LocationDAOImpl implements LocationDAO {
             String actualPath = getURLFromPath(bossesFile);
             return new FileInputStream(actualPath.substring(actualPath.indexOf("/") + 1));
         } catch (FileNotFoundException e) {
-            //TODO
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
         return null;
     }

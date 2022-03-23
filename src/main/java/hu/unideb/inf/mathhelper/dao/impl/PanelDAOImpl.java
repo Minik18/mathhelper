@@ -2,6 +2,7 @@ package hu.unideb.inf.mathhelper.dao.impl;
 
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.PanelDAO;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.ui.controller.Controller;
 import hu.unideb.inf.mathhelper.ui.controller.PanelController;
 import javafx.fxml.FXMLLoader;
@@ -56,8 +57,7 @@ public class PanelDAOImpl implements PanelDAO {
             controller = loader.getController();
             return loader.getRoot();
         } catch (IOException e) {
-            //TODO: Handle error
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
         return new VBox();
     }

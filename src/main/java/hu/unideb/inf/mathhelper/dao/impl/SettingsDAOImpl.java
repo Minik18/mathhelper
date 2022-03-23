@@ -2,6 +2,7 @@ package hu.unideb.inf.mathhelper.dao.impl;
 
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SettingsDAO;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.model.Settings;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,8 +56,7 @@ public class SettingsDAOImpl implements SettingsDAO {
         try {
             properties.store(new FileWriter(settingsFile), null);
         } catch (IOException e) {
-            //TODO
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
     }
 
@@ -68,8 +68,7 @@ public class SettingsDAOImpl implements SettingsDAO {
                 File dest = new File(locationDAO.getSettingsFilePath());
                 FileUtils.copyURLToFile(inputUrl, dest);
             } catch (IOException e) {
-                //TODO
-                e.printStackTrace();
+                AppLogger.logError(e);
             }
             settingsFile = new File(locationDAO.getSettingsFilePath());
         }

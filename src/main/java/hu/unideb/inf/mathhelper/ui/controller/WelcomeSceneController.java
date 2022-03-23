@@ -3,6 +3,7 @@ package hu.unideb.inf.mathhelper.ui.controller;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -72,8 +73,7 @@ public class WelcomeSceneController implements SceneController {
             newStage.setMaximized(true);
             newStage.show();
         } catch (FXMLFileNotFoundException e) {
-            //TODO
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
     }
 

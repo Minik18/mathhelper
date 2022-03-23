@@ -2,6 +2,7 @@ package hu.unideb.inf.mathhelper.dao.impl;
 
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.QuestionDAO;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.model.question.Question;
 import hu.unideb.inf.mathhelper.model.question.Root;
 import hu.unideb.inf.mathhelper.service.RunTypeTracker;
@@ -67,8 +68,7 @@ public class QuestionDAOImpl implements QuestionDAO {
                 }
             }
         } catch (JAXBException | IOException e) {
-            //TODO: Log error
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
         return result;
     }

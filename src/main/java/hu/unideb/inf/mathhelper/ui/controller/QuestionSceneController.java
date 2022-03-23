@@ -2,6 +2,7 @@ package hu.unideb.inf.mathhelper.ui.controller;
 
 import hu.unideb.inf.mathhelper.dao.*;
 import hu.unideb.inf.mathhelper.exception.QuestionFileNotFoundException;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.model.question.*;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import hu.unideb.inf.mathhelper.ui.model.FinalQuestion;
@@ -139,8 +140,7 @@ public class QuestionSceneController implements PanelController {
                 reportToUser();
             }
         } catch (QuestionFileNotFoundException e) {
-            e.printStackTrace();
-            //TODO
+            AppLogger.logError(e);
         }
     }
 

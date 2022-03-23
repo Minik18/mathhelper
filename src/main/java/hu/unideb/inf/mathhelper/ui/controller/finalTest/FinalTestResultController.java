@@ -2,6 +2,7 @@ package hu.unideb.inf.mathhelper.ui.controller.finalTest;
 
 import hu.unideb.inf.mathhelper.dao.PanelDAO;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.model.FinalResult;
 import hu.unideb.inf.mathhelper.model.question.SubQuestion;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
@@ -116,7 +117,7 @@ public class FinalTestResultController implements PanelController {
             AnchorPane.setLeftAnchor(anchorPane, 0.0);
             middleAnchor.getChildren().add(anchorPane);
         } catch (FXMLFileNotFoundException e) {
-            //TODO
+            AppLogger.logError(e);
         }
     }
 

@@ -2,6 +2,7 @@ package hu.unideb.inf.mathhelper.ui.util;
 
 import hu.unideb.inf.mathhelper.dao.QuestionDAO;
 import hu.unideb.inf.mathhelper.exception.QuestionFileNotFoundException;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.model.question.Part;
 import hu.unideb.inf.mathhelper.model.question.Question;
 import hu.unideb.inf.mathhelper.ui.model.FinalQuestion;
@@ -46,8 +47,7 @@ public class FinalQuestionBuilder {
             }
             return result;
         } catch (QuestionFileNotFoundException e) {
-            //TODO error
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
         return null;
     }

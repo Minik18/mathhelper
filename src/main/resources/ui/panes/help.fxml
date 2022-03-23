@@ -18,8 +18,8 @@
                </VBox.margin></Label>
             <GridPane alignment="TOP_CENTER" prefHeight="378.0" prefWidth="844.0" vgap="5.0" VBox.vgrow="ALWAYS">
               <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="449.0" minWidth="10.0" prefWidth="298.0" />
-                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="746.0" minWidth="10.0" prefWidth="746.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="449.0" minWidth="10.0" prefWidth="170.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="874.0" minWidth="10.0" prefWidth="874.0" />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />

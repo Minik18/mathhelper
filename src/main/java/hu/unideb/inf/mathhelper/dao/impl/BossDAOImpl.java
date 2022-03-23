@@ -2,6 +2,7 @@ package hu.unideb.inf.mathhelper.dao.impl;
 
 import hu.unideb.inf.mathhelper.dao.BossDAO;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.model.boss.Boss;
 import hu.unideb.inf.mathhelper.model.boss.Bosses;
 
@@ -41,8 +42,7 @@ public class BossDAOImpl implements BossDAO {
             Bosses bosses = (Bosses) unmarshaller.unmarshal(stream);
             result.addAll(bosses.getBossList());
         } catch (JAXBException e) {
-            //TODO: Log error
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
         bosses = result;
     }

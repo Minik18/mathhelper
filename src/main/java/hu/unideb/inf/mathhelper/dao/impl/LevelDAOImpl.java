@@ -2,6 +2,7 @@ package hu.unideb.inf.mathhelper.dao.impl;
 
 import hu.unideb.inf.mathhelper.dao.LevelDAO;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
+import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.model.level.Level;
 import hu.unideb.inf.mathhelper.model.level.Levels;
 
@@ -39,8 +40,7 @@ public class LevelDAOImpl implements LevelDAO {
             Levels levels = (Levels) unmarshaller.unmarshal(locationDAO.getLevelSystemFilePath());
             result.addAll(levels.getLevelList());
         } catch (JAXBException e) {
-            //TODO: Log error
-            e.printStackTrace();
+            AppLogger.logError(e);
         }
         levels = result;
     }
