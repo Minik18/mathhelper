@@ -3,12 +3,12 @@ package hu.unideb.inf.mathhelper.dao.impl;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SettingsDAO;
 import hu.unideb.inf.mathhelper.model.Settings;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.net.URL;
 import java.util.Properties;
 
 @Component
@@ -63,9 +63,10 @@ public class SettingsDAOImpl implements SettingsDAO {
     private void load() {
 
         if (!settingsFile.exists()) {
-            File defaultSettingsFile = new File(locationDAO.getDefaultSettingsFilePath().getPath());
             try {
-                Files.copy(Path.of(defaultSettingsFile.getPath()), Path.of(settingsFile.getPath()));
+                URL inputUrl = new URL(locationDAO.getDefaultSettingsFilePath());
+                File dest = new File(locationDAO.getSettingsFilePath());
+                FileUtils.copyURLToFile(inputUrl, dest);
             } catch (IOException e) {
                 //TODO
                 e.printStackTrace();

@@ -170,7 +170,7 @@ public class MainSceneController implements SceneController {
     }
 
     private Integer getMaxXpOnCurrentLevel(Integer level) {
-        List<Level> levelList = levelDAO.getLevelSystem(locationDAO.getLevelSystemFilePath());
+        List<Level> levelList = levelDAO.getLevelSystem();
         Optional<Level> levelObj = levelList.stream()
                 .filter(l -> l.getLevel().equals(level))
                 .findFirst();

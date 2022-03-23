@@ -1,28 +1,28 @@
 package hu.unideb.inf.mathhelper.dao;
 
-import java.net.URL;
+import java.io.InputStream;
 
 public interface LocationDAO {
 
-    URL getQuestionFolderPath();
+    String getQuestionFolderPath();
 
     String getQuestionPictureFilePath(String fileName);
 
     String getUiPictureFilePath(String fileName);
 
-    URL getLevelSystemFilePath();
+    InputStream getLevelSystemFilePath();
 
-    URL getSceneFilePath(String fileName);
+    String getSceneFilePath(String fileName);
 
     String getPaneFilePath(String fileName);
 
     String getTextFilePath(String fileName);
 
-    URL getDefaultSettingsFilePath();
+    String getDefaultSettingsFilePath();
 
     String getSettingsFilePath();
 
-    URL getCategoryFilePath();
+    String getCategoryFilePath();
 
     String getProfilePictureFilePath(String name);
 
@@ -30,6 +30,6 @@ public interface LocationDAO {
 
     String getSampleQuestionPaneFilePath();
 
-    URL getBossesSystemFilePath();
+    InputStream getBossesSystemFilePath();
 
 }

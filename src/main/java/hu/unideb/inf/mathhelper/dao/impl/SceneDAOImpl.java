@@ -1,6 +1,5 @@
 package hu.unideb.inf.mathhelper.dao.impl;
 
-import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
 import hu.unideb.inf.mathhelper.ui.controller.Controller;
 import hu.unideb.inf.mathhelper.ui.controller.SceneController;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
@@ -9,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
 import java.io.File;
@@ -31,9 +29,8 @@ public class SceneDAOImpl implements SceneDAO {
     }
 
     @Override
-    public Scene loadScene(URL path) throws FXMLFileNotFoundException{
-        File file = checkFileExistence(path);
-        return new Scene(load(file));
+    public Scene loadScene(String path){
+        return new Scene(load(path));
     }
 
     @Override
@@ -41,21 +38,12 @@ public class SceneDAOImpl implements SceneDAO {
         return (SceneController) sceneController;
     }
 
-    private File checkFileExistence(URL path) throws FXMLFileNotFoundException {
-        File file = new File(path.getPath());
-        if (!file.exists()) {
-            throw new FXMLFileNotFoundException("No fxml file found in the given path: " + path);
-        } else {
-            return file;
-        }
-    }
-
-    private Parent load(File file) {
-        String sceneName = file.getName();
+    private Parent load(String path) {
+        String sceneName = new File(path).getName();
         String bundleName = sceneName.substring(0,sceneName.indexOf("."));
         try {
             ResourceBundle resource = ResourceBundle.getBundle(locationDAO.getTextFilePath(bundleName), new Locale("hu","HU"));
-            FXMLLoader loader = new FXMLLoader(file.toURI().toURL(),resource);
+            FXMLLoader loader = new FXMLLoader(new URL(path),resource);
             loader.setControllerFactory(applicationContext::getBean);
             loader.load();
             Parent parent = loader.getRoot();

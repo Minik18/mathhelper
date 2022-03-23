@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Optional;
 
@@ -86,12 +87,13 @@ public class SettingsSceneController implements PanelController {
                                 folder.mkdirs();
                             }
                             Path destination = Path.of(locationDAO.getProfilePictureFilePath(file.getName()));
-                            Files.copy(source, destination);
+                            Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
                         } catch (IOException e) {
                             //TODO
                             e.printStackTrace();
                         }
-                        browse.setText("Tallózás");
+                        String newText = "Tallózás";
+                        browse.setText(newText);
                         userHandleService.updateProfilePicture(file.getName());
                         playerObserver.updateUserInformation();
                     }

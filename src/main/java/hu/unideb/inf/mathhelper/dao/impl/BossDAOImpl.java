@@ -8,7 +8,7 @@ import hu.unideb.inf.mathhelper.model.boss.Bosses;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +37,8 @@ public class BossDAOImpl implements BossDAO {
         try {
             jaxbContext = JAXBContext.newInstance(Bosses.class);
             unmarshaller = jaxbContext.createUnmarshaller();
-            File file = new File(locationDAO.getBossesSystemFilePath().getPath());
-            Bosses bosses = (Bosses) unmarshaller.unmarshal(file);
+            InputStream stream = locationDAO.getBossesSystemFilePath();
+            Bosses bosses = (Bosses) unmarshaller.unmarshal(stream);
             result.addAll(bosses.getBossList());
         } catch (JAXBException e) {
             //TODO: Log error

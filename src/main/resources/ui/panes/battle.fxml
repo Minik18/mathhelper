@@ -45,7 +45,7 @@
                         <Insets left="5.0" right="5.0" />
                      </VBox.margin>
                   </HBox>
-                  <Button fx:id="addPoints" mnemonicParsing="false" text="%add_points">
+                  <Button fx:id="addPoints" focusTraversable="false" mnemonicParsing="false" text="%add_points">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>

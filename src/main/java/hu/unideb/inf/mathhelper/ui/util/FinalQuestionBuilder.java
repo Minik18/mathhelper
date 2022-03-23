@@ -28,7 +28,7 @@ public class FinalQuestionBuilder {
 
     public List<FinalQuestion> getFinalTestList() {
         try {
-            List<Question> allQuestion = questionDAO.loadQuestionsIntoList(locationDAO.getQuestionFolderPath().getPath());
+            List<Question> allQuestion = questionDAO.loadQuestionsIntoList();
             List<FinalQuestion> result = new ArrayList<>();
             List<Question> chosenQuestions = getRandomQuestionList(allQuestion);
             for(Question question : chosenQuestions) {

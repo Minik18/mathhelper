@@ -28,7 +28,7 @@ public class UserHandleServiceImpl implements UserHandleService {
                                  LocationDAO locationDAO) {
         this.userTrackService = userTrackService;
         user = userTrackService.getCurrentUser();
-        levels = levelDAO.getLevelSystem(locationDAO.getLevelSystemFilePath());
+        levels = levelDAO.getLevelSystem();
     }
 
     @Override

@@ -15,8 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
-import java.net.URL;
-
 @Component
 public class StageInitializer implements ApplicationListener<MathHelperApplication.StageReadyEvent> {
 
@@ -53,7 +51,7 @@ public class StageInitializer implements ApplicationListener<MathHelperApplicati
 
     private Scene getScene() {
         Scene scene = null;
-        URL path;
+        String path;
         if (firstRun()) {
             path = locationDAO.getSceneFilePath("welcome.fxml");
         } else {

@@ -21,7 +21,6 @@ public class QuestionSceneController implements PanelController {
     private final QuestionDAO questionDAO;
     private final CategoryDAO categoryDAO;
     private final UserHandleService userHandleService;
-    private final LocationDAO locationDAO;
     private final QuestionValidator questionValidator;
     private final QuestionBuilder questionBuilder;
     private final SettingsDAO settingsDAO;
@@ -53,13 +52,12 @@ public class QuestionSceneController implements PanelController {
 
     @Autowired
     public QuestionSceneController(QuestionDAO questionDAO, CategoryDAO categoryDAO,
-                                   UserHandleService userHandleService, LocationDAO locationDAO,
+                                   UserHandleService userHandleService,
                                    QuestionValidator questionValidator, QuestionBuilder questionBuilder,
                                    SettingsDAO settingsDAO) {
         this.questionDAO = questionDAO;
         this.categoryDAO = categoryDAO;
         this.userHandleService = userHandleService;
-        this.locationDAO = locationDAO;
         this.questionValidator = questionValidator;
         this.questionBuilder = questionBuilder;
         this.settingsDAO = settingsDAO;
@@ -132,7 +130,7 @@ public class QuestionSceneController implements PanelController {
     private void load() {
         List<Question> list;
         try {
-            list = questionDAO.loadQuestionsIntoList(locationDAO.getQuestionFolderPath().getPath());
+            list = questionDAO.loadQuestionsIntoList();
             Optional<Question> optionalQuestion = getQuestion(list);
             if (optionalQuestion.isPresent()) {
                 question = optionalQuestion.get();
@@ -147,13 +145,12 @@ public class QuestionSceneController implements PanelController {
     }
 
     private void reportToUser() {
-        Label label = new Label("Az összes feladat megoldva! A beállításokban lehetőség van a már megoldott feladatok listázására.");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Minden megoldva");
+        alert.setHeaderText("Minden feldat megoldva");
+        alert.setContentText("Az összes feladat megoldva! A beállításokban lehetőség van a már megoldott feladatok listázására.");
+        alert.showAndWait();
         restart.fire();
-        AnchorPane.setBottomAnchor(label, 0.0);
-        AnchorPane.setTopAnchor(label, 0.0);
-        AnchorPane.setRightAnchor(label, 0.0);
-        AnchorPane.setLeftAnchor(label, 0.0);
-        middleAnchor.getChildren().add(label);
     }
 
     private Optional<Question> getQuestion(List<Question> list) {

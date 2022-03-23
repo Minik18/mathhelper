@@ -2,23 +2,31 @@ package hu.unideb.inf.mathhelper.dao.impl;
 
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.model.Location;
+import hu.unideb.inf.mathhelper.service.RunTypeTracker;
 import org.apache.commons.configuration.CompositeConfiguration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.configuration.SystemConfiguration;
 
-import java.net.URL;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Objects;
 
 public class LocationDAOImpl implements LocationDAO {
 
     private static final String LOCATION_FILE_PATH = Objects.requireNonNull(LocationDAOImpl.class.
-            getClassLoader().getResource("settings/locations.properties")).getPath();
+            getClassLoader().getResource("settings/locations.properties")).toString();
 
+    private final RunTypeTracker runTypeTracker;
     private Location location;
 
+    public LocationDAOImpl(RunTypeTracker runTypeTracker) {
+        this.runTypeTracker = runTypeTracker;
+    }
+
     @Override
-    public URL getQuestionFolderPath() {
+    public String getQuestionFolderPath() {
         if (location == null) {
             load();
         }
@@ -31,7 +39,7 @@ public class LocationDAOImpl implements LocationDAO {
             load();
         }
         String folderName = fileName.substring(0,fileName.indexOf("_",5));
-        return getURLFromPath(location.getPicturesFolder() + "/" + folderName + "/" + fileName).toString();
+        return getURLFromPath(location.getPicturesFolder() + "/" + folderName + "/" + fileName);
     }
 
     @Override
@@ -39,19 +47,22 @@ public class LocationDAOImpl implements LocationDAO {
         if (location == null) {
             load();
         }
-        return getURLFromPath(location.getUiPicturesFolder() + "/" + fileName).toString();
+        return getURLFromPath(location.getUiPicturesFolder() + "/" + fileName);
     }
 
     @Override
-    public URL getLevelSystemFilePath() {
+    public InputStream getLevelSystemFilePath() {
         if (location == null) {
             load();
         }
-        return getURLFromPath(location.getLevelsFile());
+        if (runTypeTracker.isApplicationRunByJar()) {
+            return streamOfFile(location.getLevelsFile());
+        }
+        return fileStreamOfFile(location.getLevelsFile());
     }
 
     @Override
-    public URL getSceneFilePath(String fileName) {
+    public String getSceneFilePath(String fileName) {
         if (location == null) {
             load();
         }
@@ -63,7 +74,7 @@ public class LocationDAOImpl implements LocationDAO {
         if (location == null) {
             load();
         }
-        return getURLFromPath(location.getPanesFolder() + "/" + fileName).getPath();
+        return getURLFromPath(location.getPanesFolder() + "/" + fileName);
     }
 
     @Override
@@ -75,7 +86,7 @@ public class LocationDAOImpl implements LocationDAO {
     }
 
     @Override
-    public URL getDefaultSettingsFilePath() {
+    public String getDefaultSettingsFilePath() {
         if (location == null) {
             load();
         }
@@ -91,7 +102,7 @@ public class LocationDAOImpl implements LocationDAO {
     }
 
     @Override
-    public URL getCategoryFilePath() {
+    public String getCategoryFilePath() {
         if (location == null) {
             load();
         }
@@ -119,15 +130,18 @@ public class LocationDAOImpl implements LocationDAO {
         if (location == null) {
             load();
         }
-        return getURLFromPath(location.getSampleQuestionFile()).getPath();
+        return getURLFromPath(location.getSampleQuestionFile());
     }
 
     @Override
-    public URL getBossesSystemFilePath() {
+    public InputStream getBossesSystemFilePath() {
         if (location == null) {
             load();
         }
-        return getURLFromPath(location.getBossesFile());
+        if (runTypeTracker.isApplicationRunByJar()) {
+            return streamOfFile(location.getBossesFile());
+        }
+        return fileStreamOfFile(location.getBossesFile());
     }
 
     private void load() {
@@ -156,9 +170,25 @@ public class LocationDAOImpl implements LocationDAO {
         }
     }
 
-    private URL getURLFromPath(String path) {
+
+    private InputStream fileStreamOfFile(String bossesFile) {
+        try {
+            String actualPath = getURLFromPath(bossesFile);
+            return new FileInputStream(actualPath.substring(actualPath.indexOf("/") + 1));
+        } catch (FileNotFoundException e) {
+            //TODO
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private InputStream streamOfFile(String path) {
+        return LocationDAOImpl.class.getClassLoader().getResourceAsStream(path);
+    }
+
+    private String getURLFromPath(String path) {
         return Objects.requireNonNull(LocationDAOImpl.class.
-                getClassLoader().getResource(path));
+                getClassLoader().getResource(path)).toExternalForm();
     }
 
 }

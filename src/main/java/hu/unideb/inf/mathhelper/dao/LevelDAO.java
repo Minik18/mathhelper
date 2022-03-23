@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface LevelDAO {
 
-    List<Level> getLevelSystem(URL path);
+    List<Level> getLevelSystem();
 
 }
