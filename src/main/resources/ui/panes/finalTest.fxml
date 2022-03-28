@@ -14,9 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0"
-            prefWidth="1044.0" xmlns="http://javafx.com/javafx/17"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.finalTest.FinalTestController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.finalTest.FinalTestController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <right>
@@ -26,7 +24,7 @@
                   <VBox alignment="TOP_CENTER" prefHeight="565.0" prefWidth="167.0">
                      <children>
                         <Label fx:id="taskPart" accessibleHelp="%second_part" accessibleText="%first_part" text="Task part" textAlignment="CENTER" wrapText="true" />
-                        <HBox alignment="CENTER" prefHeight="45.0" prefWidth="167.0">
+                        <HBox alignment="CENTER" prefHeight="31.0" prefWidth="167.0">
                            <children>
                               <Label fx:id="timerLabel" text="Timer" />
                            </children>
@@ -158,7 +156,7 @@
                         </VBox>
                         <Button fx:id="nextQuestion" focusTraversable="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="%next_question">
                            <VBox.margin>
-                              <Insets top="60.0" />
+                              <Insets top="30.0" />
                            </VBox.margin>
                         </Button>
                         <Button fx:id="nextPart" focusTraversable="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="%next_part">

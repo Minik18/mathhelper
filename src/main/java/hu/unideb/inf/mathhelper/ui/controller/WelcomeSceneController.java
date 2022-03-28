@@ -3,6 +3,7 @@ package hu.unideb.inf.mathhelper.ui.controller;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
 import hu.unideb.inf.mathhelper.exception.FXMLFileNotFoundException;
+import hu.unideb.inf.mathhelper.exception.InvalidUsernameException;
 import hu.unideb.inf.mathhelper.log.AppLogger;
 import hu.unideb.inf.mathhelper.service.UserHandleService;
 import javafx.fxml.FXML;
@@ -15,8 +16,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.Locale;
 
 @Component
 public class WelcomeSceneController implements SceneController {
@@ -51,10 +50,10 @@ public class WelcomeSceneController implements SceneController {
         submit.setOnMouseClicked(event ->
         {
             String text = userInput.getText();
-            if (isValid(text)) {
+            try {
                 userHandleService.updateNickname(text);
                 loadMainScene(stage);
-            } else {
+            }catch (InvalidUsernameException e) {
                 errorText.setVisible(true);
             }
         });
@@ -77,13 +76,4 @@ public class WelcomeSceneController implements SceneController {
         }
     }
 
-    private boolean isValid(String text) {
-        boolean result = true;
-        if (text.toLowerCase(Locale.ROOT).equals("default")) {
-            result = false;
-        } else if (text.replaceAll(" ", "").equals("")) {
-            result = false;
-        }
-        return result;
-    }
 }

@@ -132,6 +132,7 @@ public class MainSceneController implements SceneController {
         help.setDisable(true);
         legal.setDisable(true);
         exit.setDisable(true);
+        battle.setDisable(true);
     }
 
     public void unlockButtons() {
@@ -141,6 +142,7 @@ public class MainSceneController implements SceneController {
         help.setDisable(false);
         legal.setDisable(false);
         exit.setDisable(false);
+        battle.setDisable(false);
         loadPane("final.fxml");
     }
 

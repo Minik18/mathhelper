@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -60,7 +61,7 @@ public class FinalTestController implements PanelController {
 
     private List<FinalQuestion> finalQuestions;
     private List<Node> firstPartButtons;
-    private List<Node> secondPartButtons;
+    private final List<Node> secondPartButtons = new ArrayList<>();
     private TimerTask timerTask;
     private FinalQuestion currentQuestion;
     private Timer timer;
@@ -75,7 +76,7 @@ public class FinalTestController implements PanelController {
         playerObserver.setFinalTestController(this);
         finalQuestions = finalQuestionBuilder.getFinalTestList();
         firstPartButtons = firstPartGridPane.getChildren();
-        secondPartButtons = secondAPartGridPane.getChildren();
+        secondPartButtons.addAll(secondAPartGridPane.getChildren());
         List<Node> secondBPartButtons = secondBPartGridPane.getChildren();
         secondPartButtons.addAll(secondBPartButtons);
 
