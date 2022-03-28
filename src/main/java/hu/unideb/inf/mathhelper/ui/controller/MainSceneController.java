@@ -44,6 +44,9 @@ public class MainSceneController implements SceneController {
     @Value("${ui.text.point}")
     private String pointString;
 
+    @Value("${ui.text.db}")
+    private String dbString;
+
     @FXML
     public AnchorPane centerPane;
 
@@ -149,8 +152,8 @@ public class MainSceneController implements SceneController {
         username.setText(userData.getNickname());
         rewardPoints.setText(userData.getRewardPoints().toString() + pointString);
         helpPoints.setText(userData.getHelpPoints().toString() + pointString);
-        completedQuestions.setText(userData.getNumberOfCompletedQuestions().toString() + pointString);
-        completedFinals.setText(userData.getCountOfFinals().toString() + pointString);
+        completedQuestions.setText(userData.getNumberOfCompletedQuestions().toString() + dbString);
+        completedFinals.setText(userData.getCountOfFinals().toString() + dbString);
         level.setText(levelCount + levelString);
         xp.setText(currentXp + " / " + maxXp + xpString);
         xpBar.setProgress(currentXp / (maxXp + 0.0));

@@ -15,10 +15,10 @@
                   <Insets top="50.0" />
                </padding>
             </Label>
-            <Label fx:id="second" alignment="CENTER" text="%about" wrapText="true" VBox.vgrow="ALWAYS" />
-            <Label fx:id="third" alignment="CENTER" text="%task" wrapText="true" VBox.vgrow="ALWAYS" />
-            <Label fx:id="fourth" alignment="CENTER" text="%how" wrapText="true" VBox.vgrow="ALWAYS" />
-            <Label fx:id="last" alignment="CENTER" text="%finally" wrapText="true" VBox.vgrow="ALWAYS" />
+            <Label fx:id="second" alignment="CENTER" text="%about" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
+            <Label fx:id="third" alignment="CENTER" text="%task" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
+            <Label fx:id="fourth" alignment="CENTER" text="%how" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
+            <Label fx:id="last" alignment="CENTER" text="%finally" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
             <Button fx:id="start" focusTraversable="false" mnemonicParsing="false" prefHeight="22.0" prefWidth="148.0" text="%start" textAlignment="CENTER">
                <VBox.margin>
                   <Insets top="100.0" />

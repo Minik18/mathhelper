@@ -31,7 +31,7 @@
                                     <Image url="@../pics/question.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="randomQuestion" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="54.0" prefWidth="176.0" text="%random_question" HBox.hgrow="ALWAYS">
+                              <Button fx:id="randomQuestion" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="54.0" prefWidth="176.0" text="%random_question" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
@@ -51,7 +51,7 @@
                                     <Image url="@../pics/swords.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="battle" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%battle" HBox.hgrow="ALWAYS">
+                              <Button fx:id="battle" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%battle" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
@@ -68,7 +68,7 @@
                                     <Image url="@../pics/test.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="finalTest" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%final_test" HBox.hgrow="ALWAYS">
+                              <Button fx:id="finalTest" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%final_test" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
@@ -85,7 +85,7 @@
                                     <Image url="@../pics/setting.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="settings" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%settings" HBox.hgrow="ALWAYS">
+                              <Button fx:id="settings" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%settings" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
@@ -102,7 +102,7 @@
                                     <Image url="@../pics/help.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="help" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%help" HBox.hgrow="ALWAYS">
+                              <Button fx:id="help" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%help" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
@@ -119,7 +119,7 @@
                                     <Image url="@../pics/auction.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="legal" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%legal" HBox.hgrow="ALWAYS">
+                              <Button fx:id="legal" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%legal" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
@@ -136,7 +136,7 @@
                                     <Image url="@../pics/power-off.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="exit" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%exit" HBox.hgrow="ALWAYS">
+                              <Button fx:id="exit" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%exit" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>

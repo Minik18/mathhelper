@@ -119,6 +119,7 @@ public class BattleController implements PanelController {
             currentBoss = bossDAO.getBossList().get(userHandleService.getUserData().getBossLevel());
             enemyName.setText(currentBoss.getName());
             enemyPicture.setImage(new Image(locationDAO.getUiPictureFilePath(currentBoss.getPicturePath())));
+            enemyPicture.setOpacity(1.0);
             difficulty.setText(currentBoss.getDifficulty().toString());
             about.setText(currentBoss.getAbout());
         } catch (IndexOutOfBoundsException e) { //This means all bosses have been defeated
@@ -170,12 +171,12 @@ public class BattleController implements PanelController {
                     enemyFade.setFromValue(1.0);
                     enemyFade.setToValue(0.0);
                     enemyFade.setOnFinished(event2 -> {
-                        setupBoss();
                         userHandleService.incrementBossLevel();
                         textBook.setOpacity(0.0);
                         wrongPicture.setOpacity(0.0);
                         correctPicture.setOpacity(0.0);
                         start.setDisable(false);
+                        setupBoss();
                     });
                     enemyFade.play();
                 });

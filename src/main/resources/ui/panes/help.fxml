@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -10,47 +11,56 @@
 
 <AnchorPane prefHeight="596.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.HelpSceneController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="458.0" layoutY="192.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label text="%help_screen" VBox.vgrow="ALWAYS">
-               <VBox.margin>
-                  <Insets top="30.0" />
-               </VBox.margin></Label>
-            <GridPane alignment="TOP_CENTER" prefHeight="378.0" prefWidth="844.0" vgap="5.0" VBox.vgrow="ALWAYS">
-              <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="449.0" minWidth="10.0" prefWidth="170.0" />
-                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="874.0" minWidth="10.0" prefWidth="874.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <VBox.margin>
-                  <Insets bottom="50.0" top="50.0" />
-               </VBox.margin>
+      <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <content>
+          <AnchorPane prefHeight="596.0" prefWidth="1044.0">
                <children>
-                  <Label alignment="CENTER" text="%navigation" wrapText="true" GridPane.rowIndex="1" />
-                  <Label alignment="CENTER" text="%final_test" wrapText="true" GridPane.rowIndex="4" />
-                  <Label alignment="CENTER" text="%random_question" wrapText="true" GridPane.rowIndex="3" />
-                  <Label alignment="CENTER" text="%settings" wrapText="true" GridPane.rowIndex="5" />
-                  <Label alignment="CENTER" text="%battle" wrapText="true" GridPane.rowIndex="6" />
-                  <Label alignment="CENTER" text="%navigation_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                  <Label alignment="CENTER" text="%random_question_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                  <Label alignment="CENTER" text="%settings_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                  <Label alignment="CENTER" text="%final_test_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                  <Label alignment="CENTER" text="%battle_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                  <Label alignment="CENTER" text="%question" wrapText="true" GridPane.rowIndex="2" />
-                  <Label alignment="CENTER" text="%question_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                  <Label alignment="CENTER" text="%profil" wrapText="true" />
-                  <Label alignment="CENTER" text="%profil_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                  <VBox alignment="TOP_CENTER" prefHeight="596.0" prefWidth="1044.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="%help_screen" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <GridPane alignment="TOP_CENTER" prefHeight="378.0" prefWidth="844.0" vgap="5.0" VBox.vgrow="ALWAYS">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="449.0" minWidth="10.0" prefWidth="170.0" />
+                            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="874.0" minWidth="10.0" prefWidth="874.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints valignment="TOP" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <VBox.margin>
+                              <Insets bottom="50.0" top="50.0" />
+                           </VBox.margin>
+                           <children>
+                              <Label alignment="CENTER" text="%navigation" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1" />
+                              <Label alignment="CENTER" text="%final_test" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="4" />
+                              <Label alignment="CENTER" text="%random_question" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="3" />
+                              <Label alignment="CENTER" text="%settings" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="5" />
+                              <Label alignment="CENTER" text="%battle" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="6" />
+                              <Label alignment="CENTER" text="%navigation_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                              <Label alignment="CENTER" text="%random_question_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                              <Label alignment="CENTER" text="%settings_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                              <Label alignment="CENTER" text="%final_test_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                              <Label alignment="CENTER" text="%battle_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                              <Label alignment="CENTER" text="%question" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2" />
+                              <Label alignment="CENTER" text="%question_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                              <Label alignment="CENTER" text="%profil" textAlignment="CENTER" wrapText="true" />
+                              <Label alignment="CENTER" text="%profil_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
                </children>
-            </GridPane>
-         </children>
-      </VBox>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
