@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class UserHandleServiceImpl implements UserHandleService {
 
-    private static final int MAX_LENGTH = 60;
+    private static final int MAX_LENGTH = 25;
     private static final int MIN_LENGTH = 5;
 
     private final List<Level> levels;

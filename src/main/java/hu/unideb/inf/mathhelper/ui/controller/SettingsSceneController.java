@@ -116,7 +116,7 @@ public class SettingsSceneController implements PanelController {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Hiba");
                 alert.setHeaderText("Felhasználónév probléma");
-                alert.setContentText("A megadott felhasználónév nem helyes. Legyen legalább 5, de maximum 60 karakter hosszú!");
+                alert.setContentText("A megadott felhasználónév nem helyes. Legyen legalább 5, de maximum 25 karakter hosszú!");
 
                 alert.showAndWait();
             }
