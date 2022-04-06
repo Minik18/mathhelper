@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>hu.unideb.inf</groupId>
     <artifactId>math-helper</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
+
+    <developers>
+        <developer>
+            <name>Dominik Fako</name>
+            <email>Fdominik@mailbox.unideb.hu</email>
+            <organization>University of Debrecen Faculty of Informatics</organization>
+            <roles>
+                <role>Student</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <description>A simple Math helper application to help students to prepare for their final exam.</description>
 
     <parent>
         <artifactId>spring-boot-dependencies</artifactId>
@@ -32,7 +46,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
@@ -106,7 +119,6 @@
         </dependency>
 
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
