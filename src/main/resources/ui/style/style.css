@@ -1,0 +1,29 @@
+.topbars{
+    -fx-background-color: #444791;
+}
+.sidebar {
+    -fx-background-color: #EBEBEB;
+}
+.change {
+    -fx-background-color: #F5F5F5;
+}
+.button {
+    -fx-text-fill: #818181;
+    -fx-font-weight: bold;
+    -fx-font-family: "Times New Roman";
+}
+.text-id {
+    -fx-fill: #E0E1ED;
+    -fx-font-family: "Times New Roman";
+}
+.progress {
+    -fx-control-inner-background: #DADAE9;
+    -fx-border-color: none;
+}
+
+.welcome-text {
+    -fx-font-family: "Times New Roman";
+}
+.label {
+    -fx-font-family: "Times New Roman";
+}

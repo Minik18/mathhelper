@@ -15,15 +15,15 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%title">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%title">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Times New Roman Bold" size="28.0" />
                </font>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%app_information" VBox.vgrow="ALWAYS">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%app_information" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -31,7 +31,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%app_description" VBox.vgrow="ALWAYS">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%app_description" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
@@ -49,12 +49,12 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%developer" GridPane.hgrow="ALWAYS" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%developer_name" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%contact" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
-                        <Hyperlink fx:id="contactLink" accessibleText="%contact_link" text="%email" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%uni_site" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
-                        <Hyperlink fx:id="uniLink" accessibleText="%uni_link" text="%website" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%developer" GridPane.hgrow="ALWAYS" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%developer_name" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%contact" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                        <Hyperlink fx:id="contactLink" accessibleText="%contact_link" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%email" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%uni_site" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+                        <Hyperlink fx:id="uniLink" accessibleText="%uni_link" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%website" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
@@ -62,7 +62,7 @@
                   <Insets left="10.0" right="10.0" />
                </padding>
             </HBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%resource_information" VBox.vgrow="ALWAYS">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%resource_information" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
@@ -70,7 +70,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%resource_description" VBox.vgrow="ALWAYS">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%resource_description" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
@@ -87,10 +87,10 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%pictures" GridPane.hgrow="ALWAYS" />
-                        <Hyperlink fx:id="picturesLink" accessibleText="%pictures_resource_link" text="%website" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%math_questions" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
-                        <Hyperlink fx:id="mathLink" accessibleText="%math_questions_link" text="%website" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%pictures" GridPane.hgrow="ALWAYS" />
+                        <Hyperlink fx:id="picturesLink" accessibleText="%pictures_resource_link" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%website" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%math_questions" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                        <Hyperlink fx:id="mathLink" accessibleText="%math_questions_link" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%website" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>

@@ -1,5 +1,6 @@
 package hu.unideb.inf.mathhelper.ui.controller;
 
+import com.jfoenix.controls.JFXButton;
 import hu.unideb.inf.mathhelper.dao.LevelDAO;
 import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.PanelDAO;
@@ -57,25 +58,25 @@ public class MainSceneController implements SceneController {
     public Text xp;
 
     @FXML
-    private Button randomQuestion;
+    private JFXButton randomQuestion;
 
     @FXML
-    private Button finalTest;
+    private JFXButton finalTest;
 
     @FXML
-    private Button settings;
+    private JFXButton settings;
 
     @FXML
-    private Button battle;
+    private JFXButton battle;
 
     @FXML
-    private Button help;
+    private JFXButton help;
 
     @FXML
-    private Button legal;
+    private JFXButton legal;
 
     @FXML
-    private Button exit;
+    private JFXButton exit;
 
     @FXML
     private Text level;

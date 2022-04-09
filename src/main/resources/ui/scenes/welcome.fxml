@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="383.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.WelcomeSceneController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="383.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.WelcomeSceneController">
     <children>
-        <Text layoutX="33.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%welcome_text" textAlignment="CENTER" wrappingWidth="316.13671875" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="33.86328125" AnchorPane.topAnchor="13.576171875">
+        <Text layoutX="33.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="welcome-text" text="%welcome_text" textAlignment="CENTER" wrappingWidth="316.13671875" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="33.86328125" AnchorPane.topAnchor="13.576171875">
             <font>
                 <Font size="18.0" />
             </font>
         </Text>
-        <Text layoutX="50.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%username" textAlignment="CENTER" wrappingWidth="99.13671875" />
+        <Text layoutX="50.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="welcome-text" text="%username" textAlignment="CENTER" wrappingWidth="99.13671875" />
         <TextField fx:id="userInput" layoutX="167.0" layoutY="121.0" promptText="%prompt_text" />
-        <Button fx:id="submit" layoutX="155.0" layoutY="208.0" mnemonicParsing="false" text="%submit" />
+      <JFXButton fx:id="submit" buttonType="RAISED" layoutX="142.0" layoutY="197.0" prefHeight="25.0" prefWidth="99.0" ripplerFill="#444791" text="%submit" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="142.0" AnchorPane.topAnchor="197.0" />
       <Text fx:id="errorText" fill="RED" layoutX="92.0" layoutY="171.0" strokeType="INSIDE" strokeWidth="0.0" text="%error" textAlignment="CENTER" visible="false" wrappingWidth="199.560546875">
          <font>
             <Font name="System Bold" size="12.0" />

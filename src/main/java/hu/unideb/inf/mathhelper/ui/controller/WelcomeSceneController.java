@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -70,6 +71,8 @@ public class WelcomeSceneController implements SceneController {
             newStage.setResizable(false);
             newStage.initStyle(StageStyle.UNDECORATED);
             newStage.setMaximized(true);
+            newStage.setTitle("Matematika érettségire felkészítő");
+            newStage.getIcons().add(new Image(locationDAO.getUiPictureFilePath("math.png")));
             newStage.show();
         } catch (FXMLFileNotFoundException e) {
             AppLogger.logError(e);

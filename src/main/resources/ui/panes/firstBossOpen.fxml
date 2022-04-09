@@ -5,20 +5,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="root" prefHeight="596.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.FirstBossOpenController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="428.0" layoutY="197.0" prefHeight="200.0" prefWidth="100.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="first" alignment="CENTER" text="%greetings" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+            <Label fx:id="first" alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%greetings" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                <padding>
                   <Insets top="50.0" />
                </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Label>
-            <Label fx:id="second" alignment="CENTER" text="%about" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
-            <Label fx:id="third" alignment="CENTER" text="%task" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
-            <Label fx:id="fourth" alignment="CENTER" text="%how" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
-            <Label fx:id="last" alignment="CENTER" text="%finally" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
+            <Label fx:id="second" alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%about" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="third" alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%task" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="fourth" alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%how" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="last" alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%finally" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
             <Button fx:id="start" focusTraversable="false" mnemonicParsing="false" prefHeight="22.0" prefWidth="148.0" text="%start" textAlignment="CENTER">
                <VBox.margin>
                   <Insets top="100.0" />

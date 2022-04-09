@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="596.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.finalTest.FinalSceneController">
     <children>
@@ -12,9 +13,18 @@
             <children>
                 <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <Label text="%final_test" textAlignment="CENTER" wrapText="true" />
-                        <Label text="%rules" textAlignment="CENTER" wrapText="true" />
-                        <Label text="%rule_desc" textAlignment="CENTER" wrapText="true" />
+                        <Label style="-fx-font-family: &quot;Times New Roman&quot;;" text="%final_test" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
+                        <Label style="-fx-font-family: &quot;Times New Roman&quot;;" text="%rules" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                        <Label style="-fx-font-family: &quot;Times New Roman&quot;;" text="%rule_desc" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
                         <Button fx:id="start" focusTraversable="false" mnemonicParsing="false" text="%start" />
                     </children>
                     <padding>

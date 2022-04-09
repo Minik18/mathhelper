@@ -166,7 +166,8 @@ public class QuestionBuilder {
         button.setOnMouseClicked(event -> {
             Stage stage = new Stage();
             stage.initOwner(button.getScene().getWindow());
-            stage.setTitle(FilenameUtils.getBaseName(name));
+            stage.setTitle("Kép");
+            stage.getIcons().add(new Image(locationDAO.getUiPictureFilePath("math.png")));
             stage.setScene(new Scene(new AnchorPane(new ImageView(new Image(locationDAO.getQuestionPictureFilePath(name))))));
             stage.setResizable(false);
             stage.show();

@@ -8,21 +8,25 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="596.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.HelpSceneController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label focusTraversable="false" text="%help_screen" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+            <Label focusTraversable="false" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%help_screen" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Label>
-            <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" VBox.vgrow="ALWAYS">
+            <ScrollPane fitToHeight="true" focusTraversable="false" VBox.vgrow="ALWAYS">
               <content>
                 <AnchorPane>
                      <children>
-                        <GridPane alignment="TOP_CENTER" layoutX="-12.0" layoutY="-1.0" prefHeight="560.0" prefWidth="1054.0" vgap="5.0">
+                        <GridPane alignment="TOP_CENTER" layoutX="-12.0" layoutY="-1.0" prefHeight="560.0" prefWidth="1054.0" vgap="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                           <columnConstraints>
                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="449.0" minWidth="10.0" prefWidth="170.0" />
                             <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="874.0" minWidth="10.0" prefWidth="874.0" />
@@ -37,20 +41,41 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
                           </rowConstraints>
                            <children>
-                              <Label alignment="CENTER" text="%navigation" textAlignment="CENTER" wrapText="true" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
-                              <Label alignment="CENTER" text="%final_test" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="4" />
-                              <Label alignment="CENTER" text="%random_question" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="3" />
-                              <Label alignment="CENTER" text="%settings" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="5" />
-                              <Label alignment="CENTER" text="%battle" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="6" />
-                              <Label alignment="CENTER" text="%navigation_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                              <Label alignment="CENTER" text="%random_question_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                              <Label alignment="CENTER" text="%settings_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                              <Label alignment="CENTER" text="%final_test_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                              <Label alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%navigation" textAlignment="CENTER" wrapText="true" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%final_test" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%random_question" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%settings" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label alignment="CENTER" text="%battle" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%navigation_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                              <Label alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%random_question_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                              <Label alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%settings_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                              <Label alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%final_test_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
                               <Label alignment="CENTER" text="%battle_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                              <Label alignment="CENTER" text="%question" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2" />
-                              <Label alignment="CENTER" text="%question_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-                              <Label alignment="CENTER" text="%profil" textAlignment="CENTER" wrapText="true" />
-                              <Label alignment="CENTER" text="%profil_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                              <Label alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%question" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%question_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+                              <Label alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%profil" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label alignment="CENTER" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%profil_desc" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
                            </children>
                            <padding>
                               <Insets top="10.0" />

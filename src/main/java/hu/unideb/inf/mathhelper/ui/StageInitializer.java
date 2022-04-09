@@ -8,6 +8,7 @@ import hu.unideb.inf.mathhelper.dao.LocationDAO;
 import hu.unideb.inf.mathhelper.dao.SceneDAO;
 import hu.unideb.inf.mathhelper.service.UserTrackService;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,8 @@ public class StageInitializer implements ApplicationListener<MathHelperApplicati
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setMaximized(true);
         }
+        stage.setTitle("Matematika érettségire felkészítő");
+        stage.getIcons().add(new Image(locationDAO.getUiPictureFilePath("math.png")));
         stage.show();
     }
 

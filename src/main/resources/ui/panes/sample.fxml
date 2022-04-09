@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -12,13 +12,17 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <HBox alignment="CENTER" prefHeight="69.0" prefWidth="1046.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" lineSpacing="10.0" prefHeight="70.0" prefWidth="869.0" text="Label" textAlignment="CENTER" wrapText="true" />
+            <Label alignment="CENTER" lineSpacing="10.0" prefHeight="70.0" prefWidth="869.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="Label" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
             <Separator orientation="VERTICAL" prefHeight="200.0">
                <opaqueInsets>
                   <Insets />
@@ -27,11 +31,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </HBox.margin>
             </Separator>
-            <Button focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="150.0" text="%open_image" textAlignment="CENTER" visible="false" wrapText="true">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
-            </Button>
+            <JFXButton buttonType="RAISED" focusTraversable="false" text="%open_image" visible="false" />
          </children>
       </HBox>
    </top>
@@ -47,28 +47,28 @@
                               <VBox alignment="CENTER" spacing="30.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <Pane maxHeight="1.0" prefHeight="1.0" prefWidth="1024.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS" />
-                                    <Label alignment="CENTER" ellipsisString="" maxWidth="1000.0" text="Sub desc" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" VBox.vgrow="ALWAYS">
+                                    <Label alignment="CENTER" ellipsisString="" maxWidth="1000.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="Sub desc" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" VBox.vgrow="ALWAYS">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
                                     </Label>
                                     <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" prefWidth="1024.0" spacing="25.0" VBox.vgrow="ALWAYS">
                                        <children>
                                           <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" spacing="10.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%result" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%result" />
                                                 <TextField focusTraversable="false" />
                                                 <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
                                              </children>
                                           </HBox>
-                                          <Button focusTraversable="false" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="%open_image" visible="false">
-                                             <HBox.margin>
-                                                <Insets />
-                                             </HBox.margin></Button>
+                                          <JFXButton buttonType="RAISED" focusTraversable="false" ripplerFill="#444791" text="%open_image" visible="false" />
                                           <VBox alignment="CENTER" maxWidth="175.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="cost" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="%help" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="cost" />
+                                                <JFXButton buttonType="RAISED" focusTraversable="false" ripplerFill="#444791" text="%help" />
                                              </children>
                                           </VBox>
                                           <Label alignment="CENTER" maxHeight="1.7976931348623157E308" text="help" textAlignment="CENTER" visible="false" wrapText="true" HBox.hgrow="ALWAYS" />
@@ -89,29 +89,28 @@
                               <VBox alignment="CENTER" spacing="30.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <Pane maxHeight="1.0" prefHeight="1.0" prefWidth="1024.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS" />
-                                    <Label alignment="CENTER" ellipsisString="" maxWidth="1000.0" text="Sub desc" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" VBox.vgrow="ALWAYS">
+                                    <Label alignment="CENTER" ellipsisString="" maxWidth="1000.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="Sub desc" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" VBox.vgrow="ALWAYS">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
                                     </Label>
                                     <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" prefWidth="1024.0" spacing="25.0" VBox.vgrow="ALWAYS">
                                        <children>
                                           <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" spacing="10.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%result" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%result" />
                                                 <TextField focusTraversable="false" />
                                                 <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
                                              </children>
                                           </HBox>
-                                          <Button focusTraversable="false" minWidth="-Infinity" mnemonicParsing="false" prefWidth="100.0" text="%open_image" visible="false">
-                                             <HBox.margin>
-                                                <Insets />
-                                             </HBox.margin>
-                                          </Button>
+                                          <JFXButton buttonType="RAISED" focusTraversable="false" ripplerFill="#444791" text="%open_image" visible="false" />
                                           <VBox alignment="CENTER" maxWidth="175.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="cost" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="%help" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="cost" />
+                                                <JFXButton buttonType="RAISED" focusTraversable="false" ripplerFill="#444791" text="%help" />
                                              </children>
                                           </VBox>
                                           <Label alignment="CENTER" maxHeight="1.7976931348623157E308" text="help" textAlignment="CENTER" visible="false" wrapText="true" HBox.hgrow="ALWAYS" />
@@ -132,29 +131,28 @@
                               <VBox alignment="CENTER" spacing="30.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <Pane maxHeight="1.0" prefHeight="1.0" prefWidth="1024.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS" />
-                                    <Label alignment="CENTER" ellipsisString="" maxWidth="1000.0" text="Sub desc" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" VBox.vgrow="ALWAYS">
+                                    <Label alignment="CENTER" ellipsisString="" maxWidth="1000.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="Sub desc" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" VBox.vgrow="ALWAYS">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
                                     </Label>
                                     <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" prefWidth="1024.0" spacing="25.0" VBox.vgrow="ALWAYS">
                                        <children>
                                           <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" spacing="10.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%result" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%result" />
                                                 <TextField focusTraversable="false" />
                                                 <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
                                              </children>
                                           </HBox>
-                                          <Button focusTraversable="false" minWidth="-Infinity" mnemonicParsing="false" prefWidth="100.0" text="%open_image" visible="false">
-                                             <HBox.margin>
-                                                <Insets />
-                                             </HBox.margin>
-                                          </Button>
+                                          <JFXButton buttonType="RAISED" focusTraversable="false" ripplerFill="#444791" text="%open_image" visible="false" />
                                           <VBox alignment="CENTER" maxWidth="175.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="cost" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="%help" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="cost" />
+                                                <JFXButton buttonType="RAISED" focusTraversable="false" ripplerFill="#444791" text="%help" />
                                              </children>
                                           </VBox>
                                           <Label alignment="CENTER" maxHeight="1.7976931348623157E308" text="help" textAlignment="CENTER" visible="false" wrapText="true" HBox.hgrow="ALWAYS" />
@@ -175,29 +173,28 @@
                               <VBox alignment="CENTER" spacing="30.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <Pane maxHeight="1.0" prefHeight="1.0" prefWidth="1024.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS" />
-                                    <Label alignment="CENTER" ellipsisString="" maxWidth="1000.0" text="Sub desc" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" VBox.vgrow="ALWAYS">
+                                    <Label alignment="CENTER" ellipsisString="" maxWidth="1000.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="Sub desc" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" VBox.vgrow="ALWAYS">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
                                     </Label>
                                     <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" prefWidth="1024.0" spacing="25.0" VBox.vgrow="ALWAYS">
                                        <children>
                                           <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" spacing="10.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%result" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="%result" />
                                                 <TextField focusTraversable="false" />
                                                 <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
                                              </children>
                                           </HBox>
-                                          <Button focusTraversable="false" minWidth="-Infinity" mnemonicParsing="false" prefWidth="100.0" text="%open_image" visible="false">
-                                             <HBox.margin>
-                                                <Insets />
-                                             </HBox.margin>
-                                          </Button>
+                                          <JFXButton buttonType="RAISED" focusTraversable="false" ripplerFill="#444791" text="%open_image" visible="false" />
                                           <VBox alignment="CENTER" maxWidth="175.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="cost" />
-                                                <Button focusTraversable="false" mnemonicParsing="false" text="%help" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Times New Roman&quot;;" text="cost" />
+                                                <JFXButton buttonType="RAISED" focusTraversable="false" ripplerFill="#444791" text="%help" />
                                              </children>
                                           </VBox>
                                           <Label alignment="CENTER" maxHeight="1.7976931348623157E308" text="help" textAlignment="CENTER" visible="false" wrapText="true" HBox.hgrow="ALWAYS" />

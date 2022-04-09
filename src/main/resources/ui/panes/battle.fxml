@@ -9,15 +9,19 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="root" prefHeight="596.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.mathhelper.ui.controller.BattleController">
    <children>
       <BorderPane prefHeight="596.0" prefWidth="1044.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <Label fx:id="about" text="Label" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
+            <Label fx:id="about" style="-fx-font-family: &quot;Times New Roman&quot;;" text="Label" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets top="20.0" />
                </BorderPane.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
             </Label>
          </top>
          <center>
@@ -25,7 +29,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="583.0" prefWidth="361.0" spacing="10.0">
                      <children>
-                        <Label text="%studentName" VBox.vgrow="NEVER" />
+                        <Label style="-fx-font-family: &quot;Times New Roman&quot;;" text="%studentName" VBox.vgrow="NEVER" />
                         <ImageView fitHeight="227.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                            <image>
                               <Image url="@../pics/student.png" />
@@ -35,7 +39,7 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Label text="%knowledge" />
+                                    <Label style="-fx-font-family: &quot;Times New Roman&quot;;" text="%knowledge" />
                                  </children>
                                  <padding>
                                     <Insets left="50.0" />
@@ -43,7 +47,7 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Label fx:id="knowledge" text="Label" />
+                                    <Label fx:id="knowledge" style="-fx-font-family: &quot;Times New Roman&quot;;" text="Label" />
                                  </children>
                                  <padding>
                                     <Insets right="50.0" />
@@ -94,7 +98,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="560.0" prefWidth="369.0" spacing="10.0">
                      <children>
-                        <Label fx:id="enemyName" text="Label" />
+                        <Label fx:id="enemyName" style="-fx-font-family: &quot;Times New Roman&quot;;" text="Label" />
                         <ImageView fx:id="enemyPicture" fitHeight="336.0" fitWidth="209.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../pics/bosses/linearEquation.png" />
@@ -104,7 +108,7 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Label text="%difficulty" />
+                                    <Label style="-fx-font-family: &quot;Times New Roman&quot;;" text="%difficulty" />
                                  </children>
                                  <padding>
                                     <Insets left="50.0" />
@@ -112,7 +116,7 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Label fx:id="difficulty" text="Label" />
+                                    <Label fx:id="difficulty" style="-fx-font-family: &quot;Times New Roman&quot;;" text="Label" />
                                  </children>
                                  <padding>
                                     <Insets right="50.0" />
