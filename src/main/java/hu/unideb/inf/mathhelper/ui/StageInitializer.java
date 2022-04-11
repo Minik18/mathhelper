@@ -38,10 +38,10 @@ public class StageInitializer implements ApplicationListener<MathHelperApplicati
         stage.setScene(scene);
         sceneController.setup(stage);
         if (!firstRun()) {
-            stage.setResizable(false);
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setMaximized(true);
         }
+        stage.setResizable(false);
         stage.setTitle("Matematika érettségire felkészítő");
         stage.getIcons().add(new Image(locationDAO.getUiPictureFilePath("math.png")));
         stage.show();
